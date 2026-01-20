@@ -3094,72 +3094,54 @@
 
   </script>
   <style>
-/* ===== MOBILE VIDEO FIX (BASE) ===== */
-@media (max-width: 720px){
+ /* ===== MOBILE VIDEO FIX (REPLACE WHOLE BLOCK) ===== */
+  @media (max-width: 720px){
+    .sample2__media,
+    .optstrip__media{
+      display:block !important;
+      position:relative !important;
+      overflow:hidden !important;
+    }
 
-  /* 1) 영상 박스를 가운데 정렬 컨테이너로 */
-  .sample2__media,
-  .optstrip__media{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    .sample2__media--wide,
+    .optstrip__media--long,
+    .optstrip__media--mid{
+      aspect-ratio: 16 / 9 !important;
+      min-height: 0 !important;
+      height: auto !important;
+    }
+
+    .sample2__media--square{
+      aspect-ratio: 1 / 1 !important;
+      min-height: 0 !important;
+      height: auto !important;
+    }
+
+    .sample2__video,
+    .optstrip__video{
+      position:absolute !important;
+      inset:0 !important;
+      width:100% !important;
+      height:100% !important;
+      max-width:none !important;
+      max-height:none !important;
+      object-fit:contain !important;
+      object-position:center center !important;
+      display:block !important;
+      margin:0 !important;
+    }
+
+    .sample2__media--video{
+      display:block !important;
+      position:relative !important;
+      overflow:hidden !important;
+      min-height: 0 !important;
+      height: auto !important;
+      transform: translateZ(0);
+    }
   }
-
-  /* 2) 모바일에서 와이드 비율/큰 최소높이 때문에 밀리는 것 방지 */
-  .sample2__media--wide,
-  .optstrip__media--long,
-  .optstrip__media--mid{
-    aspect-ratio: 16 / 9 !important;   /* 21:9 → 16:9 */
-    min-height: 0 !important;
-    height: 100% !important;           /* ✅ auto → 100% (핵심) */
-  }
-
-  /* 3) 정사각형 비율 대응 */
-  .sample2__media--square{
-    aspect-ratio: 1 / 1 !important;
-    min-height: 0 !important;
-    height: 100% !important;           /* ✅ auto → 100% */
-  }
-
-  /* 4) 비디오/GIF 공통 안전장치 */
-  .sample2__video,
-  .optstrip__video{
-    width:100% !important;
-    height:100% !important;
-    max-width:100% !important;
-    max-height:100% !important;
-    object-fit:contain !important;
-    object-position:center center !important;
-    display:block !important;          /* ✅ 서브픽셀/inline 영향 방지 */
-  }
-
-  /* ===================================================== */
-  /* ===== ADD-ON : FIX ONLY VBRIDGER (NO SIDE EFFECT) ===== */
-  /* ===================================================== */
-
-  /* VBridger 카드(.sample2__media--video)만 중앙 고정 */
-  .sample2__media--video{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    overflow:hidden !important;
-    min-height: 0 !important;
-    height: 100% !important;           /* ✅ auto → 100% (핵심) */
-    transform: translateZ(0);          /* 미세 쏠림 방지 */
-  }
-
-  /* VBridger 안의 실제 영상만 다시 정확히 중앙 */
-  .sample2__media--video .sample2__video{
-    width:100% !important;
-    height:100% !important;
-    object-fit:contain !important;
-    object-position:center center !important;
-    margin:0 auto !important;
-    display:block !important;
-  }
-}
-</style>
-
+  </style>
+</head>
 
 </body>
 </html>

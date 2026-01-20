@@ -47,6 +47,7 @@
     @keyframes float{ 0%,100%{transform:translate3d(0,0,0) scale(1);} 50%{transform:translate3d(18px,-14px,0) scale(1.04);} }
 
     .page{ position:relative; z-index:1; }
+
     .wrap{ max-width:var(--max); margin:28px auto 0; padding:0 14px; }
 
     .badge{
@@ -70,7 +71,7 @@
       overflow:hidden;
       border:1px solid rgba(255,255,255,.14);
       background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      box-shadow:0 24px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06), 0 18px 60px rgba(255,79,154,.18);
+      box-shadow:var(--shadow), var(--glow);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
@@ -135,18 +136,274 @@
     @media (max-width:720px){ .l2d-item{ width:150px; } }
 
     /* COMMON SECTION WRAP */
-    .section{ max-width: var(--max); margin: 18px auto 0; padding: 0 14px; }
+    .section{
+      max-width: var(--max);
+      margin: 18px auto 0;
+      padding: 0 14px;
+    }
 
-    /* SAMPLES / OPTIONS styles (네가 쓰던 버전 유지) */
+    /* NOTICE */
+    .notice__card{
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+      box-shadow: var(--shadow), var(--glow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .notice__card::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 360px at 10% 15%, rgba(255,79,154,.14), transparent 60%),
+        radial-gradient(900px 360px at 92% 35%, rgba(139,92,255,.13), transparent 58%),
+        radial-gradient(900px 420px at 45% 120%, rgba(56,214,255,.10), transparent 62%);
+      pointer-events:none;
+    }
+    .notice__top{
+      position:relative;
+      padding: 14px 16px 10px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .notice__badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.14);
+      font-weight: 900;
+      font-size: 12px;
+      color: rgba(255,255,255,.92);
+      user-select:none;
+    }
+    .notice__dot{
+      width:10px; height:10px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--p3), var(--p1));
+      box-shadow: 0 0 0 4px rgba(255,79,154,.14), 0 0 26px rgba(255,79,154,.18);
+    }
+    .notice__title{
+      font-weight: 1000;
+      font-size: 16px;
+      letter-spacing: -.2px;
+      color: rgba(255,255,255,.92);
+      opacity:.95;
+    }
+    .notice__body{ position:relative; padding: 12px 16px 16px; }
+    .notice__p{
+      margin:0;
+      color: rgba(255,255,255,.78);
+      line-height: 1.65;
+      font-size: 13px;
+    }
+    .notice__warn{
+      margin-top: 12px;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(255,79,154,.14), rgba(139,92,255,.10));
+      box-shadow: 0 18px 55px rgba(0,0,0,.25);
+    }
+    .notice__warnIcon{
+      width: 22px; height: 22px;
+      border-radius: 999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 1000;
+      font-size: 12px;
+      color: rgba(255,255,255,.95);
+      background: linear-gradient(135deg, rgba(255,79,154,.95), rgba(255,139,193,.85));
+      box-shadow: 0 10px 26px rgba(255,79,154,.22);
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+    .notice__warnText{
+      color: rgba(255,255,255,.80);
+      line-height: 1.55;
+      font-size: 12px;
+    }
+    .notice__br{ display:inline; }
+    @media (max-width: 540px){
+      .notice__top{ padding: 12px 14px 8px; }
+      .notice__body{ padding: 10px 14px 14px; }
+      .notice__br{ display:none; }
+    }
+
+    /* EVENT */
+    .promo{ margin-top: 32px; }
+    .promo__card{
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+      box-shadow: var(--shadow), var(--glow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .promo__card::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 380px at 10% 10%, rgba(255,79,154,.18), transparent 62%),
+        radial-gradient(900px 420px at 92% 32%, rgba(139,92,255,.16), transparent 60%),
+        radial-gradient(900px 420px at 45% 115%, rgba(56,214,255,.11), transparent 62%);
+      pointer-events:none;
+    }
+    .promo__top{
+      position:relative;
+      padding: 14px 16px 10px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .promo__badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.14);
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.2px;
+      color:rgba(255,255,255,.92);
+    }
+    .promo__dot{
+      width:10px; height:10px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--p3), var(--p1));
+      box-shadow: 0 0 0 4px rgba(255,79,154,.14);
+    }
+    .promo__title{
+      font-weight:1000;
+      font-size:16px;
+      letter-spacing:-.2px;
+      color:rgba(255,255,255,.92);
+      line-height:1.25;
+    }
+    .promo__body{ position:relative; padding: 12px 16px 16px; }
+    .promo__grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .promo__deal{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      box-shadow: 0 18px 55px rgba(0,0,0,.25);
+      padding:12px;
+    }
+    .promo__dealHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .promo__dealName{
+      font-weight:1000;
+      font-size:14px;
+      color:rgba(255,255,255,.92);
+    }
+    .promo__pill{
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:1000;
+      font-size:12px;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.2);
+    }
+    .promo__pill--hot{ background: linear-gradient(135deg, #ff4f9a, #ff8bc1); }
+    .promo__pill--soft{ background: linear-gradient(135deg, rgba(139,92,255,.7), rgba(56,214,255,.5)); }
+    .promo__price{
+      margin-top:10px;
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+    }
+    .promo__priceNow{ font-size:22px; font-weight:1000; }
+    .promo__priceWas{ font-size:13px; text-decoration:line-through; opacity:.55; }
+    .promo__desc{ margin-top:6px; font-size:12px; opacity:.65; }
+
+    .promo__bonus{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      padding:12px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(255,79,154,.18), rgba(139,92,255,.12));
+    }
+    .promo__bonusIcon{
+      width:26px; height:26px;
+      border-radius:999px;
+      background: linear-gradient(135deg, #ff4f9a, #ff8bc1);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:1000;
+      flex:0 0 auto;
+    }
+    .promo__bonusText{ font-size:13px; line-height:1.55; }
+    .promo__bonusSub{
+      display:block;
+      margin-top:6px;
+      font-size:12px;
+      opacity:.6;
+    }
+
+    .promo__note{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(139,92,255,.14), rgba(56,214,255,.10));
+    }
+    .promo__noteIcon{
+      width:22px; height:22px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:1000;
+      flex:0 0 auto;
+    }
+    .promo__noteText{ font-size:12px; line-height:1.55; }
+
+    @media (max-width:680px){
+      .promo__grid{ grid-template-columns:1fr; }
+      .promo{ margin-top:24px; }
+    }
+
+    /* SAMPLES (MP4 · NO DARK FILM) */
     .sample2{ margin-top: 32px; }
-    .sample2__grid{ display:grid; gap:14px; }
+    .sample2__grid{
+      display:grid;
+      gap:14px;
+    }
     .sample2__card{
       position: relative;
       border-radius: var(--radius);
       overflow:hidden;
       border:1px solid rgba(255,255,255,.14);
       background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      box-shadow: 0 24px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06), 0 18px 60px rgba(255,79,154,.18);
+      box-shadow: var(--shadow), var(--glow);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
@@ -199,6 +456,7 @@
       border-radius:18px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.14);
+      /* ✅ 어둡게 덮는 필름 제거: 밝은 글로우 프레임만 */
       background:
         radial-gradient(800px 260px at 20% 15%, rgba(255,79,154,.18), transparent 62%),
         radial-gradient(800px 260px at 85% 20%, rgba(139,92,255,.14), transparent 62%),
@@ -221,15 +479,29 @@
       pointer-events:none;
     }
 
+    @media (max-width: 840px){
+      .sample2__media--wide{ min-height: 260px; }
+      .sample2__media--square{ min-height: 300px; }
+    }
+    @media (max-width: 720px){
+      .sample2__top{ padding: 12px 14px 8px; }
+      .sample2__body{ padding: 10px 14px 14px; }
+      .sample2__media--wide{ aspect-ratio: 20 / 10; min-height: 230px; }
+      .sample2__media--square{ min-height: 260px; }
+      .sample2__media--video{ min-height: 240px; }
+    }
+
+    /* OPTION STRIPS (MP4 · SINGLE VIDEO · NO BLUR BACKDROP) */
     .optstrip{ margin-top: 18px; }
     .optstrip__grid{ display:grid; gap:14px; }
+
     .optstrip__card{
       position: relative;
       border-radius: var(--radius);
       overflow: hidden;
       border: 1px solid rgba(255,255,255,.14);
       background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      box-shadow: 0 24px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06), 0 18px 60px rgba(255,79,154,.18);
+      box-shadow: var(--shadow), var(--glow);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
@@ -242,7 +514,12 @@
         radial-gradient(900px 420px at 45% 115%, rgba(56,214,255,.10), transparent 62%);
       pointer-events:none;
     }
-    .optstrip__top{ position:relative; padding: 14px 16px 10px; display:flex; align-items:center; }
+    .optstrip__top{
+      position:relative;
+      padding: 14px 16px 10px;
+      display:flex;
+      align-items:center;
+    }
     .optstrip__badge{
       display:inline-flex;
       align-items:center;
@@ -286,6 +563,7 @@
       filter: drop-shadow(0 16px 40px rgba(0,0,0,.22));
       pointer-events:none;
     }
+
     .optstrip__label{
       margin-top: 12px;
       padding: 12px;
@@ -299,17 +577,10 @@
     }
 
     @media (max-width: 840px){
-      .sample2__media--wide{ min-height: 260px; }
-      .sample2__media--square{ min-height: 300px; }
       .optstrip__media--long{ min-height: 220px; }
       .optstrip__media--mid{ min-height: 240px; }
     }
     @media (max-width: 720px){
-      .sample2__top{ padding: 12px 14px 8px; }
-      .sample2__body{ padding: 10px 14px 14px; }
-      .sample2__media--wide{ aspect-ratio: 20 / 10; min-height: 230px; }
-      .sample2__media--square{ min-height: 260px; }
-      .sample2__media--video{ min-height: 240px; }
       .optstrip__media--long{ min-height: 200px; aspect-ratio: 20/10; }
       .optstrip__media--mid{ min-height: 220px; aspect-ratio: 16/10; }
     }
@@ -348,6 +619,79 @@
         </div>
       </div>
     </div>
+
+    <!-- NOTICE -->
+    <section class="section" id="notice">
+      <div class="notice__card">
+        <div class="notice__top">
+          <span class="notice__badge"><span class="notice__dot"></span>NOTICE</span>
+          <div class="notice__title">안내</div>
+        </div>
+
+        <div class="notice__body">
+          <p class="notice__p">
+            궁금한 점이 있으시다면 언제든지 편하게 문의 주세요. <br class="notice__br" />
+            최대한 빠르게 답변드리겠습니다.
+          </p>
+
+          <div class="notice__warn">
+            <span class="notice__warnIcon">!</span>
+            <span class="notice__warnText">모바일 환경에서는 일부 콘텐츠가 정상적으로 표시되지 않을 수 있습니다.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT -->
+    <section class="section promo" id="event">
+      <div class="promo__card">
+        <div class="promo__top">
+          <span class="promo__badge"><span class="promo__dot"></span>EVENT</span>
+          <div class="promo__title">1–2월 리깅 할인 &amp; 무료 표정 이벤트</div>
+        </div>
+
+        <div class="promo__body">
+          <div class="promo__grid">
+            <div class="promo__deal">
+              <div class="promo__dealHead">
+                <div class="promo__dealName">전신 리깅</div>
+                <div class="promo__pill promo__pill--hot">10만원 할인</div>
+              </div>
+              <div class="promo__price">
+                <span class="promo__priceNow">40만원</span>
+                <span class="promo__priceWas">50만원</span>
+              </div>
+              <div class="promo__desc">전신 기준 / 옵션 추가 시 별도</div>
+            </div>
+
+            <div class="promo__deal">
+              <div class="promo__dealHead">
+                <div class="promo__dealName">반신 리깅</div>
+                <div class="promo__pill promo__pill--soft">5만원 할인</div>
+              </div>
+              <div class="promo__price">
+                <span class="promo__priceNow">30만원</span>
+                <span class="promo__priceWas">35만원</span>
+              </div>
+              <div class="promo__desc">상반신 기준 / 옵션 추가 시 별도</div>
+            </div>
+          </div>
+
+          <div class="promo__bonus">
+            <div class="promo__bonusIcon">✦</div>
+            <div class="promo__bonusText">
+              리깅 신청 시 <b>표정 3종 무료</b> 이벤트 진행 중
+              <span class="promo__bonusSub">※ 표정 구성은 캐릭터 및 작업 범위에 따라 조정될 수 있습니다</span>
+            </div>
+          </div>
+
+          <div class="promo__note">
+            <span class="promo__noteIcon">!</span>
+            <span class="promo__noteText">이벤트 기간: <b>1월 ~ 2월</b> (기간 내 신청 및 예약 건에 한함)</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- SAMPLES (MP4) -->
     <section class="section sample2" id="samples">
@@ -506,132 +850,7 @@
     <div style="height:40px"></div>
   </div>
 
-  <script>
-  (function(){
-    const VIDEOS = [
-      { id:"nKnbNQM_E6Y", title:"Showcase 01" },
-      { id:"GSNXmsDC6VY", title:"Showcase 02" },
-      { id:"G7E7gPjzzm4", title:"Showcase 03" },
-      { id:"6fePAVY9eMY", title:"Showcase 04" },
-      { id:"LDMI8Y_T7U8", title:"Showcase 05" },
-      { id:"Yfl88RKt1o8", title:"Showcase 06" },
-      { id:"1vSe3nqaoog", title:"Showcase 07" }
-    ];
-
-    const rail = document.getElementById("rail");
-    const player = document.getElementById("l2dPlayer");
-    const prev = document.getElementById("prev");
-    const next = document.getElementById("next");
-
-    let active = 0;
-
-    function embed(id){
-      return "https://www.youtube.com/embed/"+id+
-        "?rel=0&modestbranding=1&playsinline=1&autoplay=0";
-    }
-    function thumb(id){
-      return "https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";
-    }
-
-    function scrollThumbIntoView(i){
-      const el = rail.children[i];
-      if(!el) return;
-      const elLeft = el.offsetLeft;
-      const elRight = elLeft + el.offsetWidth;
-      const viewLeft = rail.scrollLeft;
-      const viewRight = viewLeft + rail.clientWidth;
-
-      if(elLeft < viewLeft){
-        rail.scrollTo({ left: elLeft - 12, behavior: "smooth" });
-      }else if(elRight > viewRight){
-        rail.scrollTo({ left: elRight - rail.clientWidth + 12, behavior: "smooth" });
-      }
-    }
-
-    function render(){
-      rail.innerHTML="";
-      VIDEOS.forEach((v,i)=>{
-        const b=document.createElement("button");
-        b.type="button";
-        b.className="l2d-item"+(i===active?" is-active":"");
-        b.setAttribute("aria-label", v.title + " 선택");
-
-        const img=document.createElement("img");
-        img.className="l2d-thumb";
-        img.src=thumb(v.id);
-        img.alt=v.title;
-        img.loading="lazy";
-
-        const cap=document.createElement("div");
-        cap.className="l2d-cap";
-        cap.textContent=v.title;
-
-        b.append(img,cap);
-
-        b.addEventListener("click",(e)=>{
-          e.preventDefault();
-          b.blur();
-          setActive(i,true);
-        });
-
-        b.addEventListener("touchend",(e)=>{
-          e.preventDefault();
-        }, {passive:false});
-
-        rail.appendChild(b);
-      });
-
-      updateNav();
-    }
-
-    function setActive(i,scroll){
-      if(i<0||i>=VIDEOS.length) return;
-      active=i;
-      player.src=embed(VIDEOS[i].id);
-      [...rail.children].forEach((el,idx)=>el.classList.toggle("is-active",idx===i));
-      if(scroll) scrollThumbIntoView(i);
-      updateNav();
-    }
-
-    function updateNav(){
-      prev.disabled=active<=0;
-      next.disabled=active>=VIDEOS.length-1;
-    }
-
-    prev.addEventListener("click",(e)=>{ e.preventDefault(); prev.blur(); setActive(active-1,true); });
-    next.addEventListener("click",(e)=>{ e.preventDefault(); next.blur(); setActive(active+1,true); });
-
-    // 모바일 스와이프
-    let sx=0, sy=0, tracking=false;
-    const swipeArea = document.querySelector(".l2d-main-inner");
-
-    swipeArea.addEventListener("touchstart",(e)=>{
-      if(!e.touches || e.touches.length!==1) return;
-      tracking=true;
-      sx=e.touches[0].clientX;
-      sy=e.touches[0].clientY;
-    },{passive:true});
-
-    swipeArea.addEventListener("touchend",(e)=>{
-      if(!tracking) return;
-      tracking=false;
-      const t=e.changedTouches && e.changedTouches[0];
-      if(!t) return;
-
-      const dx=t.clientX - sx;
-      const dy=t.clientY - sy;
-
-      if(Math.abs(dy) > Math.abs(dx)) return;
-
-      if(dx>50) setActive(active-1,true);
-      if(dx<-50) setActive(active+1,true);
-    },{passive:true});
-
-    render();
-    setActive(0,false);
-  })();
-  </script>
-   <!-- ===== RIGGING MENU (ACCORDION + ANIMATION) / ₩ FORMAT ===== -->
+  <!-- ===== RIGGING MENU (ACCORDION + ANIMATION) / ₩ FORMAT ===== -->
 <section class="menu" id="menu">
   <div class="menu__card">
     <div class="menu__top">
@@ -2387,7 +2606,7 @@
         <!-- 기타 문의 -->
         <div class="inq__field inq__field--wide">
           <label class="inq__label" for="inq_extra">기타 문의내용</label>
-          <textarea class="inq__textarea" id="inq_extra" placeholder="요청사항 등을 자유롭게 작성해 주세요."></textarea>
+          <textarea class="inq__textarea" id="inq_extra" placeholder="원하시는 분위기 / 참고 링크 / 요청사항 등을 자유롭게 작성해 주세요."></textarea>
         </div>
       </div>
     </div>
@@ -2874,170 +3093,70 @@
   })();
 
   </script>
-  <!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Live2D Video Showcase</title>
+  <style>
+/* ===== MOBILE VIDEO FIX (BASE) ===== */
+@media (max-width: 720px){
 
-<style>
-:root{
-  --bg1:#0b0a12;
-  --bg2:#140b1c;
-  --p1:#ff4f9a;
-  --p3:#ffd1e5;
-  --p4:#8b5cff;
-  --p5:#38d6ff;
-  --text:#ffffff;
-  --muted:rgba(255,255,255,.72);
-  --shadow:0 24px 70px rgba(0,0,0,.55);
-  --glow:0 0 0 1px rgba(255,255,255,.06),0 18px 60px rgba(255,79,154,.18);
-  --radius:22px;
-  --max:980px;
-}
+  /* 1) 영상 박스를 가운데 정렬 컨테이너로 */
+  .sample2__media,
+  .optstrip__media{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
 
-*{box-sizing:border-box;}
-html,body{
-  margin:0;
-  padding:0;
-  min-height:100dvh;
-}
+  /* 2) 모바일에서 와이드 비율/큰 최소높이 때문에 밀리는 것 방지 */
+  .sample2__media--wide,
+  .optstrip__media--long,
+  .optstrip__media--mid{
+    aspect-ratio: 16 / 9 !important;   /* 21:9 → 16:9 */
+    min-height: 0 !important;
+    height: auto !important;
+  }
 
-body{
-  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
-  color:var(--text);
-  overflow-x:hidden;
-  background: linear-gradient(180deg,var(--bg1),var(--bg2));
-}
+  /* 3) 정사각형 비율 대응 */
+  .sample2__media--square{
+    aspect-ratio: 1 / 1 !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
 
-/* ✅ 단일 고정 배경 레이어 */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background:
-    radial-gradient(1200px 800px at 15% 10%, rgba(255,79,154,.22), transparent 65%),
-    radial-gradient(900px 600px at 85% 25%, rgba(139,92,255,.20), transparent 60%),
-    radial-gradient(900px 600px at 40% 110%, rgba(56,214,255,.16), transparent 60%),
-    linear-gradient(180deg,var(--bg1),var(--bg2));
-}
+  /* 4) 비디오/GIF 공통 안전장치 */
+  .sample2__video,
+  .optstrip__video{
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+  }
 
-/* 공통 래퍼 */
-.page{position:relative;}
-.wrap,.section,.menu,.pflow,.collab,.slot,.inq{
-  max-width:var(--max);
-  margin:28px auto 0;
-  padding:0 14px;
-}
+  /* ===================================================== */
+  /* ===== ADD-ON : FIX ONLY VBRIDGER (NO SIDE EFFECT) ===== */
+  /* ===================================================== */
 
-/* 카드 공통 */
-.frame,
-.notice__card,
-.promo__card,
-.sample2__card,
-.optstrip__card,
-.menu__card,
-.pflow__card,
-.collab__card,
-.slot__card,
-.inq__card{
-  border-radius:var(--radius);
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  box-shadow:var(--shadow),var(--glow);
-}
+  /* VBridger 카드(.sample2__media--video)만 중앙 고정 */
+  .sample2__media--video{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+    min-height: 0 !important;
+    height: auto !important;
+    transform: translateZ(0); /* 미세 쏠림 방지 */
+  }
 
-/* 뱃지 */
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.14);
-  font-weight:900;
-  font-size:12px;
-}
-.dot{
-  width:10px;height:10px;border-radius:50%;
-  background:linear-gradient(135deg,var(--p1),var(--p3));
-  box-shadow:0 0 0 4px rgba(255,79,154,.14);
-}
-
-/* ===== 여기부터 네 기존 구조 그대로 ===== */
-/* ⚠️ 배경 관련 ::before 전부 제거된 상태 */
-/* SHOWCASE / MENU / WORKFLOW / COLLAB / SLOT / INQUIRY */
-/* 기능/JS는 네가 준 것과 동일 */
-
-/* 👉 길어서 JS 포함 전체는 다음 메시지로 이어서 줄게 */
-</style>
-</head>
-
-<body>
-<div class="page">
-
-<!-- ⚠️ 여기부터는 네가 준 HTML BODY 내용 그대로 -->
-<!-- (Showcase / Notice / Event / Samples / Menu / Workflow / Collab / Slot / Inquiry) -->
-<!-- 구조, 기능, 가격, 옵션 전부 변경 없음 -->
-
-</div>
-<style>
-/* ===============================
-   HARD VIDEO CENTER FIX
-   - 샘플/옵션 mp4가 한쪽으로 쏠리거나 잘리는 현상 해결
-   - 기존 레이아웃/카드 디자인은 유지
-================================ */
-
-/* 컨테이너는 가운데 정렬 기준 */
-.sample2__media,
-.optstrip__media{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  overflow:hidden !important;
-  position:relative !important;
-}
-
-/* video는 "꽉 차게 강제"가 아니라,
-   컨테이너 안에서 자동으로 가운데에 맞춰지게 */
-.sample2__media > video.sample2__video,
-.optstrip__media > video.optstrip__video{
-  position:static !important;
-  display:block !important;
-
-  width:auto !important;
-  height:auto !important;
-  max-width:100% !important;
-  max-height:100% !important;
-
-  object-fit:contain !important;
-  object-position:center center !important;
-
-  margin:0 auto !important;
-  left:auto !important;
-  right:auto !important;
-  transform:none !important;
-}
-
-/* 혹시 기존 CSS가 video에 width/height 100%를 계속 먹이면
-   source/inline 스타일보다 우선해서 막아줌 */
-.sample2__video,
-.optstrip__video{
-  width:auto !important;
-  height:auto !important;
-  max-width:100% !important;
-  max-height:100% !important;
-  object-fit:contain !important;
-  object-position:center center !important;
+  /* VBridger 안의 실제 영상만 다시 정확히 중앙 */
+  .sample2__media--video .sample2__video{
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+    margin:0 auto !important;
+  }
 }
 </style>
-
 
 </body>
 </html>
-

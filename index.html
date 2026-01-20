@@ -2987,52 +2987,59 @@ body::before{
 
 </div>
 <style>
-/* ===== FIX ONLY VBRIDGER CARD (do NOT affect others) ===== */
-@media (max-width: 720px){
+/* ===============================
+   VIDEO CENTER FIX (GLOBAL)
+   - Samples / Options 영상 "쏠림" 방지
+   - 모바일/PC 모두 가운데 고정
+   - 다른 레이아웃은 건드리지 않음
+================================ */
 
-  /* 1) 이전에 넣었던 "모두 flex 정렬" 같은 패치가 남아있어도
-        다른 카드들은 원래대로 돌아가게 안전 복구 */
-  .sample2__media,
-  .optstrip__media{
-    display:block !important;
-    align-items:unset !important;
-    justify-content:unset !important;
-  }
+/* 1) 영상이 들어가는 박스는 무조건 기준점 만들기 */
+.sample2__media,
+.optstrip__media{
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* 2) video는 박스 안을 "꽉 채우되", 내용은 가운데 기준으로 contain */
+.sample2__video,
+.optstrip__video{
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+
+  object-fit: contain !important;
+  object-position: 50% 50% !important;
+
+  /* 혹시 flex 영향 잔여가 있으면 무력화 */
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* 3) source만 있을 때 일부 브라우저에서 video 크기 튀는 거 방지 */
+.sample2__video,
+.optstrip__video{
+  background: transparent !important;
+}
+
+/* 4) iOS/모바일에서 가끔 왼쪽으로 밀리는 경우 방지 */
+.sample2__media > video,
+.optstrip__media > video{
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* 5) (선택) 모바일에서 아주 작은 화면에서도 가운데 유지 */
+@media (max-width: 720px){
   .sample2__video,
   .optstrip__video{
-    width:100% !important;
-    height:100% !important;
-    object-fit:contain !important;
-    object-position:center center !important;
-    margin:0 !important;
-  }
-
-  /* 2) VBridger는 샘플 그리드에서 "6번째 카드" (현재 너가 올린 최종본 기준)
-        -> 딱 그 카드만 중앙 정렬 컨테이너로 변경 */
-  .sample2__grid > article:nth-child(6) .sample2__media{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    overflow:hidden !important;
-    transform:translateZ(0);
-  }
-
-  /* 3) VBridger 영상 자체 중앙 기준 고정 */
-  .sample2__grid > article:nth-child(6) .sample2__video{
-    width:100% !important;
-    height:100% !important;
-    object-fit:contain !important;
-    object-position:center center !important;
-    margin:0 auto !important;
-  }
-
-  /* 4) 혹시 해당 카드가 min-height 때문에 이상하면 이것도 같이 */
-  .sample2__grid > article:nth-child(6) .sample2__media--video{
-    min-height: 0 !important;
-    height: auto !important;
+    object-position: center center !important;
   }
 }
 </style>
+
 </body>
 </html>
 

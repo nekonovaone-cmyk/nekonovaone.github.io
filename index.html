@@ -3140,6 +3140,19 @@
       transform: translateZ(0);
     }
   }
+    <style>
+/* iframe 내부 스크롤 제거 */
+html, body {
+  overflow: hidden !important;
+  height: auto;
+}
+
+/* 혹시 특정 섹션에서 스크롤 생기면 대비 */
+.page {
+  overflow: hidden !important;
+}
+</style>
+
   </style>
 </head>
 

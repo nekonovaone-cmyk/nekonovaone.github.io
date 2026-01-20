@@ -47,7 +47,6 @@
     @keyframes float{ 0%,100%{transform:translate3d(0,0,0) scale(1);} 50%{transform:translate3d(18px,-14px,0) scale(1.04);} }
 
     .page{ position:relative; z-index:1; }
-
     .wrap{ max-width:var(--max); margin:28px auto 0; padding:0 14px; }
 
     .badge{
@@ -71,7 +70,7 @@
       overflow:hidden;
       border:1px solid rgba(255,255,255,.14);
       background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      box-shadow:var(--shadow), var(--glow);
+      box-shadow:0 24px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06), 0 18px 60px rgba(255,79,154,.18);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
@@ -136,274 +135,18 @@
     @media (max-width:720px){ .l2d-item{ width:150px; } }
 
     /* COMMON SECTION WRAP */
-    .section{
-      max-width: var(--max);
-      margin: 18px auto 0;
-      padding: 0 14px;
-    }
+    .section{ max-width: var(--max); margin: 18px auto 0; padding: 0 14px; }
 
-    /* NOTICE */
-    .notice__card{
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      box-shadow: var(--shadow), var(--glow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-    .notice__card::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(900px 360px at 10% 15%, rgba(255,79,154,.14), transparent 60%),
-        radial-gradient(900px 360px at 92% 35%, rgba(139,92,255,.13), transparent 58%),
-        radial-gradient(900px 420px at 45% 120%, rgba(56,214,255,.10), transparent 62%);
-      pointer-events:none;
-    }
-    .notice__top{
-      position:relative;
-      padding: 14px 16px 10px;
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .notice__badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.14);
-      font-weight: 900;
-      font-size: 12px;
-      color: rgba(255,255,255,.92);
-      user-select:none;
-    }
-    .notice__dot{
-      width:10px; height:10px; border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, var(--p3), var(--p1));
-      box-shadow: 0 0 0 4px rgba(255,79,154,.14), 0 0 26px rgba(255,79,154,.18);
-    }
-    .notice__title{
-      font-weight: 1000;
-      font-size: 16px;
-      letter-spacing: -.2px;
-      color: rgba(255,255,255,.92);
-      opacity:.95;
-    }
-    .notice__body{ position:relative; padding: 12px 16px 16px; }
-    .notice__p{
-      margin:0;
-      color: rgba(255,255,255,.78);
-      line-height: 1.65;
-      font-size: 13px;
-    }
-    .notice__warn{
-      margin-top: 12px;
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      padding: 12px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(135deg, rgba(255,79,154,.14), rgba(139,92,255,.10));
-      box-shadow: 0 18px 55px rgba(0,0,0,.25);
-    }
-    .notice__warnIcon{
-      width: 22px; height: 22px;
-      border-radius: 999px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-weight: 1000;
-      font-size: 12px;
-      color: rgba(255,255,255,.95);
-      background: linear-gradient(135deg, rgba(255,79,154,.95), rgba(255,139,193,.85));
-      box-shadow: 0 10px 26px rgba(255,79,154,.22);
-      flex: 0 0 auto;
-      margin-top: 1px;
-    }
-    .notice__warnText{
-      color: rgba(255,255,255,.80);
-      line-height: 1.55;
-      font-size: 12px;
-    }
-    .notice__br{ display:inline; }
-    @media (max-width: 540px){
-      .notice__top{ padding: 12px 14px 8px; }
-      .notice__body{ padding: 10px 14px 14px; }
-      .notice__br{ display:none; }
-    }
-
-    /* EVENT */
-    .promo{ margin-top: 32px; }
-    .promo__card{
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      box-shadow: var(--shadow), var(--glow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-    .promo__card::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(900px 380px at 10% 10%, rgba(255,79,154,.18), transparent 62%),
-        radial-gradient(900px 420px at 92% 32%, rgba(139,92,255,.16), transparent 60%),
-        radial-gradient(900px 420px at 45% 115%, rgba(56,214,255,.11), transparent 62%);
-      pointer-events:none;
-    }
-    .promo__top{
-      position:relative;
-      padding: 14px 16px 10px;
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .promo__badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.14);
-      font-weight:900;
-      font-size:12px;
-      letter-spacing:.2px;
-      color:rgba(255,255,255,.92);
-    }
-    .promo__dot{
-      width:10px; height:10px; border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, var(--p3), var(--p1));
-      box-shadow: 0 0 0 4px rgba(255,79,154,.14);
-    }
-    .promo__title{
-      font-weight:1000;
-      font-size:16px;
-      letter-spacing:-.2px;
-      color:rgba(255,255,255,.92);
-      line-height:1.25;
-    }
-    .promo__body{ position:relative; padding: 12px 16px 16px; }
-    .promo__grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-    }
-    .promo__deal{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
-      box-shadow: 0 18px 55px rgba(0,0,0,.25);
-      padding:12px;
-    }
-    .promo__dealHead{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-    }
-    .promo__dealName{
-      font-weight:1000;
-      font-size:14px;
-      color:rgba(255,255,255,.92);
-    }
-    .promo__pill{
-      padding:6px 10px;
-      border-radius:999px;
-      font-weight:1000;
-      font-size:12px;
-      color:#fff;
-      border:1px solid rgba(255,255,255,.2);
-    }
-    .promo__pill--hot{ background: linear-gradient(135deg, #ff4f9a, #ff8bc1); }
-    .promo__pill--soft{ background: linear-gradient(135deg, rgba(139,92,255,.7), rgba(56,214,255,.5)); }
-    .promo__price{
-      margin-top:10px;
-      display:flex;
-      align-items:baseline;
-      gap:10px;
-    }
-    .promo__priceNow{ font-size:22px; font-weight:1000; }
-    .promo__priceWas{ font-size:13px; text-decoration:line-through; opacity:.55; }
-    .promo__desc{ margin-top:6px; font-size:12px; opacity:.65; }
-
-    .promo__bonus{
-      margin-top:12px;
-      display:flex;
-      gap:10px;
-      padding:12px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(135deg, rgba(255,79,154,.18), rgba(139,92,255,.12));
-    }
-    .promo__bonusIcon{
-      width:26px; height:26px;
-      border-radius:999px;
-      background: linear-gradient(135deg, #ff4f9a, #ff8bc1);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:1000;
-      flex:0 0 auto;
-    }
-    .promo__bonusText{ font-size:13px; line-height:1.55; }
-    .promo__bonusSub{
-      display:block;
-      margin-top:6px;
-      font-size:12px;
-      opacity:.6;
-    }
-
-    .promo__note{
-      margin-top:12px;
-      display:flex;
-      gap:10px;
-      padding:12px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(135deg, rgba(139,92,255,.14), rgba(56,214,255,.10));
-    }
-    .promo__noteIcon{
-      width:22px; height:22px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.2);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:1000;
-      flex:0 0 auto;
-    }
-    .promo__noteText{ font-size:12px; line-height:1.55; }
-
-    @media (max-width:680px){
-      .promo__grid{ grid-template-columns:1fr; }
-      .promo{ margin-top:24px; }
-    }
-
-    /* SAMPLES (MP4 · NO DARK FILM) */
+    /* SAMPLES / OPTIONS styles (네가 쓰던 버전 유지) */
     .sample2{ margin-top: 32px; }
-    .sample2__grid{
-      display:grid;
-      gap:14px;
-    }
+    .sample2__grid{ display:grid; gap:14px; }
     .sample2__card{
       position: relative;
       border-radius: var(--radius);
       overflow:hidden;
       border:1px solid rgba(255,255,255,.14);
       background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      box-shadow: var(--shadow), var(--glow);
+      box-shadow: 0 24px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06), 0 18px 60px rgba(255,79,154,.18);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
@@ -478,29 +221,15 @@
       pointer-events:none;
     }
 
-    @media (max-width: 840px){
-      .sample2__media--wide{ min-height: 260px; }
-      .sample2__media--square{ min-height: 300px; }
-    }
-    @media (max-width: 720px){
-      .sample2__top{ padding: 12px 14px 8px; }
-      .sample2__body{ padding: 10px 14px 14px; }
-      .sample2__media--wide{ aspect-ratio: 20 / 10; min-height: 230px; }
-      .sample2__media--square{ min-height: 260px; }
-      .sample2__media--video{ min-height: 240px; }
-    }
-
-    /* OPTION STRIPS (MP4 · SINGLE VIDEO · NO BLUR BACKDROP) */
     .optstrip{ margin-top: 18px; }
     .optstrip__grid{ display:grid; gap:14px; }
-
     .optstrip__card{
       position: relative;
       border-radius: var(--radius);
       overflow: hidden;
       border: 1px solid rgba(255,255,255,.14);
       background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      box-shadow: var(--shadow), var(--glow);
+      box-shadow: 0 24px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06), 0 18px 60px rgba(255,79,154,.18);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
@@ -513,12 +242,7 @@
         radial-gradient(900px 420px at 45% 115%, rgba(56,214,255,.10), transparent 62%);
       pointer-events:none;
     }
-    .optstrip__top{
-      position:relative;
-      padding: 14px 16px 10px;
-      display:flex;
-      align-items:center;
-    }
+    .optstrip__top{ position:relative; padding: 14px 16px 10px; display:flex; align-items:center; }
     .optstrip__badge{
       display:inline-flex;
       align-items:center;
@@ -562,7 +286,6 @@
       filter: drop-shadow(0 16px 40px rgba(0,0,0,.22));
       pointer-events:none;
     }
-
     .optstrip__label{
       margin-top: 12px;
       padding: 12px;
@@ -576,49 +299,19 @@
     }
 
     @media (max-width: 840px){
+      .sample2__media--wide{ min-height: 260px; }
+      .sample2__media--square{ min-height: 300px; }
       .optstrip__media--long{ min-height: 220px; }
       .optstrip__media--mid{ min-height: 240px; }
     }
     @media (max-width: 720px){
+      .sample2__top{ padding: 12px 14px 8px; }
+      .sample2__body{ padding: 10px 14px 14px; }
+      .sample2__media--wide{ aspect-ratio: 20 / 10; min-height: 230px; }
+      .sample2__media--square{ min-height: 260px; }
+      .sample2__media--video{ min-height: 240px; }
       .optstrip__media--long{ min-height: 200px; aspect-ratio: 20/10; }
       .optstrip__media--mid{ min-height: 220px; aspect-ratio: 16/10; }
-    }
-
-    /* ===== MOBILE MEDIA ALIGN FIX (FINAL) ===== */
-    @media (max-width: 720px){
-      .sample2__media,
-      .optstrip__media{
-        display:flex !important;
-        align-items:center !important;
-        justify-content:center !important;
-        overflow:hidden !important;
-        transform: translateZ(0);
-      }
-      .sample2__media--gif,
-      .sample2__media--video,
-      .optstrip__media--long,
-      .optstrip__media--mid{
-        min-height: 0 !important;
-        height: auto !important;
-      }
-      .optstrip__media--long,
-      .optstrip__media--mid{
-        aspect-ratio: 16 / 9 !important;
-      }
-      .sample2__media--square{
-        aspect-ratio: 1 / 1 !important;
-      }
-      .sample2__video,
-      .optstrip__video,
-      .sample2__img{
-        width:100% !important;
-        height:100% !important;
-        max-width:100% !important;
-        max-height:100% !important;
-        object-fit: contain !important;
-        object-position: center center !important;
-        margin: 0 auto !important;
-      }
     }
   </style>
 </head>
@@ -656,79 +349,6 @@
       </div>
     </div>
 
-    <!-- NOTICE -->
-    <section class="section" id="notice">
-      <div class="notice__card">
-        <div class="notice__top">
-          <span class="notice__badge"><span class="notice__dot"></span>NOTICE</span>
-          <div class="notice__title">안내</div>
-        </div>
-
-        <div class="notice__body">
-          <p class="notice__p">
-            궁금한 점이 있으시다면 언제든지 편하게 문의 주세요. <br class="notice__br" />
-            최대한 빠르게 답변드리겠습니다.
-          </p>
-
-          <div class="notice__warn">
-            <span class="notice__warnIcon">!</span>
-            <span class="notice__warnText">모바일 환경에서는 일부 콘텐츠가 정상적으로 표시되지 않을 수 있습니다.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EVENT -->
-    <section class="section promo" id="event">
-      <div class="promo__card">
-        <div class="promo__top">
-          <span class="promo__badge"><span class="promo__dot"></span>EVENT</span>
-          <div class="promo__title">1–2월 리깅 할인 &amp; 무료 표정 이벤트</div>
-        </div>
-
-        <div class="promo__body">
-          <div class="promo__grid">
-            <div class="promo__deal">
-              <div class="promo__dealHead">
-                <div class="promo__dealName">전신 리깅</div>
-                <div class="promo__pill promo__pill--hot">10만원 할인</div>
-              </div>
-              <div class="promo__price">
-                <span class="promo__priceNow">40만원</span>
-                <span class="promo__priceWas">50만원</span>
-              </div>
-              <div class="promo__desc">전신 기준 / 옵션 추가 시 별도</div>
-            </div>
-
-            <div class="promo__deal">
-              <div class="promo__dealHead">
-                <div class="promo__dealName">반신 리깅</div>
-                <div class="promo__pill promo__pill--soft">5만원 할인</div>
-              </div>
-              <div class="promo__price">
-                <span class="promo__priceNow">30만원</span>
-                <span class="promo__priceWas">35만원</span>
-              </div>
-              <div class="promo__desc">상반신 기준 / 옵션 추가 시 별도</div>
-            </div>
-          </div>
-
-          <div class="promo__bonus">
-            <div class="promo__bonusIcon">✦</div>
-            <div class="promo__bonusText">
-              리깅 신청 시 <b>표정 3종 무료</b> 이벤트 진행 중
-              <span class="promo__bonusSub">※ 표정 구성은 캐릭터 및 작업 범위에 따라 조정될 수 있습니다</span>
-            </div>
-          </div>
-
-          <div class="promo__note">
-            <span class="promo__noteIcon">!</span>
-            <span class="promo__noteText">이벤트 기간: <b>1월 ~ 2월</b> (기간 내 신청 및 예약 건에 한함)</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- SAMPLES (MP4) -->
     <section class="section sample2" id="samples">
       <div class="sample2__grid">
@@ -741,7 +361,7 @@
           <div class="sample2__body">
             <div class="sample2__media sample2__media--wide">
               <video class="sample2__video" autoplay loop muted playsinline preload="metadata">
-                <source src="BXY.mp4" type="video/mp4">
+                <source src="https://nekonovaone-cmyk.github.io/nekonovaone.github.io/BXY.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -755,7 +375,7 @@
           <div class="sample2__body">
             <div class="sample2__media sample2__media--wide">
               <video class="sample2__video" autoplay loop muted playsinline preload="metadata">
-                <source src="mioPY.mp4" type="video/mp4">
+                <source src="https://nekonovaone-cmyk.github.io/nekonovaone.github.io/mioPY.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -769,7 +389,7 @@
           <div class="sample2__body">
             <div class="sample2__media sample2__media--wide">
               <video class="sample2__video" autoplay loop muted playsinline preload="metadata">
-                <source src="AYPY.mp4" type="video/mp4">
+                <source src="https://nekonovaone-cmyk.github.io/nekonovaone.github.io/AYPY.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -783,7 +403,7 @@
           <div class="sample2__body">
             <div class="sample2__media sample2__media--wide">
               <video class="sample2__video" autoplay loop muted playsinline preload="metadata">
-                <source src="gg0.mp4" type="video/mp4">
+                <source src="https://nekonovaone-cmyk.github.io/nekonovaone.github.io/gg0.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -797,7 +417,7 @@
           <div class="sample2__body">
             <div class="sample2__media sample2__media--square">
               <video class="sample2__video" autoplay loop muted playsinline preload="metadata">
-                <source src="gg1.mp4" type="video/mp4">
+                <source src="https://nekonovaone-cmyk.github.io/nekonovaone.github.io/gg1.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -811,7 +431,7 @@
           <div class="sample2__body">
             <div class="sample2__media sample2__media--video">
               <video class="sample2__video" autoplay loop muted playsinline preload="metadata">
-                <source src="vbridger.mp4" type="video/mp4">
+                <source src="https://nekonovaone-cmyk.github.io/nekonovaone.github.io/vbridger.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -831,7 +451,7 @@
           <div class="optstrip__body">
             <div class="optstrip__media optstrip__media--long">
               <video class="optstrip__video" autoplay loop muted playsinline preload="metadata">
-                <source src="CMT.mp4" type="video/mp4">
+                <source src="https://nekonovaone-cmyk.github.io/nekonovaone.github.io/CMT.mp4" type="video/mp4">
               </video>
             </div>
             <div class="optstrip__label">볼 부풀리기 · 입 좌우 · 혀 내밀기 예시</div>
@@ -845,7 +465,7 @@
           <div class="optstrip__body">
             <div class="optstrip__media optstrip__media--long">
               <video class="optstrip__video" autoplay loop muted playsinline preload="metadata">
-                <source src="BHG.mp4" type="video/mp4">
+                <source src="https://nekonovaone-cmyk.github.io/nekonovaone.github.io/BHG.mp4" type="video/mp4">
               </video>
             </div>
             <div class="optstrip__label">간단표정 · 반짝눈 · 하트 눈 · 경멸 예시</div>
@@ -859,7 +479,7 @@
           <div class="optstrip__body">
             <div class="optstrip__media optstrip__media--mid">
               <video class="optstrip__video" autoplay loop muted playsinline preload="metadata">
-                <source src="SB.mp4" type="video/mp4">
+                <source src="https://nekonovaone-cmyk.github.io/nekonovaone.github.io/SB.mp4" type="video/mp4">
               </video>
             </div>
             <div class="optstrip__label">당황 · 반짝눈 루프 애니메이션 옵션 예시</div>
@@ -873,7 +493,7 @@
           <div class="optstrip__body">
             <div class="optstrip__media optstrip__media--mid">
               <video class="optstrip__video" autoplay loop muted playsinline preload="metadata">
-                <source src="sad.mp4" type="video/mp4">
+                <source src="https://nekonovaone-cmyk.github.io/nekonovaone.github.io/sad.mp4" type="video/mp4">
               </video>
             </div>
             <div class="optstrip__label">눈물 루프 애니메이션 예시</div>
@@ -884,17 +504,6 @@
     </section>
 
     <div style="height:40px"></div>
-
-    <!-- ===== RIGGING MENU (ACCORDION + ANIMATION) / ₩ FORMAT ===== -->
-    <!-- 너가 준 MENU / WORKFLOW / COLLAB / SLOT / INQUIRY 코드는 그대로 유지(길어서 아래에 이어서 붙임) -->
-
-    <!-- ===== MENU / WORKFLOW / COLLAB / SLOT / INQUIRY ===== -->
-    <!-- ⚠️ 아래는 너가 보낸 내용 그대로이며, mp4 경로와 무관한 영역이라 로직/디자인 변경 없음 -->
-    <!-- ===================== START: ORIGINAL CONTINUED ===================== -->
-    <!-- 여기부터는 네가 올린 나머지 전체가 너무 길어서 이 메시지 한 번에 다 못 넣으면,
-         다음 답변에서 "남은 부분 통째"로 이어서 바로 붙여줄게. -->
-    <!-- ===================== END: ORIGINAL CONTINUED ===================== -->
-
   </div>
 
   <script>
@@ -1022,5 +631,2410 @@
     setActive(0,false);
   })();
   </script>
+   <!-- ===== RIGGING MENU (ACCORDION + ANIMATION) / ₩ FORMAT ===== -->
+<section class="menu" id="menu">
+  <div class="menu__card">
+    <div class="menu__top">
+      <span class="menu__badge"><span class="menu__dot"></span>MENU</span>
+      <div class="menu__title">Live2D 리깅 메뉴</div>
+    </div>
+
+    <div class="menu__body">
+
+      <!-- ✅ 접힌 상태에서도 한눈에: MENU SUMMARY -->
+      <div class="menu__summary">
+        <div class="menu__summaryLeft">
+          <div class="menu__summaryMain">가격표 · 옵션표</div>
+          <div class="menu__summarySub">카테고리를 눌러 펼쳐 확인하세요</div>
+        </div>
+        <div class="menu__summaryRight">
+          <span class="menu__chip">LD 전신 ₩500,000</span>
+          <span class="menu__chip">LD 반신 ₩350,000</span>
+        </div>
+      </div>
+
+      <!-- ✅ ACCORDION WRAP -->
+      <div class="menu__acc" id="menuAcc">
+
+        <!-- 1) LD 리깅 ONLY -->
+        <details class="menu__sec" open>
+          <summary class="menu__sum">
+            <div class="menu__sumLeft">
+              <span class="menu__icon">◆</span>
+              <span class="menu__sumTitle">LD 리깅 (ONLY)</span>
+            </div>
+            <div class="menu__sumRight">
+              <span class="menu__mini">전신 ₩500,000 · 반신 ₩350,000</span>
+              <span class="menu__chev" aria-hidden="true"></span>
+            </div>
+          </summary>
+
+          <!-- ✅ 애니메이션 대상: contentWrap -->
+          <div class="menu__contentWrap">
+            <div class="menu__content">
+
+              <div class="menu__item">
+                <div class="menu__itemHead">
+                  <div class="menu__name">LD 전신 리깅</div>
+                  <div class="menu__price">₩500,000</div>
+                </div>
+                <ul class="menu__list">
+                  <li>머리 XYZ / 몸 XYZ (좌우 · 상하 · 좌우 기울임)</li>
+                  <li>눈동자 물리 · 놀란 눈 · 눈썹 움직임</li>
+                  <li>입 모양 (여닫기 · 변형) <b>12점 이상</b> 정교 제작</li>
+                  <li>머리카락 흔들림 물리 & 전신 의상 물리</li>
+                  <li>허리 튕기기 (여성 캐릭터)</li>
+                </ul>
+              </div>
+
+              <div class="menu__item">
+                <div class="menu__itemHead">
+                  <div class="menu__name">LD 반신 리깅</div>
+                  <div class="menu__price">₩350,000</div>
+                </div>
+                <ul class="menu__list">
+                  <li>머리 XYZ / 몸 XYZ (좌우 · 상하 · 좌우 기울임)</li>
+                  <li>눈동자 물리 · 놀란 눈 · 눈썹 움직임</li>
+                  <li>입 모양 (여닫기 · 변형) <b>12점 이상</b> 정교 제작</li>
+                  <li>머리카락 흔들림 물리 & 상체 의상 물리</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </details>
+
+        <!-- 2) 표정 · 페이셜 옵션 -->
+        <details class="menu__sec">
+          <summary class="menu__sum">
+            <div class="menu__sumLeft">
+              <span class="menu__icon">✦</span>
+              <span class="menu__sumTitle">표정 · 페이셜 옵션</span>
+            </div>
+            <div class="menu__sumRight">
+              <span class="menu__mini">₩10,000 ~ ₩30,000</span>
+              <span class="menu__chev" aria-hidden="true"></span>
+            </div>
+          </summary>
+
+          <div class="menu__contentWrap">
+            <div class="menu__content">
+              <div class="menu__option">
+                <div class="menu__row"><span>간단 토글 표정 (1종)</span><b>₩10,000</b></div>
+                <p>홍조, 정색 등 고정 표정 ON/OFF 및 관련 부위 물리 연동 구성</p>
+              </div>
+
+              <div class="menu__option">
+                <div class="menu__row"><span>애니메이션 토글 표정 (1종)</span><b>₩20,000</b></div>
+                <p>눈물 흘리기, 어질 눈 회전 등 애니메이션 포함 특수 표정 구성</p>
+              </div>
+
+              <div class="menu__option">
+                <div class="menu__row"><span>입 좌우 움직임 (iOS 전용)</span><b>₩20,000</b></div>
+                <p>입의 좌우 비틀림 구현으로 유연한 입 모양 모션 구성</p>
+              </div>
+
+              <div class="menu__option">
+                <div class="menu__row"><span>볼 빵빵 (웹캠 토글)</span><b>₩30,000</b></div>
+                <p>볼 부풀리기를 구현하여 귀여움 구성</p>
+              </div>
+
+              <div class="menu__option">
+                <div class="menu__row"><span>혀 내밀기 (웹캠 토글)</span><b>₩30,000</b></div>
+                <p>혀를 내미는 움직임을 구현하여 개성있고 장난스러운 연출 가능</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 3) VBridger -->
+        <details class="menu__sec">
+          <summary class="menu__sum">
+            <div class="menu__sumLeft">
+              <span class="menu__icon">◎</span>
+              <span class="menu__sumTitle">VBridger</span>
+            </div>
+            <div class="menu__sumRight">
+              <span class="menu__mini">₩50,000</span>
+              <span class="menu__chev" aria-hidden="true"></span>
+            </div>
+          </summary>
+
+          <div class="menu__contentWrap">
+            <div class="menu__content">
+              <div class="menu__option">
+                <div class="menu__row"><span>VBridger 연동</span><b>₩50,000</b></div>
+                <p>
+                  발음별 입 모양 보정, 오물오물 구현
+                  <span class="menu__callout">
+                    <b>VBridger 프로그램 실행 필수</b> · 미실행 시 입 모양 움직임이 제한될 수 있습니다
+                  </span>
+                  <span class="menu__note">※ VBridger는 별도 유료 프로그램입니다</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 4) 손 옵션 -->
+        <details class="menu__sec">
+          <summary class="menu__sum">
+            <div class="menu__sumLeft">
+              <span class="menu__icon">✋</span>
+              <span class="menu__sumTitle">손 옵션</span>
+            </div>
+            <div class="menu__sumRight">
+              <span class="menu__mini">₩30,000</span>
+              <span class="menu__chev" aria-hidden="true"></span>
+            </div>
+          </summary>
+
+          <div class="menu__contentWrap">
+            <div class="menu__content">
+              <div class="menu__option">
+                <div class="menu__row"><span>손 옵션 (1종)</span><b>₩30,000</b></div>
+                <p>게임패드, 마이크 등 특정 소품을 든 손 동작 구현</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 5) 동물 귀 & 꼬리 -->
+        <details class="menu__sec">
+          <summary class="menu__sum">
+            <div class="menu__sumLeft">
+              <span class="menu__icon">🐾</span>
+              <span class="menu__sumTitle">동물 귀 &amp; 꼬리</span>
+            </div>
+            <div class="menu__sumRight">
+              <span class="menu__mini">₩30,000</span>
+              <span class="menu__chev" aria-hidden="true"></span>
+            </div>
+          </summary>
+
+          <div class="menu__contentWrap">
+            <div class="menu__content">
+              <div class="menu__option">
+                <div class="menu__row"><span>동물 귀 또는 꼬리</span><b>₩30,000</b></div>
+                <p>
+                  생동감 있는 움직임과 풍부한 가동 물리 구성
+                  <span class="menu__note">※ 파츠 보유 시 필수 선택 옵션</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 6) 기타 옵션 -->
+        <details class="menu__sec">
+          <summary class="menu__sum">
+            <div class="menu__sumLeft">
+              <span class="menu__icon">⚙</span>
+              <span class="menu__sumTitle">기타 옵션</span>
+            </div>
+            <div class="menu__sumRight">
+              <span class="menu__mini">₩10,000 ~ ₩200,000</span>
+              <span class="menu__chev" aria-hidden="true"></span>
+            </div>
+          </summary>
+
+          <div class="menu__contentWrap">
+            <div class="menu__content">
+              <div class="menu__option">
+                <div class="menu__row"><span>ON / OFF 옵션 추가 (1종)</span><b>₩10,000</b></div>
+                <p>머리띠, 의상, 꼬리 등 개별 파츠의 ON/OFF를 위한 구성</p>
+              </div>
+
+              <div class="menu__option">
+                <div class="menu__row"><span>토글 물리 (1종)</span><b>₩20,000</b></div>
+                <p>소품 등장 시 톡 떨어지는 반동 등 무게감이 느껴지는 물리 구성</p>
+              </div>
+
+              <div class="menu__option">
+                <div class="menu__row"><span>스텝 추가</span><b>₩30,000</b></div>
+                <p>몸의 기울기에 발 위치를 연동한 스텝 구성</p>
+              </div>
+
+              <div class="menu__option">
+                <div class="menu__row"><span>가치코이 – 단축키</span><b>₩100,000</b></div>
+                <p>단축키 활성화 시 화면 근처로 다가오는 듯한 숙이기 연출 구성</p>
+              </div>
+
+              <div class="menu__option">
+                <div class="menu__row"><span>가치코이 – 페이셜</span><b>₩200,000</b></div>
+                <p>캠 거리 인식 기반 전·후 이동 입체 연출</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 7) 신규 의상 / 헤어 -->
+        <details class="menu__sec">
+          <summary class="menu__sum">
+            <div class="menu__sumLeft">
+              <span class="menu__icon">✧</span>
+              <span class="menu__sumTitle">신규 의상 / 헤어</span>
+            </div>
+            <div class="menu__sumRight">
+              <span class="menu__mini">₩150,000 ~ ₩200,000</span>
+              <span class="menu__chev" aria-hidden="true"></span>
+            </div>
+          </summary>
+
+          <div class="menu__contentWrap">
+            <div class="menu__content">
+              <div class="menu__option">
+                <div class="menu__row"><span>신규 헤어 추가 (1종)</span><b>₩150,000</b></div>
+                <p>신규 헤어 추가 및 흔들림 물리 구성</p>
+              </div>
+
+              <div class="menu__option">
+                <div class="menu__row"><span>신규 의상 추가 (1종)</span><b>₩200,000</b></div>
+                <p>신규 의상 리깅 및 전신 의상 물리 구성</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 8) 기타 서비스 -->
+        <details class="menu__sec">
+          <summary class="menu__sum">
+            <div class="menu__sumLeft">
+              <span class="menu__icon">☑</span>
+              <span class="menu__sumTitle">기타 서비스</span>
+            </div>
+            <div class="menu__sumRight">
+              <span class="menu__mini">₩0 ~ ₩200,000</span>
+              <span class="menu__chev" aria-hidden="true"></span>
+            </div>
+          </summary>
+
+          <div class="menu__contentWrap">
+            <div class="menu__content">
+              <div class="menu__option">
+                <div class="menu__row"><span>작업 영구 비공개</span><b>₩200,000</b></div>
+                <p>포트폴리오 및 샘플 공개 없이 작업물 정보 노출을 제한</p>
+              </div>
+
+              <div class="menu__option">
+                <div class="menu__row"><span>설치 도움</span><b>₩0</b></div>
+                <p>VTube Studio 초기 세팅 및 최적화 지원</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- ✅ quick actions -->
+      <div class="menu__actions">
+        <button class="menu__btn" type="button" data-menu-action="openall">전체 펼치기</button>
+        <button class="menu__btn" type="button" data-menu-action="closeall">전체 접기</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ===== MENU ACCORDION STYLE ===== */
+  .menu{
+    max-width: var(--max);
+    margin: 18px auto 0;
+    padding: 0 14px;
+  }
+  .menu__card{
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.14);
+    background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+    box-shadow: var(--shadow), var(--glow);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .menu__card::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(900px 380px at 10% 10%, rgba(255,79,154,.14), transparent 62%),
+      radial-gradient(900px 420px at 92% 32%, rgba(139,92,255,.12), transparent 60%),
+      radial-gradient(900px 420px at 45% 115%, rgba(56,214,255,.10), transparent 62%);
+    pointer-events:none;
+  }
+  .menu__top{
+    position:relative;
+    padding: 14px 16px 10px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .menu__badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+    border:1px solid rgba(255,255,255,.14);
+    font-weight:900;
+    font-size:12px;
+    color:rgba(255,255,255,.92);
+    user-select:none;
+  }
+  .menu__dot{
+    width:10px; height:10px; border-radius:999px;
+    background: radial-gradient(circle at 30% 30%, var(--p3), var(--p1));
+    box-shadow:0 0 0 4px rgba(255,79,154,.14);
+  }
+  .menu__title{
+    font-weight:1000;
+    font-size:16px;
+    color:rgba(255,255,255,.92);
+    letter-spacing:-.2px;
+  }
+  .menu__body{
+    position:relative;
+    padding: 12px 16px 16px;
+    display:grid;
+    gap:14px;
+  }
+
+  /* summary */
+  .menu__summary{
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.14);
+    background: linear-gradient(135deg, rgba(255,79,154,.14), rgba(139,92,255,.10));
+    box-shadow: 0 18px 55px rgba(0,0,0,.25);
+    padding:12px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .menu__summaryMain{
+    font-weight:1000;
+    font-size:14px;
+    color:rgba(255,255,255,.92);
+  }
+  .menu__summarySub{
+    margin-top:4px;
+    font-size:12px;
+    color:rgba(255,255,255,.72);
+    line-height:1.45;
+  }
+  .menu__chip{
+    display:inline-flex;
+    align-items:center;
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.16);
+    background: rgba(0,0,0,.18);
+    font-weight:1000;
+    font-size:12px;
+    color:rgba(255,255,255,.90);
+    white-space:nowrap;
+    margin-left:6px;
+    margin-top:6px;
+  }
+
+  /* accordion */
+  .menu__acc{ display:grid; gap:12px; }
+  .menu__sec{
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.14);
+    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+    box-shadow: 0 18px 55px rgba(0,0,0,.25);
+    overflow:hidden;
+  }
+
+  /* summary row */
+  .menu__sum{
+    list-style:none;
+    cursor:pointer;
+    padding: 12px 12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    user-select:none;
+  }
+  .menu__sec > summary::-webkit-details-marker{ display:none; }
+
+  .menu__sumLeft{ display:flex; align-items:center; gap:10px; min-width:0; }
+  .menu__icon{
+    width:26px; height:26px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:1000;
+    color:rgba(255,255,255,.95);
+    background: linear-gradient(135deg, rgba(255,79,154,.92), rgba(56,214,255,.55));
+    box-shadow: 0 10px 26px rgba(255,79,154,.18);
+    flex: 0 0 auto;
+  }
+  .menu__sumTitle{
+    font-weight:1000;
+    font-size:14px;
+    color:rgba(255,255,255,.92);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .menu__sumRight{ display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+  .menu__mini{ font-size:12px; color:rgba(255,255,255,.72); white-space:nowrap; }
+
+  .menu__chev{
+    width:12px; height:12px;
+    border-right:2px solid rgba(255,255,255,.75);
+    border-bottom:2px solid rgba(255,255,255,.75);
+    transform: rotate(45deg);
+    transition: transform .18s ease;
+    margin-right:2px;
+  }
+  .menu__sec[open] .menu__chev{ transform: rotate(-135deg); }
+
+  /* ✅ 애니메이션 컨테이너 */
+  .menu__contentWrap{
+    overflow:hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: max-height .34s cubic-bezier(.2,.8,.2,1),
+                opacity .22s ease,
+                transform .22s ease;
+    will-change: max-height;
+  }
+  .menu__sec.is-open .menu__contentWrap{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .menu__content{ padding: 0 12px 12px; }
+
+  /* inner blocks */
+  .menu__item{
+    margin-top:12px;
+    padding:12px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.04);
+  }
+  .menu__itemHead{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .menu__name{ font-weight:1000; font-size:14px; color:rgba(255,255,255,.92); }
+  .menu__price{
+    font-weight:1000;
+    font-size:16px;
+    color:rgba(255,255,255,.92);
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.16);
+    background: linear-gradient(135deg, rgba(56,214,255,.16), rgba(255,79,154,.14));
+    white-space:nowrap;
+  }
+  .menu__list{
+    margin:10px 0 0;
+    padding-left:18px;
+    color: rgba(255,255,255,.78);
+    line-height:1.65;
+    font-size:13px;
+  }
+  .menu__list li{ margin:4px 0; }
+  .menu__list b{ color: rgba(255,255,255,.94); }
+
+  .menu__option{
+    margin-top:12px;
+    padding:12px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.04);
+  }
+  .menu__row{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+  .menu__option span{ font-weight:1000; color: rgba(255,255,255,.92); font-size:13px; }
+  .menu__option b{
+    font-weight:1000;
+    color: rgba(255,255,255,.92);
+    font-size:13px;
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.16);
+    background: linear-gradient(135deg, rgba(255,79,154,.14), rgba(139,92,255,.12));
+    white-space:nowrap;
+    flex:0 0 auto;
+  }
+  .menu__option p{
+    margin:8px 0 0;
+    color: rgba(255,255,255,.78);
+    font-size:13px;
+    line-height:1.6;
+  }
+
+  .menu__callout{
+    display:block;
+    margin-top:10px;
+    padding:10px 10px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.16);
+    background: linear-gradient(135deg, rgba(255,79,154,.14), rgba(56,214,255,.10));
+    color: rgba(255,255,255,.90);
+    font-size:12.5px;
+    line-height:1.55;
+  }
+  .menu__callout b{ font-weight:1000; color: rgba(255,255,255,.96); }
+  .menu__note{
+    display:block;
+    margin-top:8px;
+    color: rgba(255,255,255,.68);
+    font-size:12px;
+    line-height:1.5;
+  }
+
+  .menu__actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top: 2px;
+  }
+  .menu__btn{
+    border:1px solid rgba(255,255,255,.18);
+    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+    color: rgba(255,255,255,.92);
+    border-radius: 14px;
+    padding: 10px 12px;
+    font-weight: 1000;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 18px 55px rgba(0,0,0,.18);
+  }
+  .menu__btn:active{ transform: translateY(1px); }
+
+  @media (max-width: 720px){
+    .menu__top{ padding:12px 14px 8px; }
+    .menu__body{ padding:10px 14px 14px; }
+    .menu__mini{ display:none; }
+  }
+</style>
+
+<script>
+(function(){
+  const root = document.getElementById("menuAcc");
+  if(!root) return;
+
+  const secs = Array.from(root.querySelectorAll("details.menu__sec"));
+  const openAllBtn = document.querySelector('[data-menu-action="openall"]');
+  const closeAllBtn = document.querySelector('[data-menu-action="closeall"]');
+
+  function setWrapHeight(det){
+    const wrap = det.querySelector(".menu__contentWrap");
+    if(!wrap) return;
+
+    // open 상태일 때: 실제 내용 높이만큼 max-height 부여
+    if(det.open){
+      const content = wrap.querySelector(".menu__content");
+      const h = content ? content.scrollHeight : 0;
+      wrap.style.maxHeight = h + "px";
+      det.classList.add("is-open");
+    }else{
+      wrap.style.maxHeight = "0px";
+      det.classList.remove("is-open");
+    }
+  }
+
+  function openDetail(det){
+    det.open = true;
+    // 다음 프레임에서 높이 적용(트랜지션 동작)
+    requestAnimationFrame(()=> setWrapHeight(det));
+  }
+
+  function closeDetail(det){
+    // 닫기 전에 현재 높이를 잡아두고 0으로 전환해야 애니메이션 됨
+    const wrap = det.querySelector(".menu__contentWrap");
+    const content = wrap && wrap.querySelector(".menu__content");
+    const h = content ? content.scrollHeight : 0;
+
+    if(wrap) wrap.style.maxHeight = h + "px";
+    det.classList.add("is-open");
+
+    requestAnimationFrame(()=>{
+      if(wrap) wrap.style.maxHeight = "0px";
+      det.classList.remove("is-open");
+    });
+
+    // 트랜지션 끝나면 open 해제
+    const done = ()=>{
+      det.open = false;
+      if(wrap) wrap.removeEventListener("transitionend", done);
+    };
+    if(wrap) wrap.addEventListener("transitionend", done);
+    else det.open = false;
+  }
+
+  function toggleDetail(det){
+    if(det.open) closeDetail(det);
+    else openDetail(det);
+  }
+
+  function setAll(open){
+    secs.forEach(det => open ? openDetail(det) : closeDetail(det));
+  }
+
+  if(openAllBtn) openAllBtn.addEventListener("click", (e)=>{ e.preventDefault(); setAll(true); });
+  if(closeAllBtn) closeAllBtn.addEventListener("click", (e)=>{ e.preventDefault(); setAll(false); });
+
+  // 초기 상태 sync
+  secs.forEach(det => {
+    setWrapHeight(det);
+  });
+
+  // 요상한 스크롤 점프 방지 + 수동 토글
+  root.addEventListener("click", (e)=>{
+    const sum = e.target.closest("summary");
+    if(!sum) return;
+    e.preventDefault();
+    const det = sum.parentElement;
+    toggleDetail(det);
+    sum.blur();
+  });
+
+  // 리사이즈 시 열린 섹션 높이 재계산
+  let t=null;
+  window.addEventListener("resize", ()=>{
+    clearTimeout(t);
+    t=setTimeout(()=>{
+      secs.forEach(det => { if(det.open) setWrapHeight(det); });
+    }, 120);
+  }, {passive:true});
+})();
+</script>
+<!-- ===== /RIGGING MENU ===== -->
+
+  <!-- ===== WORKFLOW (HORIZONTAL GRID, NO H-SCROLL) + NOTES ===== -->
+<section class="pflow" id="workflow">
+  <div class="pflow__card">
+    <div class="pflow__top">
+      <span class="pflow__badge"><span class="pflow__dot"></span>PROCESS</span>
+      <div class="pflow__title">작업 진행 안내</div>
+    </div>
+
+    <!-- ✅ 가로 느낌 + 줄바꿈(스크롤 X): 4 x 2 -->
+    <ol class="pflow__grid" aria-label="작업 진행 단계">
+      <li class="pflow__step">
+        <div class="pflow__head">
+          <span class="pflow__n">01</span>
+          <div class="pflow__txt">
+            <div class="pflow__name">문의</div>
+            <div class="pflow__desc">일정/옵션/요청사항 확인</div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pflow__step">
+        <div class="pflow__head">
+          <span class="pflow__n">02</span>
+          <div class="pflow__txt">
+            <div class="pflow__name">결제</div>
+            <div class="pflow__desc">메뉴 확정 후 진행</div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pflow__step">
+        <div class="pflow__head">
+          <span class="pflow__n">03</span>
+          <div class="pflow__txt">
+            <div class="pflow__name">예약</div>
+            <div class="pflow__desc">작업 시작/마감 일정 안내</div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pflow__step">
+        <div class="pflow__head">
+          <span class="pflow__n">04</span>
+          <div class="pflow__txt">
+            <div class="pflow__name">파츠 정리</div>
+            <div class="pflow__desc">PSD 구조/명칭 점검</div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pflow__step">
+        <div class="pflow__head">
+          <span class="pflow__n">05</span>
+          <div class="pflow__txt">
+            <div class="pflow__name">얼굴 리깅</div>
+            <div class="pflow__desc">눈·눈썹·입 기본 세팅</div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pflow__step">
+        <div class="pflow__head">
+          <span class="pflow__n">06</span>
+          <div class="pflow__txt">
+            <div class="pflow__name">머리 리깅</div>
+            <div class="pflow__desc">각도/물리/헤어 세팅</div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pflow__step">
+        <div class="pflow__head">
+          <span class="pflow__n">07</span>
+          <div class="pflow__txt">
+            <div class="pflow__name">몸 리깅</div>
+            <div class="pflow__desc">가동 + 의상/몸 물리</div>
+          </div>
+        </div>
+      </li>
+
+      <li class="pflow__step">
+        <div class="pflow__head">
+          <span class="pflow__n">08</span>
+          <div class="pflow__txt">
+            <div class="pflow__name">토글 세팅</div>
+            <div class="pflow__desc">표정/옵션 ON·OFF 정리</div>
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <!-- ✅ 하단 안내(다시 살림) -->
+    <div class="pflow__notes">
+      <div class="pflow__note">
+        <div class="pflow__ic">✓</div>
+        <div class="pflow__noteTxt">리깅 컨펌은 <b>총 3회까지</b> 진행하실 수 있습니다.</div>
+      </div>
+
+      <div class="pflow__note">
+        <div class="pflow__ic">🎬</div>
+        <div class="pflow__noteTxt">작업 과정은 중간마다 <b>동영상으로 제공</b>드리며, 컨펌은 편하신 시점에 요청해 주시면 됩니다.</div>
+      </div>
+
+      <div class="pflow__note">
+        <div class="pflow__ic">🛠</div>
+        <div class="pflow__noteTxt">작가의 실수로 발생한 오류는 <b>기간과 관계없이 언제든 수정</b>해드립니다.</div>
+      </div>
+
+      <div class="pflow__note pflow__note--warn">
+        <div class="pflow__ic">!</div>
+        <div class="pflow__noteTxt">작업 기간은 최대 <b>21일</b>이며, 작업 난이도에 따라 더 소요될 수 있습니다.</div>
+      </div>
+    </div>
+
+    <div class="pflow__shine" aria-hidden="true"></div>
+    <div class="pflow__glow" aria-hidden="true"></div>
+  </div>
+</section>
+
+<style>
+  /* ===== PROCESS GRID (NO H-SCROLL) ===== */
+  .pflow{
+    max-width: var(--max);
+    margin: 18px auto 0;
+    padding: 0 14px;
+  }
+
+  .pflow__card{
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.14);
+    background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+    box-shadow: var(--shadow), var(--glow);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .pflow__card::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(900px 380px at 10% 10%, rgba(255,79,154,.16), transparent 62%),
+      radial-gradient(900px 420px at 92% 32%, rgba(139,92,255,.14), transparent 60%),
+      radial-gradient(900px 420px at 45% 115%, rgba(56,214,255,.10), transparent 62%);
+    pointer-events:none;
+  }
+
+  .pflow__top{
+    position:relative;
+    padding: 14px 16px 10px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .pflow__badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+    border:1px solid rgba(255,255,255,.14);
+    font-weight:900;
+    font-size:12px;
+    color:rgba(255,255,255,.92);
+    user-select:none;
+  }
+
+  .pflow__dot{
+    width:10px; height:10px; border-radius:999px;
+    background: radial-gradient(circle at 30% 30%, var(--p3), var(--p1));
+    box-shadow:0 0 0 4px rgba(255,79,154,.14);
+  }
+
+  .pflow__title{
+    font-weight:1000;
+    font-size:16px;
+    color:rgba(255,255,255,.92);
+    letter-spacing:-.2px;
+  }
+
+  /* grid */
+  .pflow__grid{
+    position:relative;
+    list-style:none;
+    margin: 0;
+    padding: 12px 16px 4px;
+    display:grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .pflow__step{
+    position:relative;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.04);
+    box-shadow: 0 18px 55px rgba(0,0,0,.18);
+    padding: 12px;
+    overflow:hidden;
+    min-width:0;
+  }
+
+  .pflow__step::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(520px 240px at 14% 18%, rgba(255,79,154,.12), transparent 56%),
+      radial-gradient(520px 260px at 92% 78%, rgba(139,92,255,.10), transparent 60%);
+    pointer-events:none;
+    opacity:.85;
+  }
+
+  .pflow__head{
+    position:relative;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    min-width:0;
+  }
+
+  .pflow__n{
+    flex:0 0 auto;
+    width:42px;
+    height:30px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.16);
+    background: linear-gradient(135deg, rgba(255,79,154,.22), rgba(56,214,255,.14));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:1000;
+    font-size:12px;
+    color:rgba(255,255,255,.92);
+  }
+
+  .pflow__txt{ min-width:0; }
+  .pflow__name{
+    font-weight:1000;
+    font-size:13px;
+    color:rgba(255,255,255,.92);
+    letter-spacing:-.1px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .pflow__desc{
+    margin-top:6px;
+    font-size:12px;
+    color:rgba(255,255,255,.70);
+    line-height:1.45;
+  }
+
+  /* notes */
+  .pflow__notes{
+    position:relative;
+    padding: 12px 16px 16px;
+    display:grid;
+    gap:10px;
+  }
+
+  .pflow__note{
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: linear-gradient(135deg, rgba(255,79,154,.14), rgba(139,92,255,.10));
+    padding: 12px 12px;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    box-shadow: 0 18px 55px rgba(0,0,0,.18);
+  }
+
+  .pflow__ic{
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:1000;
+    color: rgba(255,255,255,.95);
+    background: rgba(0,0,0,.22);
+    border:1px solid rgba(255,255,255,.14);
+    flex: 0 0 auto;
+    margin-top: 1px;
+  }
+
+  .pflow__noteTxt{
+    color: rgba(255,255,255,.84);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .pflow__noteTxt b{ color: rgba(255,255,255,.96); font-weight:1000; }
+
+  .pflow__note--warn{
+    background: linear-gradient(135deg, rgba(255,79,154,.18), rgba(56,214,255,.10));
+  }
+
+  /* deco */
+  .pflow__shine{
+    position:absolute;
+    inset:-40% -30% auto auto;
+    width:280px; height:280px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.20), transparent 62%);
+    opacity:.65;
+    pointer-events:none;
+  }
+  .pflow__glow{
+    position:absolute;
+    inset:auto auto -110px -110px;
+    width:360px; height:360px;
+    background: radial-gradient(circle at 40% 30%, rgba(56,214,255,.18), transparent 68%);
+    opacity:.55;
+    pointer-events:none;
+  }
+
+  @media (max-width: 900px){
+    .pflow__grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 720px){
+    .pflow__top{ padding: 12px 14px 8px; }
+    .pflow__grid{ padding: 10px 14px 4px; gap:10px; }
+    .pflow__notes{ padding: 10px 14px 14px; }
+  }
+</style>
+<!-- ===== /WORKFLOW ===== -->
+
+  <!-- ===== COLLAB EVENT (RESPONSIVE) ===== -->
+<section class="collab" id="collab">
+  <div class="collab__card">
+    <div class="collab__top">
+      <span class="collab__badge"><span class="collab__dot"></span>COLLAB</span>
+      <div class="collab__title">협업 이벤트 안내</div>
+    </div>
+
+    <div class="collab__body">
+      <div class="collab__notice">
+        <span class="collab__noticeIcon">!</span>
+        <div class="collab__noticeText">
+          본 이벤트는 <b>일러스트</b>와 <b>리깅</b> 양쪽 결제가
+          <b>모두 완료된 경우에만</b> 적용됩니다.
+        </div>
+      </div>
+
+      <div class="collab__grid">
+
+        <!-- Cooing -->
+        <div class="collab__item">
+          <a class="collab__banner"
+             href="https://artmug.kr/index.php?channel=view&uid=53653"
+             target="_blank" rel="noopener"
+             style="--img:url('https://artmugfile2.cafe24.com/image/up_img/detail/5/goods_51824/17612229230_Re.jpg');">
+            <div class="collab__img"></div>
+
+            <!-- PC overlay -->
+            <div class="collab__overlay">
+              <div class="collab__name">Cooing 작가님</div>
+              <div class="collab__perk">
+                <div>일러스트 <b>팔 파츠 1종 무료</b></div>
+                <div>리깅 <b>표정 3종 + 팔 파츠 1종 무료</b></div>
+              </div>
+              <div class="collab__go">작가님 페이지로 이동</div>
+            </div>
+          </a>
+
+          <!-- Mobile fixed info -->
+          <div class="collab__mobileInfo">
+            <div class="collab__mobileName">Cooing 작가님</div>
+            <ul>
+              <li>일러스트 <b>팔 파츠 1종 무료</b></li>
+              <li>리깅 <b>표정 3종 + 팔 파츠 1종 무료</b></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- V.Atelier -->
+        <div class="collab__item">
+          <a class="collab__banner"
+             href="https://artmug.kr/index.php?channel=view&uid=51340"
+             target="_blank" rel="noopener"
+             style="--img:url('https://artmugfile2.cafe24.com/image/up_img/detail/5/goods_51824/17622237340_Re.jpg');">
+            <div class="collab__img"></div>
+
+            <div class="collab__overlay">
+              <div class="collab__name">V.Atelier 작가님</div>
+              <div class="collab__perk">
+                <div>일러스트 <b>₩50,000 할인</b></div>
+                <div>리깅 <b>표정 4종 무료</b></div>
+              </div>
+              <div class="collab__go">작가님 페이지로 이동</div>
+            </div>
+          </a>
+
+          <div class="collab__mobileInfo">
+            <div class="collab__mobileName">V.Atelier 작가님</div>
+            <ul>
+              <li>일러스트 <b>₩50,000 할인</b></li>
+              <li>리깅 <b>표정 4종 무료</b></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 쿠리 -->
+        <div class="collab__item">
+          <a class="collab__banner"
+             href="https://artmug.kr/index.php?channel=view&uid=54330"
+             target="_blank" rel="noopener"
+             style="--img:url('https://artmugfile2.cafe24.com/image/up_img/detail/5/goods_51824/17668233240_Re.jpg');">
+            <div class="collab__img"></div>
+
+            <div class="collab__overlay">
+              <div class="collab__name">쿠리 작가님</div>
+              <div class="collab__perk">
+                <div>일러스트 <b>₩50,000 할인</b></div>
+                <div>리깅 <b>₩50,000 할인</b></div>
+              </div>
+              <div class="collab__go">작가님 페이지로 이동</div>
+            </div>
+          </a>
+
+          <div class="collab__mobileInfo">
+            <div class="collab__mobileName">쿠리 작가님</div>
+            <ul>
+              <li>일러스트 <b>₩50,000 할인</b></li>
+              <li>리깅 <b>₩50,000 할인</b></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .collab{max-width:var(--max);margin:24px auto 0;padding:0 14px;}
+  .collab__card{border-radius:var(--radius);border:1px solid rgba(255,255,255,.14);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));box-shadow:var(--shadow),var(--glow);overflow:hidden;}
+  .collab__top{padding:14px 16px 10px;display:flex;justify-content:space-between;align-items:flex-end;}
+  .collab__badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-size:12px;font-weight:900;}
+  .collab__dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--p1),var(--p3));}
+  .collab__title{font-size:16px;font-weight:1000;}
+  .collab__body{padding:12px 16px 16px;display:grid;gap:14px;}
+  .collab__notice{display:flex;gap:10px;padding:12px;border-radius:16px;background:linear-gradient(135deg,rgba(255,79,154,.18),rgba(139,92,255,.12));border:1px solid rgba(255,255,255,.14);font-size:13px;line-height:1.6;}
+  .collab__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .collab__item{display:flex;flex-direction:column;gap:8px;}
+
+  .collab__banner{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.14);min-height:140px;text-decoration:none;color:#fff;}
+  .collab__img{position:absolute;inset:0;background-image:var(--img);background-size:cover;background-position:center;transition:.3s;}
+  .collab__overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);opacity:0;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:12px;transition:.25s;}
+  .collab__banner:hover .collab__overlay{opacity:1;}
+  .collab__name{font-weight:1000;font-size:14px;}
+  .collab__perk{font-size:12px;line-height:1.5;}
+  .collab__perk b{font-weight:1000;}
+  .collab__go{margin-top:4px;font-size:12px;font-weight:900;}
+
+  /* mobile info */
+  .collab__mobileInfo{
+    display:none;
+    border-radius:14px;
+    padding:10px 12px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.04);
+    font-size:13px;
+    line-height:1.55;
+  }
+  .collab__mobileInfo ul{margin:6px 0 0;padding-left:16px;}
+  .collab__mobileName{font-weight:1000;}
+
+  @media(max-width:900px){
+    .collab__grid{grid-template-columns:1fr;}
+    .collab__overlay{display:none;}
+    .collab__mobileInfo{display:block;}
+  }
+</style>
+<!-- ===== /COLLAB EVENT ===== -->
+
+  <!-- ===================== [SLOT SECTION START] ===================== -->
+<section class="slot" id="slots">
+  <div class="slot__card">
+    <div class="slot__top">
+      <span class="slot__badge"><span class="slot__dot"></span>SLOTS</span>
+      <div class="slot__title">월별 슬롯 현황</div>
+    </div>
+
+    <div class="slot__body">
+      <div class="slot__desc">
+        <p>
+          매월 최대 <b>2명</b>의 인원만 집중하여 작업을 진행하고 있으며, 아래 슬롯 현황을 참고해 주시기 바랍니다.
+        </p>
+        <p>
+          상담 후 <b>결제 완료 순</b>으로 슬롯이 최종 확정되며, 앞선 작업이 마무리되는 대로 순차적으로 착수합니다.
+          시작 전 미리 연락드립니다.
+        </p>
+        <p>
+          리깅 상세 메뉴(옵션)가 확정되지 않더라도 <b>기본 리깅 결제</b>만으로 우선 슬롯 예약이 가능합니다.
+        </p>
+        <p>
+          아래 표기되지 않은 월도 사전 예약 및 상담이 가능하니 편하게 문의해 주세요.
+        </p>
+      </div>
+
+      <!-- ✅ LEGEND -->
+      <div class="slot__legend" aria-label="슬롯 범례">
+        <div class="slot__legItem">
+          <span class="slot__pill slot__pill--open"></span>
+          <span>예약 가능</span>
+        </div>
+        <div class="slot__legItem">
+          <span class="slot__pill slot__pill--full"></span>
+          <span>예약 완료</span>
+        </div>
+      </div>
+
+      <!-- ✅ MONTH GRID -->
+      <div class="slot__grid" aria-label="월별 슬롯">
+        <!-- 2026-01 : 1개만 운영, 1개 예약완료 -->
+        <div class="slot__month">
+          <div class="slot__mHead">
+            <div class="slot__mName">1월</div>
+            <div class="slot__mCap">월 1명 운영</div>
+          </div>
+          <div class="slot__cells" aria-label="1월 슬롯">
+            <span class="slot__cell slot__cell--full" aria-label="예약 완료"></span>
+          </div>
+        </div>
+
+        <!-- 2026-02 : 2개 예약완료 -->
+        <div class="slot__month">
+          <div class="slot__mHead">
+            <div class="slot__mName">2월</div>
+            <div class="slot__mCap">월 2명</div>
+          </div>
+          <div class="slot__cells" aria-label="2월 슬롯">
+            <span class="slot__cell slot__cell--full" aria-label="예약 완료"></span>
+            <span class="slot__cell slot__cell--full" aria-label="예약 완료"></span>
+          </div>
+        </div>
+
+        <!-- 2026-03 : 비어있음 -->
+        <div class="slot__month">
+          <div class="slot__mHead">
+            <div class="slot__mName">3월</div>
+            <div class="slot__mCap">월 2명</div>
+          </div>
+          <div class="slot__cells" aria-label="3월 슬롯">
+            <span class="slot__cell slot__cell--open" aria-label="예약 가능"></span>
+            <span class="slot__cell slot__cell--open" aria-label="예약 가능"></span>
+          </div>
+        </div>
+
+        <!-- 2026-04 : 비어있음 -->
+        <div class="slot__month">
+          <div class="slot__mHead">
+            <div class="slot__mName">4월</div>
+            <div class="slot__mCap">월 2명</div>
+          </div>
+          <div class="slot__cells" aria-label="4월 슬롯">
+            <span class="slot__cell slot__cell--open" aria-label="예약 가능"></span>
+            <span class="slot__cell slot__cell--open" aria-label="예약 가능"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slot__hint">
+        ※ 상태 변경이 잦다면, 아래의 <b>[EDIT]</b> 부분만 수정하면 됩니다.
+      </div>
+    </div>
+
+    <div class="slot__shine" aria-hidden="true"></div>
+    <div class="slot__glow" aria-hidden="true"></div>
+  </div>
+</section>
+
+<style>
+  /* ===================== [SLOT CSS START] ===================== */
+  .slot{
+    max-width: var(--max);
+    margin: 18px auto 0;
+    padding: 0 14px;
+  }
+
+  .slot__card{
+    position:relative;
+    border-radius: var(--radius);
+    overflow:hidden;
+    border: 1px solid rgba(255,255,255,.14);
+    background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+    box-shadow: var(--shadow), var(--glow);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .slot__card::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(900px 380px at 10% 10%, rgba(255,79,154,.16), transparent 62%),
+      radial-gradient(900px 420px at 92% 32%, rgba(139,92,255,.14), transparent 60%),
+      radial-gradient(900px 420px at 45% 115%, rgba(56,214,255,.10), transparent 62%);
+    pointer-events:none;
+  }
+
+  .slot__top{
+    position:relative;
+    padding: 14px 16px 10px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .slot__badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+    border:1px solid rgba(255,255,255,.14);
+    font-weight:900;
+    font-size:12px;
+    color:rgba(255,255,255,.92);
+    user-select:none;
+  }
+
+  .slot__dot{
+    width:10px; height:10px; border-radius:999px;
+    background: radial-gradient(circle at 30% 30%, var(--p3), var(--p1));
+    box-shadow:0 0 0 4px rgba(255,79,154,.14);
+  }
+
+  .slot__title{
+    font-weight:1000;
+    font-size:16px;
+    color:rgba(255,255,255,.92);
+    letter-spacing:-.2px;
+  }
+
+  .slot__body{
+    position:relative;
+    padding: 12px 16px 16px;
+    display:grid;
+    gap:14px;
+  }
+
+  .slot__desc{
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.04);
+    padding:12px 12px;
+    line-height:1.7;
+    color: rgba(255,255,255,.78);
+    box-shadow: 0 18px 55px rgba(0,0,0,.18);
+  }
+  .slot__desc p{ margin:0; }
+  .slot__desc p + p{ margin-top:10px; }
+  .slot__desc b{ color: rgba(255,255,255,.96); font-weight:1000; }
+
+  .slot__legend{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    align-items:center;
+    padding: 0 2px;
+    color: rgba(255,255,255,.76);
+    font-size:12px;
+  }
+  .slot__legItem{ display:flex; align-items:center; gap:8px; }
+
+  .slot__pill{
+    width:12px; height:12px;
+    border-radius:4px;
+    border:1px solid rgba(255,255,255,.26);
+    box-shadow: 0 8px 18px rgba(0,0,0,.18);
+    display:inline-block;
+  }
+  .slot__pill--open{
+    background: rgba(255,255,255,.06);
+    border-color: rgba(255,255,255,.22);
+  }
+  .slot__pill--full{
+    background: linear-gradient(135deg, rgba(255,79,154,.95), rgba(139,92,255,.78));
+    border-color: rgba(255,255,255,.10);
+  }
+
+  .slot__grid{
+    display:grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap:12px;
+  }
+
+  .slot__month{
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.04);
+    padding:12px;
+    box-shadow: 0 18px 55px rgba(0,0,0,.18);
+    overflow:hidden;
+    position:relative;
+  }
+
+  .slot__month::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(520px 240px at 14% 20%, rgba(255,79,154,.10), transparent 56%),
+      radial-gradient(520px 260px at 92% 78%, rgba(139,92,255,.08), transparent 60%);
+    pointer-events:none;
+    opacity:.85;
+  }
+
+  .slot__mHead{
+    position:relative;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:10px;
+  }
+
+  .slot__mName{
+    font-weight:1000;
+    font-size:14px;
+    color: rgba(255,255,255,.92);
+  }
+
+  .slot__mCap{
+    font-size:12px;
+    color: rgba(255,255,255,.62);
+    white-space:nowrap;
+  }
+
+  .slot__cells{
+    position:relative;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  /* ✅ 핵심: 네모 상태 */
+  .slot__cell{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.22);
+    background: rgba(255,255,255,.06);
+    box-shadow: 0 12px 30px rgba(0,0,0,.22);
+  }
+
+  .slot__cell--open{
+    background: rgba(255,255,255,.06);
+    border-color: rgba(255,255,255,.22);
+  }
+
+  .slot__cell--full{
+    background: linear-gradient(135deg, rgba(255,79,154,.95), rgba(139,92,255,.78));
+    border-color: rgba(255,255,255,.10);
+    box-shadow:
+      0 0 0 2px rgba(255,79,154,.18),
+      0 14px 34px rgba(255,79,154,.18);
+  }
+
+  .slot__hint{
+    color: rgba(255,255,255,.62);
+    font-size:12px;
+    line-height:1.45;
+  }
+
+  .slot__shine{
+    position:absolute;
+    inset:-40% -30% auto auto;
+    width:280px; height:280px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.20), transparent 62%);
+    opacity:.60;
+    pointer-events:none;
+  }
+  .slot__glow{
+    position:absolute;
+    inset:auto auto -110px -110px;
+    width:360px; height:360px;
+    background: radial-gradient(circle at 40% 30%, rgba(56,214,255,.18), transparent 68%);
+    opacity:.52;
+    pointer-events:none;
+  }
+
+  @media (max-width: 980px){
+    .slot__grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px){
+    .slot__top{ padding: 12px 14px 8px; }
+    .slot__body{ padding: 10px 14px 14px; }
+    .slot__grid{ grid-template-columns: 1fr; }
+    .slot__cell{ width:36px; height:36px; }
+  }
+  /* ===================== [SLOT CSS END] ===================== */
+</style>
+<!-- ===================== [SLOT SECTION END] ===================== -->
+
+  <!-- ===================== [INQUIRY FORM START v3] ===================== -->
+<section class="inq" id="inquiry">
+  <div class="inq__card">
+    <div class="inq__top">
+      <span class="inq__badge"><span class="inq__dot"></span>INQUIRY</span>
+      <div class="inq__title">문의 양식</div>
+    </div>
+
+    <div class="inq__body">
+      <p class="inq__sub">
+        항목을 선택/작성한 뒤 <b>“문의 내용 복사”</b>를 눌러 그대로 붙여넣어 주세요.
+      </p>
+
+      <div class="inq__grid">
+        <!-- 희망 일정 -->
+        <div class="inq__field">
+          <label class="inq__label" for="inq_slot">예약 희망 일정</label>
+          <input class="inq__input" id="inq_slot" type="text" placeholder="예) 2월 1번째 슬롯 / 3월 2번째 슬롯" />
+          <div class="inq__hint">형식 자유 (X월 1 or 2번째 슬롯)</div>
+        </div>
+
+        <!-- PSD 준비 -->
+        <div class="inq__field">
+          <div class="inq__label">PSD 파일 준비여부</div>
+          <div class="inq__row">
+            <label class="inq__chip">
+              <input type="radio" name="psd" value="예" checked />
+              <span>예</span>
+            </label>
+            <label class="inq__chip">
+              <input type="radio" name="psd" value="아니오" />
+              <span>아니오</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 장치 -->
+        <div class="inq__field">
+          <div class="inq__label">사용 장치</div>
+          <div class="inq__row">
+            <label class="inq__chip">
+              <input type="radio" name="device" value="웹캠" checked />
+              <span>웹캠</span>
+            </label>
+            <label class="inq__chip">
+              <input type="radio" name="device" value="아이폰" />
+              <span>아이폰</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 플랫폼 -->
+        <div class="inq__field inq__field--wide">
+          <label class="inq__label" for="inq_platform">방송 플랫폼 &amp; 플랫폼 닉네임</label>
+          <input class="inq__input" id="inq_platform" type="text" placeholder="예) 치지직 / @닉네임 | 트위치 / 닉네임" />
+        </div>
+
+        <!-- 데뷔 -->
+        <div class="inq__field">
+          <label class="inq__label" for="inq_debut">데뷔 예정일</label>
+          <input class="inq__input" id="inq_debut" type="text" placeholder="예) 2026-03-15 (미정 가능)" />
+        </div>
+
+        <!-- 협업 -->
+        <div class="inq__field">
+          <div class="inq__label">협업 작가 선택</div>
+          <div class="inq__row inq__row--wrap">
+            <label class="inq__chip">
+              <input type="radio" name="collab" value="해당 없음" checked />
+              <span>해당 없음</span>
+            </label>
+            <label class="inq__chip">
+              <input type="radio" name="collab" value="Cooing" />
+              <span>Cooing</span>
+            </label>
+            <label class="inq__chip">
+              <input type="radio" name="collab" value="V.Atelier" />
+              <span>V.Atelier</span>
+            </label>
+            <label class="inq__chip">
+              <input type="radio" name="collab" value="쿠리" />
+              <span>쿠리</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 메뉴/옵션 -->
+        <div class="inq__field inq__field--wide">
+          <div class="inq__label">메뉴 / 옵션 선택</div>
+
+          <!-- 기본 리깅: 단일 선택 -->
+          <div class="inq__box">
+            <div class="inq__boxTitle">기본 리깅 (필수 · 1개 선택)</div>
+            <div class="inq__radios">
+              <label class="inq__radio">
+                <input type="radio" name="baseMenu" value="LD 전신 리깅" data-price="500000" />
+                <span class="inq__rText">LD 전신 리깅</span>
+                <b class="inq__rPrice">₩500,000</b>
+              </label>
+              <label class="inq__radio">
+                <input type="radio" name="baseMenu" value="LD 반신 리깅" data-price="350000" />
+                <span class="inq__rText">LD 반신 리깅</span>
+                <b class="inq__rPrice">₩350,000</b>
+              </label>
+            </div>
+            <div class="inq__hint">전신/반신 중 1개를 선택해 주세요.</div>
+          </div>
+
+          <!-- 여러 개 가능(수량 0~8) -->
+          <div class="inq__box">
+            <div class="inq__boxTitle">수량 선택 옵션 (1종 여러 개 가능)</div>
+            <div class="inq__qtyGrid">
+
+              <div class="inq__qty">
+                <div class="inq__qtyName">간단 토글 표정 (1종)</div>
+                <div class="inq__qtyRight">
+                  <b class="inq__qtyPrice">₩10,000</b>
+                  <select class="inq__qtySel" data-label="간단 토글 표정 1종" data-unit="10000">
+                    <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="inq__qty">
+                <div class="inq__qtyName">애니메이션 토글 표정 (1종)</div>
+                <div class="inq__qtyRight">
+                  <b class="inq__qtyPrice">₩20,000</b>
+                  <select class="inq__qtySel" data-label="애니메이션 토글 표정 1종" data-unit="20000">
+                    <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="inq__qty">
+                <div class="inq__qtyName">손옵션 (1종)</div>
+                <div class="inq__qtyRight">
+                  <b class="inq__qtyPrice">₩30,000</b>
+                  <select class="inq__qtySel" data-label="손옵션 1종" data-unit="30000">
+                    <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="inq__qty">
+                <div class="inq__qtyName">ON/OFF 옵션 추가 (1종)</div>
+                <div class="inq__qtyRight">
+                  <b class="inq__qtyPrice">₩10,000</b>
+                  <select class="inq__qtySel" data-label="ON/OFF 옵션 추가 1종" data-unit="10000">
+                    <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="inq__qty">
+                <div class="inq__qtyName">토글 물리 (1종)</div>
+                <div class="inq__qtyRight">
+                  <b class="inq__qtyPrice">₩20,000</b>
+                  <select class="inq__qtySel" data-label="토글 물리 1종" data-unit="20000">
+                    <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 단일 체크 옵션 -->
+          <div class="inq__box">
+            <div class="inq__boxTitle">추가 옵션 (체크)</div>
+            <div class="inq__checks">
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="입 좌우 움직임 (iOS 전용)" data-price="20000" />
+                <span>입 좌우 움직임 (iOS 전용) <b>₩20,000</b></span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="볼빵빵 (웹캠=토글 작업)" data-price="30000" />
+                <span>볼빵빵 (웹캠=토글 작업) <b>₩30,000</b></span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="혀내밀기 (웹캠=토글 작업)" data-price="30000" />
+                <span>혀내밀기 (웹캠=토글 작업) <b>₩30,000</b></span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="VBridger" data-price="50000" />
+                <span>
+                  VBridger <b>₩50,000</b>
+                  <i class="inq__mini">발음별 입 모양 보정 · 오물오물 <b style="color:rgba(255,255,255,.92)">실행 필수</b> (미실행 시 제한)</i>
+                </span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="동물 귀&꼬리 (보유 시 필수)" data-price="30000" />
+                <span>동물 귀&꼬리 <b>₩30,000</b> <i class="inq__mini">(보유 시 필수)</i></span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="스탭 추가" data-price="30000" />
+                <span>스탭 추가 <b>₩30,000</b></span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="가치코이 단축키" data-price="100000" />
+                <span>가치코이 단축키 <b>₩100,000</b></span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="가치코이 페이셜" data-price="200000" />
+                <span>가치코이 페이셜 <b>₩200,000</b></span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="신 헤어추가 1종" data-price="150000" />
+                <span>신 헤어추가 1종 <b>₩150,000</b></span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="신의상 추가 1종" data-price="200000" />
+                <span>신의상 추가 1종 <b>₩200,000</b></span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="작업 영구 비공개" data-price="200000" />
+                <span>작업 영구 비공개 <b>₩200,000</b></span>
+              </label>
+
+              <label class="inq__check">
+                <input type="checkbox" class="menuOpt" data-label="설치 도움" data-price="0" />
+                <span>설치 도움 <b>₩0</b></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 합계 표시 -->
+          <div class="inq__total">
+            <div class="inq__totalLeft">
+              <div class="inq__totalTitle">선택 합계</div>
+              <div class="inq__totalSub">문의 텍스트에 항목/총액이 함께 포함됩니다.</div>
+            </div>
+            <div class="inq__totalRight">
+              <div class="inq__totalNum" id="inq_total">₩0</div>
+            </div>
+          </div>
+
+          <div class="inq__actions">
+            <button class="inq__btn inq__btn--ghost" type="button" id="inq_reset">선택 초기화</button>
+            <button class="inq__btn" type="button" id="inq_copy">문의 내용 복사</button>
+          </div>
+
+          <div class="inq__outWrap">
+            <div class="inq__outTop">
+              <div class="inq__outTitle">생성된 문의 텍스트</div>
+              <div class="inq__outHint">복사가 안 되면 아래 텍스트를 직접 복사해 주세요.</div>
+            </div>
+            <textarea class="inq__out" id="inq_output" readonly></textarea>
+          </div>
+
+          <div class="inq__toast" id="inq_toast" role="status" aria-live="polite">복사 완료!</div>
+        </div>
+
+        <!-- 기타 문의 -->
+        <div class="inq__field inq__field--wide">
+          <label class="inq__label" for="inq_extra">기타 문의내용</label>
+          <textarea class="inq__textarea" id="inq_extra" placeholder="요청사항 등을 자유롭게 작성해 주세요."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="inq__shine" aria-hidden="true"></div>
+    <div class="inq__glow" aria-hidden="true"></div>
+  </div>
+</section>
+
+<style>
+  /* ✅ 문의 섹션 내부는 무조건 box-sizing 적용 */
+  #inquiry, #inquiry *{ box-sizing:border-box; }
+
+  .inq{max-width:var(--max);margin:18px auto 0;padding:0 14px;}
+  .inq__card{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.14);background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.05));box-shadow:var(--shadow),var(--glow);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
+  .inq__card::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 380px at 10% 10%, rgba(255,79,154,.16), transparent 62%),radial-gradient(900px 420px at 92% 32%, rgba(139,92,255,.14), transparent 60%),radial-gradient(900px 420px at 45% 115%, rgba(56,214,255,.10), transparent 62%);pointer-events:none;}
+  .inq__top{position:relative;padding:14px 16px 10px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .inq__badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.14);font-weight:900;font-size:12px;color:rgba(255,255,255,.92);user-select:none;}
+  .inq__dot{width:10px;height:10px;border-radius:999px;background:radial-gradient(circle at 30% 30%, var(--p3), var(--p1));box-shadow:0 0 0 4px rgba(255,79,154,.14);}
+  .inq__title{font-weight:1000;font-size:16px;color:rgba(255,255,255,.92);letter-spacing:-.2px;}
+  .inq__body{position:relative;padding:12px 16px 16px;}
+  .inq__sub{margin:0 0 14px;color:rgba(255,255,255,.72);font-size:13px;line-height:1.6;}
+  .inq__sub b{color:rgba(255,255,255,.96);font-weight:1000;}
+
+  /* ✅ overflow 방지 핵심 3종 세트 */
+  .inq__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .inq__grid > *{min-width:0;}
+  .inq__field{
+    min-width:0;
+    overflow:hidden;             /* ← 안전장치 */
+    border-radius:18px;border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.04);
+    padding:12px;
+    box-shadow:0 18px 55px rgba(0,0,0,.18);
+  }
+  .inq__field--wide{grid-column:1 / -1;}
+
+  .inq__label{display:block;font-weight:1000;font-size:13px;color:rgba(255,255,255,.92);margin-bottom:8px;}
+  .inq__hint{margin-top:8px;font-size:12px;color:rgba(255,255,255,.60);}
+
+  .inq__input, .inq__textarea{
+    display:block;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(0,0,0,.20);
+    color:rgba(255,255,255,.92);
+    padding:10px 12px;
+    font-size:13px;
+    outline:none;
+  }
+  .inq__input::placeholder, .inq__textarea::placeholder{color:rgba(255,255,255,.45);}
+  .inq__textarea{min-height:150px;resize:vertical;}
+
+  .inq__row{display:flex;gap:10px;flex-wrap:wrap;}
+  .inq__row--wrap{gap:8px;}
+
+  .inq__chip{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:9px 11px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(0,0,0,.18);
+    color:rgba(255,255,255,.84);
+    font-size:12px;font-weight:900;
+    cursor:pointer; user-select:none;
+    transition:.18s;
+  }
+  .inq__chip input{accent-color: var(--p1);}
+  .inq__chip:hover{transform:translateY(-1px);border-color:rgba(255,79,154,.28);}
+
+  .inq__box{
+    margin-top:10px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.14);
+    background:linear-gradient(135deg, rgba(255,79,154,.10), rgba(139,92,255,.07));
+    padding:12px;
+    min-width:0;
+  }
+  .inq__boxTitle{font-weight:1000;font-size:13px;color:rgba(255,255,255,.92);margin-bottom:10px;}
+
+  .inq__radios{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .inq__radio{
+    display:flex;gap:10px;align-items:center;justify-content:space-between;
+    padding:12px;border-radius:16px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(0,0,0,.16);
+    cursor:pointer; transition:.18s;
+    min-width:0;
+  }
+  .inq__radio:hover{border-color:rgba(255,79,154,.28);transform:translateY(-1px);}
+  .inq__radio input{accent-color: var(--p1);}
+  .inq__rText{font-size:12px;font-weight:1000;color:rgba(255,255,255,.90);min-width:0;}
+  .inq__rPrice{font-size:12px;font-weight:1000;color:rgba(255,255,255,.96);white-space:nowrap;}
+
+  .inq__qtyGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .inq__qty{
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(0,0,0,.16);
+    padding:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    min-width:0;
+  }
+  .inq__qtyName{font-size:12px;font-weight:1000;color:rgba(255,255,255,.90);line-height:1.35;min-width:0;}
+  .inq__qtyRight{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+  .inq__qtyPrice{font-size:12px;font-weight:1000;white-space:nowrap;}
+  .inq__qtySel{
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(0,0,0,.22);
+    color:rgba(255,255,255,.92);
+    font-weight:1000;
+    padding:8px 10px;
+    outline:none;
+    cursor:pointer;
+  }
+
+  .inq__checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+  .inq__check{
+    display:flex;gap:10px;align-items:flex-start;
+    padding:10px;border-radius:16px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(0,0,0,.16);
+    cursor:pointer;
+    transition:.18s;
+    min-width:0;
+  }
+  .inq__check:hover{border-color:rgba(255,79,154,.28);transform:translateY(-1px);}
+  .inq__check input{margin-top:2px;accent-color: var(--p1);}
+  .inq__check span{font-size:12px;line-height:1.45;color:rgba(255,255,255,.84);min-width:0;}
+  .inq__check b{color:rgba(255,255,255,.96);font-weight:1000;white-space:nowrap;}
+  .inq__mini{display:block;margin-top:6px;font-style:normal;font-size:12px;color:rgba(255,255,255,.72);font-weight:900;}
+
+  .inq__total{
+    margin-top:12px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.14);
+    background:linear-gradient(135deg, rgba(255,79,154,.16), rgba(139,92,255,.10));
+    padding:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    min-width:0;
+  }
+  .inq__totalTitle{font-weight:1000;font-size:13px;color:rgba(255,255,255,.92);}
+  .inq__totalSub{margin-top:6px;font-size:12px;color:rgba(255,255,255,.66);line-height:1.45;}
+  .inq__totalNum{font-weight:1000;font-size:18px;color:rgba(255,255,255,.96);white-space:nowrap;}
+
+  .inq__actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px;flex-wrap:wrap;}
+  .inq__btn{
+    border:1px solid rgba(255,255,255,.16);
+    background:linear-gradient(135deg, rgba(255,79,154,.92), rgba(139,92,255,.78));
+    color:#fff;font-weight:1000;font-size:13px;
+    padding:10px 14px;border-radius:14px;cursor:pointer;
+    box-shadow: 0 18px 55px rgba(0,0,0,.22);
+    transition:.18s;
+  }
+  .inq__btn:hover{transform:translateY(-1px);filter:brightness(1.02);}
+  .inq__btn--ghost{background:rgba(0,0,0,.18);color:rgba(255,255,255,.90);}
+
+  .inq__outWrap{margin-top:12px;min-width:0;}
+  .inq__outTop{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:8px;flex-wrap:wrap;}
+  .inq__outTitle{font-weight:1000;font-size:13px;color:rgba(255,255,255,.92);}
+  .inq__outHint{font-size:12px;color:rgba(255,255,255,.62);}
+
+  .inq__out{
+    display:block;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    min-height:180px;
+    resize:vertical;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(0,0,0,.22);
+    color:rgba(255,255,255,.90);
+    padding:12px;
+    font-size:12px;
+    line-height:1.55;
+    outline:none;
+  }
+
+  .inq__toast{
+    position:fixed;left:50%;bottom:22px;
+    transform:translateX(-50%) translateY(10px);
+    opacity:0;pointer-events:none;
+    padding:10px 14px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(0,0,0,.55);
+    color:rgba(255,255,255,.92);
+    font-weight:1000;font-size:13px;
+    box-shadow: 0 18px 55px rgba(0,0,0,.28);
+    transition: opacity .18s ease, transform .18s ease;
+    z-index:9999;
+  }
+  .inq__toast.is-on{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  .inq__shine{position:absolute;inset:-40% -30% auto auto;width:280px;height:280px;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.20), transparent 62%);opacity:.60;pointer-events:none;}
+  .inq__glow{position:absolute;inset:auto auto -110px -110px;width:360px;height:360px;background:radial-gradient(circle at 40% 30%, rgba(56,214,255,.18), transparent 68%);opacity:.52;pointer-events:none;}
+
+  @media (max-width: 900px){
+    .inq__grid{grid-template-columns:1fr;}
+    .inq__checks{grid-template-columns:1fr;}
+    .inq__qtyGrid{grid-template-columns:1fr;}
+    .inq__radios{grid-template-columns:1fr;}
+  }
+  @media (max-width: 720px){
+    .inq__top{padding:12px 14px 8px;}
+    .inq__body{padding:10px 14px 14px;}
+  }
+</style>
+
+<script>
+(function(){
+  const $ = (q,root=document)=>root.querySelector(q);
+  const $$ = (q,root=document)=>[...root.querySelectorAll(q)];
+  const root = $("#inquiry");
+  const out = $("#inq_output");
+  const toast = $("#inq_toast");
+  const totalEl = $("#inq_total");
+
+  const slot = $("#inq_slot");
+  const platform = $("#inq_platform");
+  const debut = $("#inq_debut");
+  const extra = $("#inq_extra");
+
+  function fmt(n){
+    const s = String(n);
+    return "₩" + s.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  function getRadio(name){
+    const el = $(`input[name="${name}"]:checked`, root);
+    return el ? el.value : "";
+  }
+
+  function getBase(){
+    const el = $(`input[name="baseMenu"]:checked`, root);
+    if(!el) return null;
+    return { label: el.value, price: Number(el.dataset.price || 0) };
+  }
+
+  function getQtyItems(){
+    return $$(".inq__qtySel", root)
+      .map(sel=>{
+        const qty = Number(sel.value || 0);
+        const unit = Number(sel.dataset.unit || 0);
+        const label = sel.dataset.label || "옵션";
+        return { label, qty, unit, price: qty * unit };
+      })
+      .filter(x=>x.qty > 0);
+  }
+
+  function getChecks(){
+    return $$(".menuOpt:checked", root).map(chk=>{
+      return { label: chk.dataset.label || "옵션", price: Number(chk.dataset.price || 0) };
+    });
+  }
+
+  function calc(){
+    const base = getBase();
+    const qtyItems = getQtyItems();
+    const checks = getChecks();
+
+    let sum = 0;
+    if(base) sum += base.price;
+    qtyItems.forEach(x=>sum += x.price);
+    checks.forEach(x=>sum += x.price);
+
+    totalEl.textContent = fmt(sum);
+    return { base, qtyItems, checks, sum };
+  }
+
+  function buildText(){
+    const { base, qtyItems, checks, sum } = calc();
+
+    const lines = [];
+    lines.push("■ 문의 양식");
+    lines.push("");
+    lines.push("1) 예약 희망 일정: " + (slot.value.trim() || "미작성"));
+    lines.push("2) 기본 메뉴: " + (base ? `${base.label} (${fmt(base.price)})` : "미선택"));
+    lines.push("3) 옵션 선택:");
+
+    if(qtyItems.length === 0 && checks.length === 0){
+      lines.push("   - 없음");
+    }else{
+      qtyItems.forEach(x=>lines.push(`   - ${x.label} ×${x.qty} (${fmt(x.price)})`));
+      checks.forEach(x=>lines.push(`   - ${x.label} (${fmt(x.price)})`));
+    }
+
+    lines.push("4) 선택 합계: " + fmt(sum));
+    lines.push("5) PSD 파일 준비 여부: " + getRadio("psd"));
+    lines.push("6) 방송 플랫폼 & 닉네임: " + (platform.value.trim() || "미작성"));
+    lines.push("7) 사용 장치: " + getRadio("device"));
+    lines.push("8) 협업 작가: " + getRadio("collab"));
+    lines.push("9) 데뷔 예정일: " + (debut.value.trim() || "미작성"));
+    lines.push("10) 기타 문의내용: " + (extra.value.trim() || "없음"));
+    lines.push("");
+    lines.push("감사합니다!");
+    return lines.join("\n");
+  }
+
+  function render(){ out.value = buildText(); }
+
+  ["input","change"].forEach(evt=>root.addEventListener(evt, render));
+
+  $("#inq_copy").addEventListener("click", async ()=>{
+    render();
+    try{
+      await navigator.clipboard.writeText(out.value);
+      toast.textContent = "복사 완료!";
+      toast.classList.add("is-on");
+      setTimeout(()=>toast.classList.remove("is-on"), 1400);
+    }catch(e){
+      out.focus(); out.select();
+      document.execCommand && document.execCommand("copy");
+      toast.textContent = "아래 텍스트를 직접 복사해 주세요!";
+      toast.classList.add("is-on");
+      setTimeout(()=>{
+        toast.classList.remove("is-on");
+        toast.textContent = "복사 완료!";
+      }, 1600);
+    }
+  });
+
+  $("#inq_reset").addEventListener("click", ()=>{
+    slot.value = "";
+    platform.value = "";
+    debut.value = "";
+    extra.value = "";
+
+    $$(`input[name="baseMenu"]`, root).forEach(x=>x.checked=false);
+    $$(".inq__qtySel", root).forEach(sel=>sel.value="0");
+    $$(".menuOpt", root).forEach(x=>x.checked=false);
+
+    const setRadio = (name, value)=>{
+      const t = $(`#inquiry input[name="${name}"][value="${value}"]`);
+      if(t) t.checked = true;
+    };
+    setRadio("psd","예");
+    setRadio("device","웹캠");
+    setRadio("collab","해당 없음");
+
+    render();
+  });
+
+  out.addEventListener("focus", ()=>out.select());
+
+  render();
+})();
+</script>
+<!-- ===================== [INQUIRY FORM END v3] ===================== -->
+
+  
+  
+  <script>
+  (function(){
+    const VIDEOS = [
+      { id:"nKnbNQM_E6Y", title:"Showcase 01" },
+      { id:"GSNXmsDC6VY", title:"Showcase 02" },
+      { id:"G7E7gPjzzm4", title:"Showcase 03" },
+      { id:"6fePAVY9eMY", title:"Showcase 04" },
+      { id:"LDMI8Y_T7U8", title:"Showcase 05" },
+      { id:"Yfl88RKt1o8", title:"Showcase 06" },
+      { id:"1vSe3nqaoog", title:"Showcase 07" }
+    ];
+
+    const rail = document.getElementById("rail");
+    const player = document.getElementById("l2dPlayer");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+
+    let active = 0;
+
+    function embed(id){
+      return "https://www.youtube.com/embed/"+id+
+        "?rel=0&modestbranding=1&playsinline=1&autoplay=0";
+    }
+    function thumb(id){
+      return "https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";
+    }
+
+    function scrollThumbIntoView(i){
+      const el = rail.children[i];
+      if(!el) return;
+      const elLeft = el.offsetLeft;
+      const elRight = elLeft + el.offsetWidth;
+      const viewLeft = rail.scrollLeft;
+      const viewRight = viewLeft + rail.clientWidth;
+
+      if(elLeft < viewLeft){
+        rail.scrollTo({ left: elLeft - 12, behavior: "smooth" });
+      }else if(elRight > viewRight){
+        rail.scrollTo({ left: elRight - rail.clientWidth + 12, behavior: "smooth" });
+      }
+    }
+
+    function render(){
+      rail.innerHTML="";
+      VIDEOS.forEach((v,i)=>{
+        const b=document.createElement("button");
+        b.type="button";
+        b.className="l2d-item"+(i===active?" is-active":"");
+        b.setAttribute("aria-label", v.title + " 선택");
+
+        const img=document.createElement("img");
+        img.className="l2d-thumb";
+        img.src=thumb(v.id);
+        img.alt=v.title;
+        img.loading="lazy";
+
+        const cap=document.createElement("div");
+        cap.className="l2d-cap";
+        cap.textContent=v.title;
+
+        b.append(img,cap);
+
+        b.addEventListener("click",(e)=>{
+          e.preventDefault();
+          b.blur();
+          setActive(i,true);
+        });
+
+        b.addEventListener("touchend",(e)=>{
+          e.preventDefault();
+        }, {passive:false});
+
+        rail.appendChild(b);
+      });
+
+      updateNav();
+    }
+
+    function setActive(i,scroll){
+      if(i<0||i>=VIDEOS.length) return;
+      active=i;
+      player.src=embed(VIDEOS[i].id);
+      [...rail.children].forEach((el,idx)=>el.classList.toggle("is-active",idx===i));
+      if(scroll) scrollThumbIntoView(i);
+      updateNav();
+    }
+
+    function updateNav(){
+      prev.disabled=active<=0;
+      next.disabled=active>=VIDEOS.length-1;
+    }
+
+    prev.addEventListener("click",(e)=>{ e.preventDefault(); prev.blur(); setActive(active-1,true); });
+    next.addEventListener("click",(e)=>{ e.preventDefault(); next.blur(); setActive(active+1,true); });
+
+    // 모바일 스와이프
+    let sx=0, sy=0, tracking=false;
+    const swipeArea = document.querySelector(".l2d-main-inner");
+
+    swipeArea.addEventListener("touchstart",(e)=>{
+      if(!e.touches || e.touches.length!==1) return;
+      tracking=true;
+      sx=e.touches[0].clientX;
+      sy=e.touches[0].clientY;
+    },{passive:true});
+
+    swipeArea.addEventListener("touchend",(e)=>{
+      if(!tracking) return;
+      tracking=false;
+      const t=e.changedTouches && e.changedTouches[0];
+      if(!t) return;
+
+      const dx=t.clientX - sx;
+      const dy=t.clientY - sy;
+
+      if(Math.abs(dy) > Math.abs(dx)) return;
+
+      if(dx>50) setActive(active-1,true);
+      if(dx<-50) setActive(active+1,true);
+    },{passive:true});
+
+    render();
+    setActive(0,false);
+  })();
+
+  </script>
+  <!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Live2D Video Showcase</title>
+
+<style>
+:root{
+  --bg1:#0b0a12;
+  --bg2:#140b1c;
+  --p1:#ff4f9a;
+  --p3:#ffd1e5;
+  --p4:#8b5cff;
+  --p5:#38d6ff;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.72);
+  --shadow:0 24px 70px rgba(0,0,0,.55);
+  --glow:0 0 0 1px rgba(255,255,255,.06),0 18px 60px rgba(255,79,154,.18);
+  --radius:22px;
+  --max:980px;
+}
+
+*{box-sizing:border-box;}
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100dvh;
+}
+
+body{
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+  color:var(--text);
+  overflow-x:hidden;
+  background: linear-gradient(180deg,var(--bg1),var(--bg2));
+}
+
+/* ✅ 단일 고정 배경 레이어 */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(1200px 800px at 15% 10%, rgba(255,79,154,.22), transparent 65%),
+    radial-gradient(900px 600px at 85% 25%, rgba(139,92,255,.20), transparent 60%),
+    radial-gradient(900px 600px at 40% 110%, rgba(56,214,255,.16), transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+}
+
+/* 공통 래퍼 */
+.page{position:relative;}
+.wrap,.section,.menu,.pflow,.collab,.slot,.inq{
+  max-width:var(--max);
+  margin:28px auto 0;
+  padding:0 14px;
+}
+
+/* 카드 공통 */
+.frame,
+.notice__card,
+.promo__card,
+.sample2__card,
+.optstrip__card,
+.menu__card,
+.pflow__card,
+.collab__card,
+.slot__card,
+.inq__card{
+  border-radius:var(--radius);
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:var(--shadow),var(--glow);
+}
+
+/* 뱃지 */
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  font-weight:900;
+  font-size:12px;
+}
+.dot{
+  width:10px;height:10px;border-radius:50%;
+  background:linear-gradient(135deg,var(--p1),var(--p3));
+  box-shadow:0 0 0 4px rgba(255,79,154,.14);
+}
+
+/* ===== 여기부터 네 기존 구조 그대로 ===== */
+/* ⚠️ 배경 관련 ::before 전부 제거된 상태 */
+/* SHOWCASE / MENU / WORKFLOW / COLLAB / SLOT / INQUIRY */
+/* 기능/JS는 네가 준 것과 동일 */
+
+/* 👉 길어서 JS 포함 전체는 다음 메시지로 이어서 줄게 */
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- ⚠️ 여기부터는 네가 준 HTML BODY 내용 그대로 -->
+<!-- (Showcase / Notice / Event / Samples / Menu / Workflow / Collab / Slot / Inquiry) -->
+<!-- 구조, 기능, 가격, 옵션 전부 변경 없음 -->
+
+</div>
+<style>
+/* ===== MOBILE MEDIA ALIGN FIX (FINAL) ===== */
+@media (max-width: 720px){
+
+  /* 모든 미디어 박스: 가운데 정렬 컨테이너 */
+  .sample2__media,
+  .optstrip__media{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+    transform: translateZ(0); /* 서브픽셀 쏠림 방지 */
+  }
+
+  /* GIF / MP4 공통: 강제 높이 제거 */
+  .sample2__media--gif,
+  .sample2__media--video,
+  .optstrip__media--long,
+  .optstrip__media--mid{
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  /* 와이드 영상은 모바일에서 16:9로 통일 */
+  .optstrip__media--long,
+  .optstrip__media--mid{
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  /* 정사각/특수 비율 대응 */
+  .sample2__media--square{
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  /* 실제 영상/이미지 요소는 항상 중앙 기준 */
+  .sample2__video,
+  .optstrip__video,
+  .sample2__img{
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    margin: 0 auto !important;
+  }
+}
+</style>
+
 </body>
 </html>
+

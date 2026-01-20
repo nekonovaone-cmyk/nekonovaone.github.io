@@ -2988,57 +2988,55 @@ body::before{
 </div>
 <style>
 /* ===============================
-   VIDEO CENTER FIX (GLOBAL)
-   - Samples / Options 영상 "쏠림" 방지
-   - 모바일/PC 모두 가운데 고정
-   - 다른 레이아웃은 건드리지 않음
+   HARD VIDEO CENTER FIX
+   - 샘플/옵션 mp4가 한쪽으로 쏠리거나 잘리는 현상 해결
+   - 기존 레이아웃/카드 디자인은 유지
 ================================ */
 
-/* 1) 영상이 들어가는 박스는 무조건 기준점 만들기 */
+/* 컨테이너는 가운데 정렬 기준 */
 .sample2__media,
 .optstrip__media{
-  position: relative !important;
-  overflow: hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  position:relative !important;
 }
 
-/* 2) video는 박스 안을 "꽉 채우되", 내용은 가운데 기준으로 contain */
+/* video는 "꽉 차게 강제"가 아니라,
+   컨테이너 안에서 자동으로 가운데에 맞춰지게 */
+.sample2__media > video.sample2__video,
+.optstrip__media > video.optstrip__video{
+  position:static !important;
+  display:block !important;
+
+  width:auto !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:100% !important;
+
+  object-fit:contain !important;
+  object-position:center center !important;
+
+  margin:0 auto !important;
+  left:auto !important;
+  right:auto !important;
+  transform:none !important;
+}
+
+/* 혹시 기존 CSS가 video에 width/height 100%를 계속 먹이면
+   source/inline 스타일보다 우선해서 막아줌 */
 .sample2__video,
 .optstrip__video{
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  display: block !important;
-
-  object-fit: contain !important;
-  object-position: 50% 50% !important;
-
-  /* 혹시 flex 영향 잔여가 있으면 무력화 */
-  margin: 0 !important;
-  transform: none !important;
-}
-
-/* 3) source만 있을 때 일부 브라우저에서 video 크기 튀는 거 방지 */
-.sample2__video,
-.optstrip__video{
-  background: transparent !important;
-}
-
-/* 4) iOS/모바일에서 가끔 왼쪽으로 밀리는 경우 방지 */
-.sample2__media > video,
-.optstrip__media > video{
-  left: 0 !important;
-  right: 0 !important;
-}
-
-/* 5) (선택) 모바일에서 아주 작은 화면에서도 가운데 유지 */
-@media (max-width: 720px){
-  .sample2__video,
-  .optstrip__video{
-    object-position: center center !important;
-  }
+  width:auto !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  object-position:center center !important;
 }
 </style>
+
 
 </body>
 </html>

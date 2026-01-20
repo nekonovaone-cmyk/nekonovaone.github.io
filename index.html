@@ -2967,7 +2967,7 @@
 
   
   
-  <script>
+   <script>
   (function(){
     const VIDEOS = [
       { id:"nKnbNQM_E6Y", title:"Showcase 01" },
@@ -3091,70 +3091,61 @@
     render();
     setActive(0,false);
   })();
-
   </script>
+
   <style>
- /* ===== MOBILE VIDEO FIX (REPLACE WHOLE BLOCK) ===== */
-  @media (max-width: 720px){
-    .sample2__media,
-    .optstrip__media{
-      display:block !important;
-      position:relative !important;
-      overflow:hidden !important;
+    /* ===== iframe 내부 스크롤 제거(페이지 자체 스크롤바 없애기) ===== */
+    html, body{
+      overflow: hidden !important;
     }
 
-    .sample2__media--wide,
-    .optstrip__media--long,
-    .optstrip__media--mid{
-      aspect-ratio: 16 / 9 !important;
-      min-height: 0 !important;
-      height: auto !important;
+    /* ===== MOBILE VIDEO FIX ===== */
+    @media (max-width: 720px){
+      .sample2__media,
+      .optstrip__media{
+        display:block !important;
+        position:relative !important;
+        overflow:hidden !important;
+      }
+
+      .sample2__media--wide,
+      .optstrip__media--long,
+      .optstrip__media--mid{
+        aspect-ratio: 16 / 9 !important;
+        min-height: 0 !important;
+        height: auto !important;
+      }
+
+      .sample2__media--square{
+        aspect-ratio: 1 / 1 !important;
+        min-height: 0 !important;
+        height: auto !important;
+      }
+
+      .sample2__video,
+      .optstrip__video{
+        position:absolute !important;
+        inset:0 !important;
+        width:100% !important;
+        height:100% !important;
+        max-width:none !important;
+        max-height:none !important;
+        object-fit:contain !important;
+        object-position:center center !important;
+        display:block !important;
+        margin:0 !important;
+      }
+
+      .sample2__media--video{
+        display:block !important;
+        position:relative !important;
+        overflow:hidden !important;
+        min-height: 0 !important;
+        height: auto !important;
+        transform: translateZ(0);
+      }
     }
-
-    .sample2__media--square{
-      aspect-ratio: 1 / 1 !important;
-      min-height: 0 !important;
-      height: auto !important;
-    }
-
-    .sample2__video,
-    .optstrip__video{
-      position:absolute !important;
-      inset:0 !important;
-      width:100% !important;
-      height:100% !important;
-      max-width:none !important;
-      max-height:none !important;
-      object-fit:contain !important;
-      object-position:center center !important;
-      display:block !important;
-      margin:0 !important;
-    }
-
-    .sample2__media--video{
-      display:block !important;
-      position:relative !important;
-      overflow:hidden !important;
-      min-height: 0 !important;
-      height: auto !important;
-      transform: translateZ(0);
-    }
-  }
-    <style>
-/* iframe 내부 스크롤 제거 */
-html, body {
-  overflow: hidden !important;
-  height: auto;
-}
-
-/* 혹시 특정 섹션에서 스크롤 생기면 대비 */
-.page {
-  overflow: hidden !important;
-}
-</style>
-
   </style>
-</head>
 
 </body>
 </html>

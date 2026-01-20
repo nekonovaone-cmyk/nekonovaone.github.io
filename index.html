@@ -3094,7 +3094,6 @@
 
   </script>
   <style>
-<style>
 /* ===== MOBILE VIDEO FIX (BASE) ===== */
 @media (max-width: 720px){
 
@@ -3112,14 +3111,14 @@
   .optstrip__media--mid{
     aspect-ratio: 16 / 9 !important;   /* 21:9 → 16:9 */
     min-height: 0 !important;
-    height: auto !important;
+    height: 100% !important;           /* ✅ auto → 100% (핵심) */
   }
 
   /* 3) 정사각형 비율 대응 */
   .sample2__media--square{
     aspect-ratio: 1 / 1 !important;
     min-height: 0 !important;
-    height: auto !important;
+    height: 100% !important;           /* ✅ auto → 100% */
   }
 
   /* 4) 비디오/GIF 공통 안전장치 */
@@ -3131,6 +3130,7 @@
     max-height:100% !important;
     object-fit:contain !important;
     object-position:center center !important;
+    display:block !important;          /* ✅ 서브픽셀/inline 영향 방지 */
   }
 
   /* ===================================================== */
@@ -3144,8 +3144,8 @@
     justify-content:center !important;
     overflow:hidden !important;
     min-height: 0 !important;
-    height: auto !important;
-    transform: translateZ(0); /* 미세 쏠림 방지 */
+    height: 100% !important;           /* ✅ auto → 100% (핵심) */
+    transform: translateZ(0);          /* 미세 쏠림 방지 */
   }
 
   /* VBridger 안의 실제 영상만 다시 정확히 중앙 */
@@ -3155,11 +3155,11 @@
     object-fit:contain !important;
     object-position:center center !important;
     margin:0 auto !important;
+    display:block !important;
   }
 }
 </style>
 
-</style>
 
 </body>
 </html>

@@ -2987,52 +2987,71 @@ body::before{
 
 </div>
 <style>
-/* ===== MOBILE MEDIA ALIGN FIX (FINAL) ===== */
+<style>
+/* ===== MOBILE VIDEO FIX (BASE) ===== */
 @media (max-width: 720px){
 
-  /* 모든 미디어 박스: 가운데 정렬 컨테이너 */
+  /* 1) 영상 박스를 가운데 정렬 컨테이너로 */
   .sample2__media,
   .optstrip__media{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    overflow:hidden !important;
-    transform: translateZ(0); /* 서브픽셀 쏠림 방지 */
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
 
-  /* GIF / MP4 공통: 강제 높이 제거 */
-  .sample2__media--gif,
-  .sample2__media--video,
+  /* 2) 모바일에서 와이드 비율/큰 최소높이 때문에 밀리는 것 방지 */
+  .sample2__media--wide,
   .optstrip__media--long,
   .optstrip__media--mid{
+    aspect-ratio: 16 / 9 !important;   /* 21:9 → 16:9 */
     min-height: 0 !important;
     height: auto !important;
   }
 
-  /* 와이드 영상은 모바일에서 16:9로 통일 */
-  .optstrip__media--long,
-  .optstrip__media--mid{
-    aspect-ratio: 16 / 9 !important;
-  }
-
-  /* 정사각/특수 비율 대응 */
+  /* 3) 정사각형 비율 대응 */
   .sample2__media--square{
     aspect-ratio: 1 / 1 !important;
+    min-height: 0 !important;
+    height: auto !important;
   }
 
-  /* 실제 영상/이미지 요소는 항상 중앙 기준 */
+  /* 4) 비디오/GIF 공통 안전장치 */
   .sample2__video,
-  .optstrip__video,
-  .sample2__img{
+  .optstrip__video{
     width:100% !important;
     height:100% !important;
     max-width:100% !important;
     max-height:100% !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    margin: 0 auto !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+  }
+
+  /* ===================================================== */
+  /* ===== ADD-ON : FIX ONLY VBRIDGER (NO SIDE EFFECT) ===== */
+  /* ===================================================== */
+
+  /* VBridger 카드(.sample2__media--video)만 중앙 고정 */
+  .sample2__media--video{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+    min-height: 0 !important;
+    height: auto !important;
+    transform: translateZ(0); /* 미세 쏠림 방지 */
+  }
+
+  /* VBridger 안의 실제 영상만 다시 정확히 중앙 */
+  .sample2__media--video .sample2__video{
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+    margin:0 auto !important;
   }
 }
+</style>
+
 </style>
 
 </body>

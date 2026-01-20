@@ -2987,73 +2987,52 @@ body::before{
 
 </div>
 <style>
-<style>
-/* ===== MOBILE VIDEO FIX (BASE) ===== */
+/* ===== FIX ONLY VBRIDGER CARD (do NOT affect others) ===== */
 @media (max-width: 720px){
 
-  /* 1) 영상 박스를 가운데 정렬 컨테이너로 */
+  /* 1) 이전에 넣었던 "모두 flex 정렬" 같은 패치가 남아있어도
+        다른 카드들은 원래대로 돌아가게 안전 복구 */
   .sample2__media,
   .optstrip__media{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display:block !important;
+    align-items:unset !important;
+    justify-content:unset !important;
   }
-
-  /* 2) 모바일에서 와이드 비율/큰 최소높이 때문에 밀리는 것 방지 */
-  .sample2__media--wide,
-  .optstrip__media--long,
-  .optstrip__media--mid{
-    aspect-ratio: 16 / 9 !important;   /* 21:9 → 16:9 */
-    min-height: 0 !important;
-    height: auto !important;
-  }
-
-  /* 3) 정사각형 비율 대응 */
-  .sample2__media--square{
-    aspect-ratio: 1 / 1 !important;
-    min-height: 0 !important;
-    height: auto !important;
-  }
-
-  /* 4) 비디오/GIF 공통 안전장치 */
   .sample2__video,
   .optstrip__video{
     width:100% !important;
     height:100% !important;
-    max-width:100% !important;
-    max-height:100% !important;
     object-fit:contain !important;
     object-position:center center !important;
+    margin:0 !important;
   }
 
-  /* ===================================================== */
-  /* ===== ADD-ON : FIX ONLY VBRIDGER (NO SIDE EFFECT) ===== */
-  /* ===================================================== */
-
-  /* VBridger 카드(.sample2__media--video)만 중앙 고정 */
-  .sample2__media--video{
+  /* 2) VBridger는 샘플 그리드에서 "6번째 카드" (현재 너가 올린 최종본 기준)
+        -> 딱 그 카드만 중앙 정렬 컨테이너로 변경 */
+  .sample2__grid > article:nth-child(6) .sample2__media{
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
     overflow:hidden !important;
-    min-height: 0 !important;
-    height: auto !important;
-    transform: translateZ(0); /* 미세 쏠림 방지 */
+    transform:translateZ(0);
   }
 
-  /* VBridger 안의 실제 영상만 다시 정확히 중앙 */
-  .sample2__media--video .sample2__video{
+  /* 3) VBridger 영상 자체 중앙 기준 고정 */
+  .sample2__grid > article:nth-child(6) .sample2__video{
     width:100% !important;
     height:100% !important;
     object-fit:contain !important;
     object-position:center center !important;
     margin:0 auto !important;
   }
+
+  /* 4) 혹시 해당 카드가 min-height 때문에 이상하면 이것도 같이 */
+  .sample2__grid > article:nth-child(6) .sample2__media--video{
+    min-height: 0 !important;
+    height: auto !important;
+  }
 }
 </style>
-
-</style>
-
 </body>
 </html>
 

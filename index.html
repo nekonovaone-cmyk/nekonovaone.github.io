@@ -4094,7 +4094,7 @@
 </script>
 <!-- ===================== [INQUIRY FORM END v3 - PINK / NO PRESET + CHECK OPEN + HAIR/OUTFIT QTY] ===================== -->
 
-<!-- ===================== [GLOBAL BACKDROP - PINK BASE DARK / CONTINUOUS] ===================== -->
+<!-- ===================== [GLOBAL BACKDROP - PINK BASE DARK / CONTINUOUS + NO INNER SCROLL] ===================== -->
 <style>
   :root{
     --bg-base:#140814;
@@ -4106,21 +4106,18 @@
     --bg-grid2: rgba(255,243,251,.030);
   }
 
-  /* ✅ 페이지 전체를 한 장 배경으로 */
-  html, body{ 
-    height:100%;
-    margin:0;
-    padding:0;
+  /* ✅ iframe 내부 스크롤 제거(페이지 자체 스크롤바 없애기) */
+  html, body{
+    overflow: hidden !important;
   }
 
+  /* ✅ 페이지 전체를 한 장 배경으로 */
+  html, body{ height:100%; }
   body{
     background: var(--bg-base);
     color: var(--bg-ink);
     position: relative;
-
-    /* ✅ 아트머그 iframe 내부 스크롤 2개 방지 */
-    overflow-x:hidden !important;
-    overflow-y:visible !important;
+    overflow-x:hidden;
   }
 
   /* ✅ 스크롤 내내 유지되는 고정 배경 레이어 */
@@ -4132,13 +4129,19 @@
     pointer-events:none;
 
     background:
+      /* 큰 글로우 (상단~중단) */
       radial-gradient(1200px 520px at 18% 6%, rgba(255,79,216,.16), transparent 58%),
       radial-gradient(1200px 560px at 86% 14%, rgba(169,112,255,.14), transparent 60%),
+
+      /* 중단 보강 글로우(스크롤 내려도 끊김 덜함) */
       radial-gradient(1000px 520px at 22% 48%, rgba(255,79,216,.10), transparent 62%),
       radial-gradient(1100px 560px at 78% 62%, rgba(169,112,255,.09), transparent 66%),
+
+      /* 하단 마감 글로우 */
       radial-gradient(1200px 720px at 30% 110%, rgba(255,79,216,.12), transparent 70%),
       radial-gradient(1200px 760px at 82% 115%, rgba(169,112,255,.11), transparent 72%),
 
+      /* 베이스 */
       linear-gradient(180deg,
         rgba(20,8,20,1) 0%,
         rgba(20,8,20,.92) 35%,
@@ -4161,6 +4164,7 @@
     mix-blend-mode:screen;
   }
 
+  /* ✅ 섹션 사이 “끊김”을 줄이는 공통 마스크(선택) */
   .section-bridge{
     position:relative;
   }
@@ -4180,8 +4184,7 @@
     filter: blur(.2px);
   }
 
-  /* ✅ 안전장치 */
+  /* ✅ 안전장치: 이미지/iframe 때문에 가로 튀는 거 방지 */
   img, iframe, video{ max-width:100%; }
 </style>
 <!-- ===================== [GLOBAL BACKDROP END] ===================== -->
-

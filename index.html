@@ -3639,8 +3639,6 @@
                     <label class="qplan__toggle"><input type="checkbox" class="qplan__toggleInput" data-label="가치코이 단축키" data-price="100000" /><span class="qplan__toggleText">가치코이 단축키 <b>₩100,000</b></span></label>
                     <label class="qplan__toggle"><input type="checkbox" class="qplan__toggleInput" data-label="가치코이 페이셜" data-price="200000" /><span class="qplan__toggleText">가치코이 페이셜 <b>₩200,000</b></span></label>
 
-                    <!-- ❌ 제거됨: 신 헤어추가 / 신의상 추가 (수량 옵션으로 이동) -->
-
                     <label class="qplan__toggle"><input type="checkbox" class="qplan__toggleInput" data-label="작업 영구 비공개" data-price="200000" /><span class="qplan__toggleText">작업 영구 비공개 <b>₩200,000</b></span></label>
                     <label class="qplan__toggle"><input type="checkbox" class="qplan__toggleInput" data-label="설치 도움" data-price="0" /><span class="qplan__toggleText">설치 도움 <b>₩0</b></span></label>
                   </div>
@@ -3854,6 +3852,36 @@
     .inq__top{padding:12px 14px 8px;}
     .inq__body{padding:10px 14px 14px;}
   }
+
+  /* ===================== [INQ QTY MOBILE FIX] ===================== */
+  @media (max-width: 520px){
+    .qplan__qtyItem{
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .qplan__qtyLeft{
+      width: 100%;
+      min-width: 0;
+    }
+    .qplan__qtyName,
+    .qplan__qtySub{
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+    .qplan__qtyRight{
+      width: 100%;
+      justify-content: space-between;
+    }
+    .qplan__stepper{
+      padding: 6px 8px;
+    }
+    .qplan__stepBtn{
+      width: 30px;
+      height: 30px;
+    }
+  }
+  /* ===================== [/INQ QTY MOBILE FIX] ===================== */
 </style>
 
 <script>

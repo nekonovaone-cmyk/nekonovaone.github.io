@@ -252,22 +252,21 @@
     flex: 0 0 auto;
   }
 
-/* ✅ CHZZK = (예전 블랙+라임) 초록 라임 */
-.show__plat--chzzk{
-  border-color: rgba(183,255,42,.28);
-  background: rgba(183,255,42,.12);
-  color: rgba(223,255,170,.96);
-  box-shadow: 0 0 0 3px rgba(183,255,42,.06);
-}
+  /* ✅ CHZZK = (예전 블랙+라임) 초록 라임 */
+  .show__plat--chzzk{
+    border-color: rgba(183,255,42,.28);
+    background: rgba(183,255,42,.12);
+    color: rgba(223,255,170,.96);
+    box-shadow: 0 0 0 3px rgba(183,255,42,.06);
+  }
 
-/* ✅ SOOP = (예전 블랙+라임) 청록 */
-.show__plat--soop{
-  border-color: rgba(45,247,214,.26);
-  background: rgba(45,247,214,.12);
-  color: rgba(183,255,248,.96);
-  box-shadow: 0 0 0 3px rgba(45,247,214,.06);
-}
-
+  /* ✅ SOOP = (예전 블랙+라임) 청록 */
+  .show__plat--soop{
+    border-color: rgba(45,247,214,.26);
+    background: rgba(45,247,214,.12);
+    color: rgba(183,255,248,.96);
+    box-shadow: 0 0 0 3px rgba(45,247,214,.06);
+  }
 
   .show__plat--x{
     border-color: rgba(255,243,251,.18);
@@ -396,6 +395,19 @@
       border-bottom:1px solid var(--show-line2);
     }
     .show__listWrap{ max-height: 280px; }
+
+    /* ✅✅ [모바일에서 플레이어 "가운데" 고정] (PC 영향 없음) */
+    .show__panel--player{
+      justify-items: center; /* 그리드 아이템 중앙 */
+    }
+    .show__playerTop{
+      width: min(640px, 100%);
+      margin: 0 auto;        /* 중앙 */
+    }
+    .show__player{
+      width: min(640px, 100%);
+      margin: 0 auto;        /* 중앙 */
+    }
   }
 </style>
 
@@ -403,7 +415,7 @@
 /* ===== LIVE2D SHOWCASE (NICKNAME + PLATFORM) ===== */
 (function(){
   const VIDEOS = [
-    /* ✅ NEW (맨 위 / 최신): 시로가네미오 SOOP + 신의상 */
+    /* ✅ NEW (맨 위 / 최신): 시로가네 미오 SOOP + 신의상 */
     { id:"zM50eZXTxVY", title:"Showcase 08", name:"시로가네 미오", platform:"SOOP", tags:["신의상"] },
 
     { id:"nKnbNQM_E6Y", title:"Showcase 01", name:"아야린", platform:"CHZZK" },
@@ -4135,12 +4147,9 @@
   }
 
   /* ✅ iframe 내부 스크롤 제거(페이지 자체 스크롤바 없애기) */
-html, body{
-  margin:0;
-  padding:0;
-  overflow-x:hidden !important;
-  overflow-y:auto !important;
-}
+  html, body{
+    overflow: hidden !important;
+  }
   
   /* ✅ 페이지 전체를 한 장 배경으로 */
   html, body{ height:100%; }

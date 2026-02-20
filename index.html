@@ -25,9 +25,11 @@
           <div class="show__list" id="showList"></div>
         </div>
 
-        <div class="show__nav">
-          <button class="show__navBtn" id="showPrev" type="button" aria-label="이전">PREV</button>
-          <button class="show__navBtn" id="showNext" type="button" aria-label="다음">NEXT</button>
+        <!-- ✅ 페이지 네비게이션(모바일 4개씩 페이지) -->
+        <div class="show__nav" aria-label="페이지 이동">
+          <button class="show__navBtn" id="showPrev" type="button" aria-label="이전 페이지">PREV</button>
+          <div class="show__page" id="showPage" aria-live="polite">1 / 1</div>
+          <button class="show__navBtn" id="showNext" type="button" aria-label="다음 페이지">NEXT</button>
         </div>
       </aside>
 
@@ -164,6 +166,7 @@
     color: var(--show-dim2);
   }
 
+  /* 스크롤이 막혀 있어도 문제 없게: 페이지 렌더링이라 overflow에 의존 안함 */
   .show__listWrap{
     max-height: 360px;
     overflow:auto;
@@ -294,6 +297,7 @@
   .show__nav{
     padding: 10px 12px 12px;
     display:flex; gap:10px;
+    align-items:center;
     border-top:1px solid var(--show-line2);
     background: rgba(20,8,20,.30);
   }
@@ -309,6 +313,21 @@
     cursor:pointer;
   }
   .show__navBtn:disabled{ opacity:.35; cursor:not-allowed; }
+
+  /* ✅ 페이지 표시 */
+  .show__page{
+    flex:0 0 auto;
+    min-width: 72px;
+    text-align:center;
+    font-size:12px;
+    font-weight:1000;
+    letter-spacing:.2px;
+    color: rgba(255,243,251,.78);
+    padding: 8px 10px;
+    border-radius: 10px;
+    border:1px solid rgba(255,243,251,.12);
+    background: rgba(255,255,255,.03);
+  }
 
   .show__panel--player{
     background: rgba(20,8,20,.26);
@@ -394,25 +413,27 @@
       border-right:0;
       border-bottom:1px solid var(--show-line2);
     }
-    .show__listWrap{ max-height: 280px; }
+
+    /* ✅ 모바일은 "4개씩 페이지"라서 스크롤 높이는 크게 중요 없음 (원하면 줄여도 됨) */
+    .show__listWrap{ max-height: none; overflow: hidden; }
 
     /* ✅✅ [모바일에서 플레이어 "가운데" 고정] (PC 영향 없음) */
     .show__panel--player{
-      justify-items: center; /* 그리드 아이템 중앙 */
+      justify-items: center;
     }
     .show__playerTop{
       width: min(640px, 100%);
-      margin: 0 auto;        /* 중앙 */
+      margin: 0 auto;
     }
     .show__player{
       width: min(640px, 100%);
-      margin: 0 auto;        /* 중앙 */
+      margin: 0 auto;
     }
   }
 </style>
 
 <script>
-/* ===== LIVE2D SHOWCASE (NICKNAME + PLATFORM) ===== */
+/* ===== LIVE2D SHOWCASE (NICKNAME + PLATFORM) + MOBILE PAGING ===== */
 (function(){
   const VIDEOS = [
     /* ✅ NEW (맨 위 / 최신): 시로가네 미오 SOOP + 신의상 */
@@ -429,8 +450,9 @@
 
   const list = document.getElementById("showList");
   const player = document.getElementById("showPlayer");
-  const prev = document.getElementById("showPrev");
-  const next = document.getElementById("showNext");
+  const prev = document.getElementById("showPrev"); // ✅ 페이지 PREV
+  const next = document.getElementById("showNext"); // ✅ 페이지 NEXT
+  const pageEl = document.getElementById("showPage");
   const nowTitle = document.getElementById("showNowTitle");
   const count = document.getElementById("showCount");
   const swipeArea = document.getElementById("showSwipeArea");
@@ -438,11 +460,34 @@
   if(!list || !player || !prev || !next) return;
 
   let active = 0;
+  let page = 0;
+
+  const mq = window.matchMedia("(max-width: 900px)");
 
   const embed = (id)=> "https://www.youtube.com/embed/" + id +
     "?rel=0&modestbranding=1&playsinline=1&autoplay=0";
-
   const thumb = (id)=> "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
+
+  function pageSize(){
+    // ✅ 모바일: 4개씩 페이지
+    // ✅ PC: 전부 보여주기(원하면 8/10 등으로 바꿔도 됨)
+    return mq.matches ? 4 : VIDEOS.length;
+  }
+
+  function pageCount(){
+    return Math.max(1, Math.ceil(VIDEOS.length / pageSize()));
+  }
+
+  function clampPage(p){
+    const pc = pageCount();
+    return Math.min(Math.max(0, p), pc - 1);
+  }
+
+  function ensurePageForActive(){
+    const ps = pageSize();
+    const newPage = clampPage(Math.floor(active / ps));
+    if(newPage !== page) page = newPage;
+  }
 
   function platClass(p){
     const up = String(p || "").toUpperCase();
@@ -452,37 +497,42 @@
     return "show__plat";
   }
 
-  function updateNav(){
-    prev.disabled = active <= 0;
-    next.disabled = active >= VIDEOS.length - 1;
+  function updatePager(){
+    const pc = pageCount();
+    page = clampPage(page);
+    prev.disabled = page <= 0;
+    next.disabled = page >= pc - 1;
+    if(pageEl) pageEl.textContent = (page + 1) + " / " + pc;
   }
 
-  function setActive(i, scrollIntoView){
+  function setActive(i){
     if(i < 0 || i >= VIDEOS.length) return;
     active = i;
-    player.src = embed(VIDEOS[i].id);
+
+    // 플레이어 갱신
+    player.src = embed(VIDEOS[active].id);
     if(nowTitle) nowTitle.textContent = "";
 
-    const rows = Array.from(list.children);
-    rows.forEach((el, idx)=> el.classList.toggle("is-active", idx===active));
+    // ✅ 현재 active가 포함된 페이지로 자동 이동
+    ensurePageForActive();
 
-    if(scrollIntoView){
-      const el = rows[active];
-      if(el && el.scrollIntoView){
-        el.scrollIntoView({ block:"nearest", behavior:"smooth" });
-      }
-    }
-    updateNav();
+    renderPage();
   }
 
-  function render(){
+  function renderPage(){
     list.innerHTML = "";
     if(count) count.textContent = String(VIDEOS.length);
 
-    VIDEOS.forEach((v,i)=>{
+    const ps = pageSize();
+    const start = page * ps;
+    const end = Math.min(VIDEOS.length, start + ps);
+
+    for(let idx = start; idx < end; idx++){
+      const v = VIDEOS[idx];
+
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "show__row" + (i===active ? " is-active" : "");
+      btn.className = "show__row" + (idx===active ? " is-active" : "");
       btn.setAttribute("aria-label", (v.name || "샘플") + " 선택");
       btn.style.webkitTapHighlightColor = "transparent";
 
@@ -539,28 +589,31 @@
       btn.addEventListener("click", (e)=>{
         e.preventDefault();
         btn.blur();
-        setActive(i, true);
+        setActive(idx);
       });
 
       list.appendChild(btn);
-    });
+    }
 
-    updateNav();
+    updatePager();
   }
 
+  // ✅ 페이지 PREV/NEXT
   prev.addEventListener("click", (e)=>{
     e.preventDefault();
     prev.blur();
-    setActive(active-1, true);
+    page = clampPage(page - 1);
+    renderPage();
   });
 
   next.addEventListener("click", (e)=>{
     e.preventDefault();
     next.blur();
-    setActive(active+1, true);
+    page = clampPage(page + 1);
+    renderPage();
   });
 
-  // 모바일 스와이프(플레이어 영역)
+  // ✅ 모바일 스와이프(플레이어 영역): 영상 자체를 이전/다음으로 넘김
   let sx=0, sy=0, tracking=false;
   if(swipeArea){
     swipeArea.addEventListener("touchstart",(e)=>{
@@ -581,13 +634,23 @@
 
       if(Math.abs(dy) > Math.abs(dx)) return;
 
-      if(dx > 50) setActive(active-1, true);
-      if(dx < -50) setActive(active+1, true);
+      if(dx > 50) setActive(active - 1);
+      if(dx < -50) setActive(active + 1);
     },{passive:true});
   }
 
-  render();
-  setActive(0, false);
+  // ✅ 화면 크기 바뀌면(모바일/PC 전환) 페이지 계산 다시
+  function onResizeModeChange(){
+    ensurePageForActive();
+    renderPage();
+  }
+  if(mq.addEventListener) mq.addEventListener("change", onResizeModeChange);
+  else mq.addListener(onResizeModeChange);
+
+  // init
+  ensurePageForActive();
+  renderPage();
+  setActive(0);
 })();
 </script>
 

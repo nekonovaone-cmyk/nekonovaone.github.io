@@ -409,6 +409,62 @@
       margin: 0 auto;        /* 중앙 */
     }
   }
+
+  /* ================================================= */
+  /* ✅✅✅ [추가] 모바일에서 플레이리스트를 "가로 슬라이드"로 */
+  /* - PC는 그대로, 900px 이하에서만 적용 */
+  /* - JS/HTML 안 건드림 */
+  /* ================================================= */
+  @media (max-width: 900px){
+
+    /* 리스트 세로 스크롤 → 가로 스크롤 */
+    .show__listWrap{
+      max-height: none !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* 그리드 리스트 → 가로 플렉스 */
+    .show__list{
+      display: flex !important;
+      gap: 12px;
+      padding: 12px;
+      scroll-snap-type: x mandatory;
+    }
+
+    /* 한 항목을 카드처럼 */
+    .show__row{
+      flex: 0 0 220px;               /* 카드 폭(원하면 200~260 사이로 조절) */
+      grid-template-columns: 1fr !important;
+      border: 1px solid rgba(255,243,251,.12);
+      border-radius: 10px;
+      border-bottom: 0;              /* 기존 row의 하단 라인 제거 */
+      background: rgba(0,0,0,.10);   /* 카드 느낌 살짝 */
+      scroll-snap-align: start;
+    }
+
+    /* 썸네일 폭도 카드에 맞게 */
+    .show__thumb{
+      width: 100%;
+    }
+
+    /* 내부 메타 줄바꿈 좀 안정 */
+    .show__rowMeta{
+      gap: 6px;
+    }
+
+    /* 가로 스크롤바 슬림 */
+    .show__listWrap::-webkit-scrollbar{
+      height: 6px;
+      width: 6px;
+    }
+    .show__listWrap::-webkit-scrollbar-thumb{
+      background: rgba(255,243,251,.25);
+      border-radius: 999px;
+      border: 2px solid rgba(20,8,20,.55);
+    }
+  }
 </style>
 
 <script>
@@ -4150,6 +4206,8 @@
   html, body{
     overflow: hidden !important;
   }
+  
+  
   
   /* ✅ 페이지 전체를 한 장 배경으로 */
   html, body{ height:100%; }

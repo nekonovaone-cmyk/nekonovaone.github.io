@@ -4215,6 +4215,21 @@ html, body{
     filter: blur(.2px);
   }
 
+  /* ✅ 모바일에서 중첩 스크롤(2중 스크롤) 방지: 내부 스크롤을 페이지로 합치기 */
+@media (max-width: 900px){
+  /* 쇼케이스 리스트가 내부 스크롤을 만들면 페이지 스크롤이 끊김 → 모바일에선 풀어주기 */
+  .show__listWrap{
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* 혹시 다른 영역도 내부 스크롤이 생기면 같이 적용(안전망) */
+  .qplan__sum,
+  .qplan__pick{
+    overflow: visible !important;
+  }
+}
+  
   /* ✅ 안전장치: 이미지/iframe 때문에 가로 튀는 거 방지 */
   img, iframe, video{ max-width:100%; }
 </style>

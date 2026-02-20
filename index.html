@@ -4107,10 +4107,13 @@
   }
 
   /* ✅ iframe 내부 스크롤 제거(페이지 자체 스크롤바 없애기) */
-  html, body{
-    overflow: hidden !important;
-  }
-
+html, body{
+  margin:0;
+  padding:0;
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+}
+  
   /* ✅ 페이지 전체를 한 장 배경으로 */
   html, body{ height:100%; }
   body{
@@ -4188,4 +4191,3 @@
   img, iframe, video{ max-width:100%; }
 </style>
 <!-- ===================== [GLOBAL BACKDROP END] ===================== -->
-

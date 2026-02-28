@@ -708,24 +708,31 @@
         </ul>
       </article>
 
-      <!-- EVENT -->
-      <article class="ne__panel" aria-label="이벤트">
+      <!-- EVENT (✅ 종료 상태) -->
+      <article class="ne__panel ne__panel--ended" aria-label="이벤트 종료">
         <div class="ne__panelTop">
           <div class="ne__cap">
             <span class="ne__capBadge ne__capBadge--event">EVENT</span>
             <span class="ne__capTitle">이벤트</span>
           </div>
-          <span class="ne__status">
-            <i class="ne__statusDot" aria-hidden="true"></i>
-            진행중
+
+          <span class="ne__status ne__status--ended" aria-label="이벤트 종료">
+            <i class="ne__statusDot ne__statusDot--ended" aria-hidden="true"></i>
+            종료됨
           </span>
+        </div>
+
+        <!-- ✅ 중앙 배치 + 컬러감 강화된 종료 배너 -->
+        <div class="ne__endedBadge" aria-hidden="true">
+          <span class="ne__endedBadgeTxt">종료된 이벤트</span>
+          <span class="ne__endedBadgeSub">현재는 진행 중인 이벤트가 없습니다</span>
         </div>
 
         <div class="ne__eventWrap">
           <div class="ne__eventHero">
             <div class="ne__eventHeroLeft">
               <div class="ne__eventTitle">
-                <span class="ne__pill ne__pill--hot">진행중</span>
+                <span class="ne__pill ne__pill--ended">종료</span>
                 <strong>리깅 할인 이벤트</strong>
               </div>
               <p class="ne__eventDesc"> </p>
@@ -741,7 +748,7 @@
             <div class="ne__offerCard">
               <div class="ne__offerTop">
                 <span class="ne__offerTag ne__offerTag--pink">전신 리깅</span>
-                <span class="ne__pill ne__pill--hot">할인</span>
+                <span class="ne__pill ne__pill--ended">종료</span>
               </div>
               <div class="ne__price">
                 <span class="ne__from">500,000원</span>
@@ -754,7 +761,7 @@
             <div class="ne__offerCard">
               <div class="ne__offerTop">
                 <span class="ne__offerTag ne__offerTag--violet">반신 리깅</span>
-                <span class="ne__pill ne__pill--hot">할인</span>
+                <span class="ne__pill ne__pill--ended">종료</span>
               </div>
               <div class="ne__price">
                 <span class="ne__from">350,000원</span>
@@ -939,6 +946,84 @@
   @keyframes nePulse{
     0%,100%{ transform:scale(1); opacity:1; }
     50%{ transform:scale(.75); opacity:.65; }
+  }
+
+  /* ===================== ✅ ENDED STATE (가독성 개선 버전) ===================== */
+  .ne__panel--ended{
+    opacity: 1;                 /* ✅ 전체를 흐리게 하지 않음(가독성 때문에) */
+  }
+  /* 대신 "콘텐츠"만 살짝 다운톤 */
+  .ne__panel--ended .ne__eventWrap{
+    opacity: .58;
+    filter: grayscale(.18);
+  }
+
+  .ne__status--ended{
+    border-color: rgba(255,243,251,.18);
+    background: rgba(255,243,251,.06);
+    color: rgba(255,243,251,.78);
+  }
+  .ne__statusDot--ended{
+    background: rgba(255,243,251,.55);
+    box-shadow: 0 0 0 4px rgba(255,243,251,.08), 0 0 18px rgba(255,243,251,.10);
+    animation: none;
+  }
+
+  .ne__pill--ended{
+    border-color: rgba(255,243,251,.18);
+    background: rgba(255,243,251,.06);
+    color: rgba(255,243,251,.78);
+  }
+
+  /* ✅ 중앙 배지(크기/컬러 강화 + 가운데 배치) */
+  .ne__endedBadge{
+    position:absolute;
+    left: 50%;
+    top: 54%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    pointer-events:none;
+    text-align:center;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,79,216,.26);
+    background:
+      radial-gradient(520px 220px at 20% 0%, rgba(255,79,216,.18), transparent 58%),
+      radial-gradient(520px 220px at 120% 80%, rgba(169,112,255,.14), transparent 60%),
+      rgba(0,0,0,.46);
+    box-shadow:
+      0 0 0 4px rgba(255,79,216,.06),
+      0 16px 34px rgba(0,0,0,.35);
+    backdrop-filter: blur(6px);
+  }
+  .ne__endedBadgeTxt{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font-size:14px;          /* ✅ 더 큼 */
+    font-weight:1000;
+    letter-spacing:.2px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border:1px solid rgba(255,79,216,.32);
+    background: rgba(255,79,216,.14);
+    color: rgba(255,243,251,.96);
+    box-shadow: 0 0 0 4px rgba(255,79,216,.08);
+    white-space:nowrap;
+  }
+  .ne__endedBadgeTxt::before{
+    content:"●";
+    font-size:10px;
+    color: var(--ne-pink);
+    text-shadow: 0 0 12px rgba(255,79,216,.45);
+  }
+  .ne__endedBadgeSub{
+    display:block;
+    margin-top: 8px;
+    font-size:12px;          /* ✅ 조금 키움 */
+    font-weight:900;
+    color: rgba(255,243,251,.82);
   }
 
   .ne__list{ list-style:none; margin:0; padding: 10px 10px 10px; display:grid; gap:8px; }
@@ -1168,6 +1253,11 @@
     .ne__bonus{ flex-direction:column; align-items:flex-start; }
     .ne__bonusRight{ text-align:left; }
     .ne__metaTxt{ white-space:normal; }
+
+    /* ✅ 모바일에서 중앙배지 너무 가리지 않게 살짝 위로 */
+    .ne__endedBadge{
+      top: 50%;
+    }
   }
 </style>
 <!-- ===================== /NOTICE + EVENT ===================== -->
@@ -4296,6 +4386,7 @@
   img, iframe, video{ max-width:100%; }
 </style>
 <!-- ===================== [GLOBAL BACKDROP END] ===================== -->
+
 
 
 

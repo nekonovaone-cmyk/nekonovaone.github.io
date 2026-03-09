@@ -4386,18 +4386,6 @@
 </style>
 <!-- ===================== [GLOBAL BACKDROP END] ===================== -->
 
-<script>
-  window.onload = function() {
-    var height = document.body.scrollHeight + 50; // 여유 공간 추가 (필요 시 조정)
-    parent.postMessage(height, '*'); // '*' 대신 부모 도메인 지정 가능, e.g., 'https://artmug.kr'
-  };
-
-  // 콘텐츠 변경 시 (예: 이미지 로드) 높이 재전송
-  window.addEventListener('resize', function() {
-    var height = document.body.scrollHeight + 50;
-    parent.postMessage(height, '*');
-  });
-</script>
 
 
 

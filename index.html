@@ -2900,7 +2900,6 @@
              style="--img:url('https://artmugfile2.cafe24.com/image/up_img/detail/5/goods_51824/17612229230_Re.jpg');">
             <div class="collab__img"></div>
 
-            <!-- PC overlay -->
             <div class="collab__overlay">
               <div class="collab__name">Cooing 작가님</div>
               <div class="collab__perk">
@@ -2911,7 +2910,6 @@
             </div>
           </a>
 
-          <!-- Mobile fixed info -->
           <div class="collab__mobileInfo">
             <div class="collab__mobileName">Cooing 작가님</div>
             <ul>
@@ -2975,222 +2973,255 @@
           </div>
         </div>
 
+        <!-- 포욘 -->
+        <div class="collab__item">
+          <a class="collab__banner"
+             href="https://artmug.kr/index.php?channel=view&uid=55622"
+             target="_blank" rel="noopener"
+             style="--img:url('https://artmug.kr/image/up_img/detail/5/20260316_121634a4ea/17736310450_Re.jpg');">
+            <div class="collab__img"></div>
+
+            <div class="collab__overlay">
+              <div class="collab__name">포욘 작가님</div>
+              <div class="collab__perk">
+                <div>일러스트 <b>₩100,000 할인 + 표정 3종 무료</b></div>
+                <div>리깅 <b>₩50,000 할인 + 표정 3종 무료</b></div>
+              </div>
+              <div class="collab__go">작가님 페이지로 이동</div>
+            </div>
+          </a>
+
+          <div class="collab__mobileInfo">
+            <div class="collab__mobileName">포욘 작가님</div>
+            <ul>
+              <li>일러스트 <b>₩100,000 할인 + 표정 3종 무료</b></li>
+              <li>리깅 <b>₩50,000 할인 + 표정 3종 무료</b></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Coming Soon 1 -->
+        <div class="collab__item">
+          <div class="collab__banner">
+            <div class="collab__img" style="background:#1a0d1a;"></div>
+
+            <div class="collab__overlay">
+              <div class="collab__name">Coming Soon</div>
+              <div class="collab__perk">새로운 협업 작가님이<br>추가될 예정입니다.</div>
+            </div>
+          </div>
+
+          <div class="collab__mobileInfo">
+            <div class="collab__mobileName">Coming Soon</div>
+            <ul>
+              <li>새로운 협업 작가님</li>
+              <li>추가 예정</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Coming Soon 2 -->
+        <div class="collab__item">
+          <div class="collab__banner">
+            <div class="collab__img" style="background:#1a0d1a;"></div>
+
+            <div class="collab__overlay">
+              <div class="collab__name">Coming Soon</div>
+              <div class="collab__perk">새로운 협업 작가님이<br>추가될 예정입니다.</div>
+            </div>
+          </div>
+
+          <div class="collab__mobileInfo">
+            <div class="collab__mobileName">Coming Soon</div>
+            <ul>
+              <li>새로운 협업 작가님</li>
+              <li>추가 예정</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  :root{
-    /* PINK BASE DARK */
-    --collab-bg:#140814;
-    --collab-ink:#fff3fb;
-    --collab-dim:rgba(255,243,251,.74);
-    --collab-dim2:rgba(255,243,251,.56);
-    --collab-line:rgba(255,243,251,.12);
-    --collab-line2:rgba(255,243,251,.08);
+:root{
+--collab-bg:#140814;
+--collab-ink:#fff3fb;
+--collab-dim:rgba(255,243,251,.74);
+--collab-dim2:rgba(255,243,251,.56);
+--collab-line:rgba(255,243,251,.12);
+--collab-line2:rgba(255,243,251,.08);
+--collab-pink:#ff4fd8;
+--collab-purple:#a970ff;
+--collab-r1:12px;
+--collab-r2:18px;
+--collab-max:980px;
+}
 
-    --collab-pink:#ff4fd8;
-    --collab-purple:#a970ff;
+.collab{
+max-width:var(--collab-max);
+margin:24px auto 0;
+padding:0 14px;
+color:var(--collab-ink);
+font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+}
 
-    --collab-r1:12px;
-    --collab-r2:18px;
-    --collab-max: 980px;
-  }
+.collab__card{
+border-radius:var(--collab-r1);
+border:1px solid var(--collab-line);
+background:
+radial-gradient(1100px 520px at 15% -10%, rgba(255,79,216,.12), transparent 55%),
+radial-gradient(900px 520px at 120% 10%, rgba(169,112,255,.10), transparent 55%),
+linear-gradient(180deg, rgba(20,8,20,.78), rgba(20,8,20,.90));
+overflow:hidden;
+position:relative;
+}
 
-  .collab{
-    max-width:var(--collab-max);
-    margin:24px auto 0;
-    padding:0 14px;
-    color:var(--collab-ink);
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
-  }
+.collab__top{
+padding:14px 16px 10px;
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+border-bottom:1px solid var(--collab-line2);
+}
 
-  .collab__card{
-    border-radius:var(--collab-r1);
-    border:1px solid var(--collab-line);
-    background:
-      radial-gradient(1100px 520px at 15% -10%, rgba(255,79,216,.12), transparent 55%),
-      radial-gradient(900px 520px at 120% 10%, rgba(169,112,255,.10), transparent 55%),
-      linear-gradient(180deg, rgba(20,8,20,.78), rgba(20,8,20,.90));
-    box-shadow:none;
-    overflow:hidden;
-    position:relative;
-  }
+.collab__badge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 12px;
+border-radius:999px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,243,251,.14);
+font-size:12px;
+font-weight:1000;
+}
 
-  .collab__card::before{
-    content:"";
-    position:absolute; inset:0;
-    pointer-events:none;
-    background:
-      linear-gradient(to right, rgba(255,243,251,.045) 1px, transparent 1px) 0 0/26px 26px,
-      linear-gradient(to bottom, rgba(255,243,251,.032) 1px, transparent 1px) 0 0/26px 26px;
-    opacity:.14;
-  }
+.collab__dot{
+width:10px;height:10px;border-radius:50%;
+background:linear-gradient(180deg,var(--collab-pink),var(--collab-purple));
+animation:collabPulse 1.2s ease-in-out infinite;
+}
 
-  .collab__top{
-    position:relative;
-    padding:14px 16px 10px;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    border-bottom:1px solid var(--collab-line2);
-    background: rgba(20,8,20,.55);
-  }
+@keyframes collabPulse{
+0%,100%{transform:scale(1)}
+50%{transform:scale(.75)}
+}
 
-  .collab__badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:8px 12px;
-    border-radius:999px;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,243,251,.14);
-    font-size:12px;
-    font-weight:1000;
-    color: rgba(255,243,251,.90);
-  }
-  .collab__dot{
-    width:10px;height:10px;border-radius:50%;
-    background: linear-gradient(180deg, var(--collab-pink), var(--collab-purple));
-    box-shadow: 0 0 0 4px rgba(255,79,216,.14), 0 0 18px rgba(255,79,216,.22);
-    animation: collabPulse 1.2s ease-in-out infinite;
-  }
-  @keyframes collabPulse{
-    0%,100%{ transform:scale(1); opacity:1; }
-    50%{ transform:scale(.75); opacity:.65; }
-  }
+.collab__title{
+font-size:16px;
+font-weight:1000;
+}
 
-  .collab__title{
-    font-size:16px;
-    font-weight:1000;
-    color: rgba(255,243,251,.94);
-  }
+.collab__body{
+padding:12px 16px 16px;
+display:grid;
+gap:14px;
+}
 
-  .collab__body{
-    position:relative;
-    padding:12px 16px 16px;
-    display:grid;
-    gap:14px;
-  }
+.collab__notice{
+display:flex;
+align-items:center;
+gap:10px;
+padding:12px;
+border-radius:16px;
+border:1px solid rgba(255,243,251,.12);
+background:linear-gradient(90deg, rgba(255,79,216,.14), rgba(169,112,255,.06));
+font-size:14px;
+}
 
-  /* notice */
-  .collab__notice{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:12px;
-    border-radius:16px;
-    border:1px solid rgba(255,243,251,.12);
-    background:
-      linear-gradient(90deg, rgba(255,79,216,.14), rgba(169,112,255,.06)),
-      rgba(0,0,0,.18);
-    font-size:14px;
-    line-height:1.6;
-  }
-  .collab__noticeIcon{
-    width:28px;height:28px;border-radius:999px;
-    display:flex; align-items:center; justify-content:center;
-    border:1px solid rgba(255,243,251,.14);
-    background: rgba(255,255,255,.03);
-    color: rgba(255,243,251,.94);
-    font-weight:1000;
-    flex:0 0 auto;
-    line-height:1;
-  }
-  .collab__noticeText{
-    color: rgba(255,243,251,.84);
-  }
-  .collab__noticeText b{ color: rgba(255,243,251,.98); font-weight:1000; }
+.collab__noticeIcon{
+width:28px;height:28px;border-radius:999px;
+display:flex;align-items:center;justify-content:center;
+border:1px solid rgba(255,243,251,.14);
+font-weight:1000;
+}
 
-  .collab__grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-  }
-  .collab__item{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    min-width:0;
-  }
+.collab__grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
 
-  .collab__banner{
-    position:relative;
-    border-radius:var(--collab-r2);
-    overflow:hidden;
-    border:1px solid rgba(255,243,251,.16);
-    min-height:140px;
-    text-decoration:none;
-    color:var(--collab-ink);
-    background: rgba(0,0,0,.22);
-  }
-  .collab__img{
-    position:absolute; inset:0;
-    background-image:var(--img);
-    background-size:cover;
-    background-position:center;
-    filter: contrast(1.04) saturate(1.02) brightness(.95);
-    transition: .3s ease;
-    transform: scale(1.02);
-  }
-  .collab__banner:hover .collab__img{
-    transform: scale(1.06);
-  }
+.collab__item{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
 
-  .collab__overlay{
-    position:absolute; inset:0;
-    background: rgba(20,8,20,.72);
-    opacity:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    gap:8px;
-    padding:12px;
-    transition:.25s ease;
-  }
-  .collab__banner:hover .collab__overlay{ opacity:1; }
+.collab__banner{
+position:relative;
+border-radius:var(--collab-r2);
+overflow:hidden;
+border:1px solid rgba(255,243,251,.16);
+min-height:140px;
+text-decoration:none;
+color:var(--collab-ink);
+}
 
-  .collab__name{
-    font-weight:1000;
-    font-size:14px;
-    color: rgba(255,243,251,.98);
-  }
-  .collab__perk{
-    font-size:12px;
-    line-height:1.5;
-    color: rgba(255,243,251,.86);
-  }
-  .collab__perk b{ font-weight:1000; color: rgba(255,243,251,.98); }
-  .collab__go{
-    margin-top:4px;
-    font-size:12px;
-    font-weight:1000;
-    color: rgba(255,79,216,.95);
-  }
+.collab__img{
+position:absolute;inset:0;
+background-image:var(--img);
+background-size:cover;
+background-position:center;
+}
 
-  /* mobile info */
-  .collab__mobileInfo{
-    display:none;
-    border-radius:14px;
-    padding:10px 12px;
-    border:1px solid rgba(255,243,251,.10);
-    background: rgba(0,0,0,.18);
-    font-size:13px;
-    line-height:1.55;
-    color: rgba(255,243,251,.84);
-  }
-  .collab__mobileInfo ul{ margin:6px 0 0; padding-left:16px; }
-  .collab__mobileName{
-    font-weight:1000;
-    color: rgba(255,243,251,.94);
-  }
+.collab__overlay{
+position:absolute;inset:0;
+background:rgba(20,8,20,.72);
+opacity:0;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+gap:8px;
+padding:12px;
+transition:.25s;
+}
 
-  @media(max-width:900px){
-    .collab__grid{ grid-template-columns:1fr; }
-    .collab__overlay{ display:none; }
-    .collab__mobileInfo{ display:block; }
-  }
+.collab__banner:hover .collab__overlay{opacity:1}
+
+.collab__name{
+font-weight:1000;
+font-size:14px;
+}
+
+.collab__perk{
+font-size:12px;
+line-height:1.5;
+}
+
+.collab__go{
+margin-top:4px;
+font-size:12px;
+font-weight:1000;
+color:var(--collab-pink);
+}
+
+.collab__mobileInfo{
+display:none;
+border-radius:14px;
+padding:10px 12px;
+border:1px solid rgba(255,243,251,.10);
+background:rgba(0,0,0,.18);
+font-size:13px;
+}
+
+.collab__mobileInfo ul{
+margin:6px 0 0;
+padding-left:16px;
+}
+
+.collab__mobileName{
+font-weight:1000;
+}
+
+@media(max-width:900px){
+.collab__grid{grid-template-columns:1fr}
+.collab__overlay{display:none}
+.collab__mobileInfo{display:block}
+}
 </style>
 <!-- ===== /COLLAB EVENT ===== -->
 
@@ -3636,6 +3667,7 @@
             <label class="inq__chip"><input type="radio" name="collab" value="Cooing" /><span>Cooing</span></label>
             <label class="inq__chip"><input type="radio" name="collab" value="V.Atelier" /><span>V.Atelier</span></label>
             <label class="inq__chip"><input type="radio" name="collab" value="쿠리" /><span>쿠리</span></label>
+            <label class="inq__chip"><input type="radio" name="collab" value="포욘" /><span>포욘</span></label>
           </div>
         </div>
 

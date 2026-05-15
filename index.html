@@ -1716,13 +1716,13 @@
 </script>
 <!-- ===================== /LOOPING MP4 GALLERY (PINK BASE / DARK) ===================== -->
 
-<!-- ===================== LIVE2D MENU (PINK BASE / NO-JS / DETAILS ACCORDION) ===================== -->
+<!-- ===================== LIVE2D MENU FULL ===================== -->
 <section class="ldm" id="menu" aria-label="Live2D 리깅 메뉴">
   <div class="ldm__shell">
     <header class="ldm__head">
       <div class="ldm__kicker">
-        <span class="ldm__liveDot" aria-hidden="true"></span>
-        <span class="ldm__kickerTxt">MENU</span>
+        <span class="ldm__liveDot"></span>
+        <span>MENU</span>
       </div>
 
       <div class="ldm__titleRow">
@@ -1730,7 +1730,7 @@
         <p class="ldm__sub">자세한 내용은 펼쳐서 확인</p>
       </div>
 
-      <div class="ldm__actions" role="group" aria-label="메뉴 전체 제어">
+      <div class="ldm__actions">
         <button class="ldm__btn" type="button" onclick="document.querySelectorAll('#menu details').forEach(d=>d.open=true)">전체 펼치기</button>
         <button class="ldm__btn" type="button" onclick="document.querySelectorAll('#menu details').forEach(d=>d.open=false)">전체 접기</button>
       </div>
@@ -1738,34 +1738,23 @@
 
     <div class="ldm__list">
 
-      <!-- ===================== 1) LD 리깅 ===================== -->
+      <!-- LD 리깅 -->
       <details class="ldm__cat" open>
         <summary class="ldm__sum">
           <div class="ldm__left">
-            <span class="ldm__ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2 3 6.5v11L12 22l9-4.5v-11L12 2Z" stroke="rgba(255,243,251,.82)" stroke-width="1.8"/>
-                <path d="M12 22v-9.5" stroke="rgba(255,243,251,.72)" stroke-width="1.8"/>
-                <path d="M21 6.5 12 11 3 6.5" stroke="rgba(255,243,251,.62)" stroke-width="1.8"/>
-              </svg>
-            </span>
+            <span class="ldm__ic">✦</span>
             <div class="ldm__titleBlock">
               <div class="ldm__catTitle">LD 리깅</div>
-              <div class="ldm__summary" aria-label="LD 리깅 요약">
-                <span class="ldm__chip ldm__chip--pink">전신 <b>₩500,000</b></span>
-                <span class="ldm__chip ldm__chip--violet">반신 <b>₩350,000</b></span>
+              <div class="ldm__summary">
+                <span class="ldm__chip ldm__chip--pink">전신 <b>₩900,000</b></span>
+                <span class="ldm__chip ldm__chip--violet">반신 <b>₩750,000</b></span>
                 <span class="ldm__chip ldm__chip--soft">기본 구성 포함</span>
               </div>
             </div>
           </div>
-
           <div class="ldm__right">
-            <div class="ldm__range">₩350,000 ~ ₩500,000</div>
-            <span class="ldm__chev" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9l6 6 6-6" stroke="rgba(255,243,251,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <div class="ldm__range">₩750,000 ~ ₩900,000</div>
+            <span class="ldm__chev"></span>
           </div>
         </summary>
 
@@ -1774,26 +1763,26 @@
             <div class="ldm__item">
               <div class="ldm__itemTop">
                 <div class="ldm__itemName">LD 전신 리깅</div>
-                <div class="ldm__price ldm__price--hi">₩500,000</div>
+                <div class="ldm__price ldm__price--hi">₩900,000</div>
               </div>
               <ul class="ldm__bul">
-                <li>머리 XYZ / 몸 XYZ (좌우 · 상하 · 좌우 기울임)</li>
+                <li>머리 XYZ / 몸 XYZ</li>
                 <li>눈동자 물리 · 놀란 눈 · 눈썹 움직임</li>
-                <li>입 모양 (여닫기 · 변형) <b>12점 이상</b> 정교 제작</li>
+                <li>입 모양 12점 이상 정교 제작</li>
                 <li>머리카락 흔들림 물리 & 전신 의상 물리</li>
-                <li>허리 튕기기 (여성 캐릭터)</li>
+                <li>허리 튕기기 구성</li>
               </ul>
             </div>
 
             <div class="ldm__item">
               <div class="ldm__itemTop">
                 <div class="ldm__itemName">LD 반신 리깅</div>
-                <div class="ldm__price ldm__price--hi">₩350,000</div>
+                <div class="ldm__price ldm__price--hi">₩750,000</div>
               </div>
               <ul class="ldm__bul">
-                <li>머리 XYZ / 몸 XYZ (좌우 · 상하 · 좌우 기울임)</li>
+                <li>머리 XYZ / 몸 XYZ</li>
                 <li>눈동자 물리 · 놀란 눈 · 눈썹 움직임</li>
-                <li>입 모양 (여닫기 · 변형) <b>12점 이상</b> 정교 제작</li>
+                <li>입 모양 12점 이상 정교 제작</li>
                 <li>머리카락 흔들림 물리 & 상체 의상 물리</li>
               </ul>
             </div>
@@ -1801,15 +1790,11 @@
         </div>
       </details>
 
-      <!-- ===================== 2) 표정 · 페이셜 옵션 ===================== -->
+      <!-- 표정 · 페이셜 옵션 -->
       <details class="ldm__cat">
         <summary class="ldm__sum">
           <div class="ldm__left">
-            <span class="ldm__ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2l1.2 5.2L18 9l-4.8 1.8L12 16l-1.2-5.2L6 9l4.8-1.8L12 2Z" stroke="rgba(255,243,251,.82)" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <span class="ldm__ic">✧</span>
             <div class="ldm__titleBlock">
               <div class="ldm__catTitle">표정 · 페이셜 옵션</div>
               <div class="ldm__summary">
@@ -1819,14 +1804,9 @@
               </div>
             </div>
           </div>
-
           <div class="ldm__right">
-            <div class="ldm__range">₩10,000 ~ ₩30,000</div>
-            <span class="ldm__chev" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9l6 6 6-6" stroke="rgba(255,243,251,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <div class="ldm__range">₩10,000 ~ ₩50,000</div>
+            <span class="ldm__chev"></span>
           </div>
         </summary>
 
@@ -1837,7 +1817,7 @@
                 <div class="ldm__itemName">간단 토글 표정 (1종)</div>
                 <div class="ldm__price">₩10,000</div>
               </div>
-              <div class="ldm__desc">홍조, 정색 등 고정 표정 ON/OFF 및 관련 부위 물리 연동 구성</div>
+              <div class="ldm__desc">홍조, 정색 등 고정 표정 ON/OFF 구성</div>
             </div>
 
             <div class="ldm__item">
@@ -1845,62 +1825,52 @@
                 <div class="ldm__itemName">애니메이션 토글 표정 (1종)</div>
                 <div class="ldm__price">₩20,000</div>
               </div>
-              <div class="ldm__desc">눈물 흘리기, 어질 눈 회전 등 애니메이션 포함 특수 표정 구성</div>
+              <div class="ldm__desc">눈물, 반짝임, 어질어질 눈 등 애니메이션 포함 특수 표정 구성</div>
             </div>
 
             <div class="ldm__item">
               <div class="ldm__itemTop">
-                <div class="ldm__itemName">입 좌우 움직임 (iOS 전용)</div>
-                <div class="ldm__price">₩20,000</div>
-              </div>
-              <div class="ldm__desc">입의 좌우 비틀림 구현으로 유연한 입 모양 모션 구성</div>
-            </div>
-
-            <div class="ldm__item">
-              <div class="ldm__itemTop">
-                <div class="ldm__itemName">볼 빵빵 (웹캠 토글)</div>
+                <div class="ldm__itemName">입 좌우 움직임</div>
                 <div class="ldm__price">₩30,000</div>
               </div>
-              <div class="ldm__desc">볼 부풀리기를 구현하여 귀여움 구성</div>
+              <div class="ldm__desc">입의 좌우 움직임을 추가하여 더 자연스러운 입 모양 연출</div>
             </div>
 
             <div class="ldm__item">
               <div class="ldm__itemTop">
-                <div class="ldm__itemName">혀 내밀기 (웹캠 토글)</div>
+                <div class="ldm__itemName">볼빵빵</div>
                 <div class="ldm__price">₩30,000</div>
               </div>
-              <div class="ldm__desc">혀를 내미는 움직임을 구현하여 개성있고 장난스러운 연출 가능</div>
+              <div class="ldm__desc">볼을 부풀리는 귀여운 표정 토글 구성</div>
+            </div>
+
+            <div class="ldm__item">
+              <div class="ldm__itemTop">
+                <div class="ldm__itemName">혀내밀기</div>
+                <div class="ldm__price">₩50,000</div>
+              </div>
+              <div class="ldm__desc">혀를 내미는 표정/움직임 구성</div>
             </div>
           </div>
         </div>
       </details>
 
-      <!-- ===================== 3) VBridger ===================== -->
+      <!-- VBridger -->
       <details class="ldm__cat">
         <summary class="ldm__sum">
           <div class="ldm__left">
-            <span class="ldm__ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M10 13a5 5 0 0 1 0-7l1-1a5 5 0 0 1 7 7l-1 1" stroke="rgba(255,243,251,.82)" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M14 11a5 5 0 0 1 0 7l-1 1a5 5 0 0 1-7-7l1-1" stroke="rgba(255,243,251,.62)" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
+            <span class="ldm__ic">◌</span>
             <div class="ldm__titleBlock">
               <div class="ldm__catTitle">VBridger</div>
               <div class="ldm__summary">
-                <span class="ldm__chip ldm__chip--violet">연동 <b>₩50,000</b></span>
+                <span class="ldm__chip ldm__chip--violet">연동 <b>₩100,000</b></span>
                 <span class="ldm__chip ldm__chip--soft">발음 보정</span>
               </div>
             </div>
           </div>
-
           <div class="ldm__right">
-            <div class="ldm__range">₩50,000</div>
-            <span class="ldm__chev" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9l6 6 6-6" stroke="rgba(255,243,251,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <div class="ldm__range">₩100,000</div>
+            <span class="ldm__chev"></span>
           </div>
         </summary>
 
@@ -1909,33 +1879,24 @@
             <div class="ldm__item">
               <div class="ldm__itemTop">
                 <div class="ldm__itemName">VBridger 연동</div>
-                <div class="ldm__price">₩50,000</div>
+                <div class="ldm__price ldm__price--hi">₩100,000</div>
               </div>
-              <div class="ldm__desc">발음별 입 모양 보정, 오물오물 구현</div>
-
-              <div class="ldm__callout" role="note" aria-label="중요 안내">
+              <div class="ldm__desc">발음별 입 모양 보정 및 더 섬세한 입 움직임 구성</div>
+              <div class="ldm__callout">
                 <span class="ldm__callTag">VBridger 프로그램 실행 필수</span>
                 <span class="ldm__callText">미실행 시 입 모양 움직임이 제한될 수 있습니다</span>
               </div>
-
               <div class="ldm__note">※ VBridger는 별도 유료 프로그램입니다</div>
             </div>
           </div>
         </div>
       </details>
 
-      <!-- ===================== 4) 손 옵션 ===================== -->
+      <!-- 손 옵션 -->
       <details class="ldm__cat">
         <summary class="ldm__sum">
           <div class="ldm__left">
-            <span class="ldm__ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M8 12V6a1 1 0 0 1 2 0v6" stroke="rgba(255,243,251,.82)" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M10 12V5a1 1 0 1 1 2 0v7" stroke="rgba(255,243,251,.72)" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M12 12V6a1 1 0 1 1 2 0v6" stroke="rgba(255,243,251,.62)" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M14 12V7a1 1 0 1 1 2 0v6c0 4-2 7-6 7-3 0-5-2-5-5v-2a1 1 0 0 1 2 0v2" stroke="rgba(255,243,251,.82)" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
+            <span class="ldm__ic">✋</span>
             <div class="ldm__titleBlock">
               <div class="ldm__catTitle">손 옵션</div>
               <div class="ldm__summary">
@@ -1944,14 +1905,9 @@
               </div>
             </div>
           </div>
-
           <div class="ldm__right">
             <div class="ldm__range">₩30,000</div>
-            <span class="ldm__chev" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9l6 6 6-6" stroke="rgba(255,243,251,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <span class="ldm__chev"></span>
           </div>
         </summary>
 
@@ -1968,32 +1924,23 @@
         </div>
       </details>
 
-      <!-- ===================== 5) 동물 귀 · 꼬리 ===================== -->
+      <!-- 동물 귀 · 꼬리 -->
       <details class="ldm__cat">
         <summary class="ldm__sum">
           <div class="ldm__left">
-            <span class="ldm__ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 18c6 2 12-2 12-8 0-3-2-5-5-5-2 0-4 1-5 3" stroke="rgba(255,243,251,.82)" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M6 18c1-3 4-5 7-5" stroke="rgba(255,243,251,.62)" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
+            <span class="ldm__ic">⌁</span>
             <div class="ldm__titleBlock">
               <div class="ldm__catTitle">동물 귀 · 꼬리</div>
               <div class="ldm__summary">
+                <span class="ldm__chip ldm__chip--pink">귀 <b>₩50,000</b></span>
+                <span class="ldm__chip ldm__chip--violet">꼬리 <b>₩30,000</b></span>
                 <span class="ldm__chip ldm__chip--soft">물리 포함</span>
-                <span class="ldm__chip ldm__chip--pink"><b>₩30,000</b></span>
               </div>
             </div>
           </div>
-
           <div class="ldm__right">
-            <div class="ldm__range">₩30,000</div>
-            <span class="ldm__chev" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9l6 6 6-6" stroke="rgba(255,243,251,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <div class="ldm__range">₩30,000 ~ ₩50,000</div>
+            <span class="ldm__chev"></span>
           </div>
         </summary>
 
@@ -2001,44 +1948,40 @@
           <div class="ldm__grid">
             <div class="ldm__item">
               <div class="ldm__itemTop">
-                <div class="ldm__itemName">동물 귀 또는 꼬리</div>
+                <div class="ldm__itemName">동물 귀</div>
+                <div class="ldm__price">₩50,000</div>
+              </div>
+              <div class="ldm__desc">동물 귀 파츠의 자연스러운 흔들림 및 물리 구성</div>
+            </div>
+
+            <div class="ldm__item">
+              <div class="ldm__itemTop">
+                <div class="ldm__itemName">꼬리</div>
                 <div class="ldm__price">₩30,000</div>
               </div>
-              <div class="ldm__desc">생동감 있는 움직임과 풍부한 가동 물리 구성</div>
-              <ul class="ldm__bul">
-                <li>※ 파츠 보유 시 필수 선택 옵션</li>
-              </ul>
+              <div class="ldm__desc">꼬리 파츠의 생동감 있는 흔들림 및 물리 구성</div>
             </div>
           </div>
         </div>
       </details>
 
-      <!-- ===================== 6) 기타 옵션 ===================== -->
+      <!-- 기타 옵션 -->
       <details class="ldm__cat">
         <summary class="ldm__sum">
           <div class="ldm__left">
-            <span class="ldm__ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" stroke="rgba(255,243,251,.82)" stroke-width="1.8"/>
-                <path d="M19 12a7 7 0 0 0-.1-1l2-1.2-2-3.4-2.2.7a7.4 7.4 0 0 0-1.7-1L14.6 3H9.4L9 6.1a7.4 7.4 0 0 0-1.7 1L5.1 6.4 3.1 9.8l2 1.2a7 7 0 0 0 0 2l-2 1.2 2 3.4 2.2-.7a7.4 7.4 0 0 0 1.7 1L9.4 21h5.2l.4-3.1a7.4 7.4 0 0 0 1.7-1l2.2.7 2-3.4-2-1.2c.1-.3.1-.7.1-1Z" stroke="rgba(255,243,251,.62)" stroke-width="1.4" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <span class="ldm__ic">⚙</span>
             <div class="ldm__titleBlock">
               <div class="ldm__catTitle">기타 옵션</div>
               <div class="ldm__summary">
-                <span class="ldm__chip ldm__chip--soft">ON/OFF · 토글물리</span>
-                <span class="ldm__chip ldm__chip--violet">스텝</span>
+                <span class="ldm__chip ldm__chip--violet">ON/OFF <b>₩10,000</b></span>
+                <span class="ldm__chip ldm__chip--pink">스텝 <b>₩30,000</b></span>
+                <span class="ldm__chip ldm__chip--soft">소품 추가</span>
               </div>
             </div>
           </div>
-
           <div class="ldm__right">
-            <div class="ldm__range">₩10,000 ~ ₩30,000</div>
-            <span class="ldm__chev" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9l6 6 6-6" stroke="rgba(255,243,251,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <div class="ldm__range">₩10,000 ~ ₩100,000</div>
+            <span class="ldm__chev"></span>
           </div>
         </summary>
 
@@ -2049,15 +1992,23 @@
                 <div class="ldm__itemName">ON / OFF 옵션 추가 (1종)</div>
                 <div class="ldm__price">₩10,000</div>
               </div>
-              <div class="ldm__desc">머리띠, 의상, 꼬리 등 개별 파츠의 ON/OFF를 위한 구성</div>
+              <div class="ldm__desc">머리띠, 의상, 소품 등 개별 파츠의 ON/OFF 토글 구성</div>
             </div>
 
             <div class="ldm__item">
               <div class="ldm__itemTop">
-                <div class="ldm__itemName">토글 물리 (1종)</div>
-                <div class="ldm__price">₩20,000</div>
+                <div class="ldm__itemName">간단 소품 추가</div>
+                <div class="ldm__price">₩30,000</div>
               </div>
-              <div class="ldm__desc">소품 등장 시 톡 떨어지는 반동 등 무게감이 느껴지는 물리 구성</div>
+              <div class="ldm__desc">안대처럼 구조가 단순한 소품 파츠 추가 구성</div>
+            </div>
+
+            <div class="ldm__item">
+              <div class="ldm__itemTop">
+                <div class="ldm__itemName">복잡 소품 추가</div>
+                <div class="ldm__price">₩60,000</div>
+              </div>
+              <div class="ldm__desc">헤드셋처럼 파츠 구조가 복잡하거나 움직임 구성이 필요한 소품 추가 구성</div>
             </div>
 
             <div class="ldm__item">
@@ -2067,19 +2018,23 @@
               </div>
               <div class="ldm__desc">몸의 기울기에 발 위치를 연동한 스텝 구성</div>
             </div>
+
+            <div class="ldm__item">
+              <div class="ldm__itemTop">
+                <div class="ldm__itemName">완성 후 데뷔 60일 이상</div>
+                <div class="ldm__price ldm__price--hi">₩100,000</div>
+              </div>
+              <div class="ldm__desc">작업 완료 후 데뷔까지 60일 이상 보관/비공개 유지가 필요한 경우 추가됩니다</div>
+            </div>
           </div>
         </div>
       </details>
 
-      <!-- ===================== 7) 가치코이 ===================== -->
+      <!-- 가치코이 -->
       <details class="ldm__cat">
         <summary class="ldm__sum">
           <div class="ldm__left">
-            <span class="ldm__ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 21s-7-4.6-9.4-9.1C.8 8.1 3 5 6.4 5c1.8 0 3.2.9 3.6 2 .4-1.1 1.8-2 3.6-2C17 5 19.2 8.1 21.4 11.9 19 16.4 12 21 12 21Z" stroke="rgba(255,243,251,.82)" stroke-width="1.6" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <span class="ldm__ic">♡</span>
             <div class="ldm__titleBlock">
               <div class="ldm__catTitle">가치코이</div>
               <div class="ldm__summary">
@@ -2088,14 +2043,9 @@
               </div>
             </div>
           </div>
-
           <div class="ldm__right">
             <div class="ldm__range">₩100,000 ~ ₩200,000</div>
-            <span class="ldm__chev" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9l6 6 6-6" stroke="rgba(255,243,251,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <span class="ldm__chev"></span>
           </div>
         </summary>
 
@@ -2107,6 +2057,7 @@
                 <div class="ldm__price ldm__price--hi">₩100,000</div>
               </div>
               <div class="ldm__desc">단축키 활성화 시 화면 근처로 다가오는 듯한 숙이기 연출 구성</div>
+              <div class="ldm__note">※ 신의상에도 가치코이 단축키 적용 시 의상 1종당 ₩50,000 추가</div>
             </div>
 
             <div class="ldm__item">
@@ -2115,36 +2066,29 @@
                 <div class="ldm__price ldm__price--hi">₩200,000</div>
               </div>
               <div class="ldm__desc">캠 거리 인식 기반 전·후 이동 입체 연출</div>
+              <div class="ldm__note">※ 신의상에도 가치코이 페이셜 적용 시 의상 1종당 ₩100,000 추가</div>
             </div>
           </div>
         </div>
       </details>
 
-      <!-- ===================== 8) 신규 의상 · 헤어 ===================== -->
+      <!-- 신규 의상 · 헤어 -->
       <details class="ldm__cat">
         <summary class="ldm__sum">
           <div class="ldm__left">
-            <span class="ldm__ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 5v14M5 12h14" stroke="rgba(255,243,251,.82)" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
+            <span class="ldm__ic">＋</span>
             <div class="ldm__titleBlock">
               <div class="ldm__catTitle">신규 의상 · 헤어</div>
               <div class="ldm__summary">
-                <span class="ldm__chip ldm__chip--violet">헤어 <b>₩150,000</b></span>
-                <span class="ldm__chip ldm__chip--pink">의상 <b>₩200,000</b></span>
+                <span class="ldm__chip ldm__chip--violet">헤어 <b>₩150,000~</b></span>
+                <span class="ldm__chip ldm__chip--pink">의상 <b>₩200,000~</b></span>
+                <span class="ldm__chip ldm__chip--soft">난이도별 변동</span>
               </div>
             </div>
           </div>
-
           <div class="ldm__right">
-            <div class="ldm__range">₩150,000 ~ ₩200,000</div>
-            <span class="ldm__chev" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9l6 6 6-6" stroke="rgba(255,243,251,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <div class="ldm__range">₩150,000 ~</div>
+            <span class="ldm__chev"></span>
           </div>
         </summary>
 
@@ -2153,48 +2097,40 @@
             <div class="ldm__item">
               <div class="ldm__itemTop">
                 <div class="ldm__itemName">신규 헤어 추가 (1종)</div>
-                <div class="ldm__price ldm__price--hi">₩150,000</div>
+                <div class="ldm__price ldm__price--hi">₩150,000~</div>
               </div>
               <div class="ldm__desc">신규 헤어 추가 및 흔들림 물리 구성</div>
+              <div class="ldm__note">※ 현재 금액은 최소 가격이며, 파츠 수와 난이도에 따라 추가금이 발생할 수 있습니다.</div>
             </div>
 
             <div class="ldm__item">
               <div class="ldm__itemTop">
                 <div class="ldm__itemName">신규 의상 추가 (1종)</div>
-                <div class="ldm__price ldm__price--hi">₩200,000</div>
+                <div class="ldm__price ldm__price--hi">₩200,000~</div>
               </div>
-              <div class="ldm__desc">신규 의상 리깅 및 전신 의상 물리 구성</div>
+              <div class="ldm__desc">신규 의상 리깅 및 의상 물리 구성</div>
+              <div class="ldm__note">※ 현재 금액은 최소 가격이며, 의상 구조와 파츠 수, 난이도에 따라 추가금이 발생할 수 있습니다.</div>
             </div>
           </div>
         </div>
       </details>
 
-      <!-- ===================== 9) 기타 서비스 ===================== -->
+      <!-- 기타 서비스 -->
       <details class="ldm__cat">
         <summary class="ldm__sum">
           <div class="ldm__left">
-            <span class="ldm__ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 21V4" stroke="rgba(255,243,251,.72)" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M6 5h11l-1.5 3L17 11H6" stroke="rgba(255,243,251,.82)" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <span class="ldm__ic">⚑</span>
             <div class="ldm__titleBlock">
               <div class="ldm__catTitle">기타 서비스</div>
               <div class="ldm__summary">
-                <span class="ldm__chip ldm__chip--violet">영구 비공개 <b>₩200,000</b></span>
+                <span class="ldm__chip ldm__chip--violet">영구 비공개 <b>₩500,000</b></span>
                 <span class="ldm__chip ldm__chip--soft">설치 도움 <b>₩0</b></span>
               </div>
             </div>
           </div>
-
           <div class="ldm__right">
-            <div class="ldm__range">₩0 ~ ₩200,000</div>
-            <span class="ldm__chev" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9l6 6 6-6" stroke="rgba(255,243,251,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
+            <div class="ldm__range">₩0 ~ ₩500,000</div>
+            <span class="ldm__chev"></span>
           </div>
         </summary>
 
@@ -2203,7 +2139,7 @@
             <div class="ldm__item">
               <div class="ldm__itemTop">
                 <div class="ldm__itemName">작업 영구 비공개</div>
-                <div class="ldm__price ldm__price--hi">₩200,000</div>
+                <div class="ldm__price ldm__price--hi">₩500,000</div>
               </div>
               <div class="ldm__desc">포트폴리오 및 샘플 공개 없이 작업물 정보 노출을 제한</div>
             </div>
@@ -2213,7 +2149,7 @@
                 <div class="ldm__itemName">설치 도움</div>
                 <div class="ldm__price">₩0</div>
               </div>
-              <div class="ldm__desc">VTube Studio 초기 세팅 및 최적화 지원</div>
+              <div class="ldm__desc">VTube Studio 초기 세팅 및 적용 도움</div>
             </div>
           </div>
         </div>
@@ -2224,332 +2160,343 @@
 </section>
 
 <style>
-  :root{
-    /* ✅ PINK BASE */
-    --ldm-bg:#140814;
-    --ldm-ink: rgba(255,243,251,.92);
-    --ldm-dim: rgba(255,243,251,.70);
-    --ldm-dim2: rgba(255,243,251,.54);
-    --ldm-line: rgba(255,243,251,.12);
-    --ldm-line2: rgba(255,243,251,.08);
+#menu,
+#menu *{
+  box-sizing:border-box;
+}
 
-    --ldm-pink:#ff4fd8;   /* main */
-    --ldm-violet:#a970ff; /* sub */
-    --ldm-blue:#7aa8ff;   /* cool accent */
-    --ldm-r1: 14px;
-    --ldm-r2: 12px;
-    --ldm-max: 980px;
-  }
+:root{
+  --ldm-ink:rgba(255,243,251,.92);
+  --ldm-dim:rgba(255,243,251,.70);
+  --ldm-line:rgba(255,243,251,.12);
+  --ldm-line2:rgba(255,243,251,.08);
+  --ldm-pink:#ff4fd8;
+  --ldm-violet:#a970ff;
+  --ldm-blue:#7aa8ff;
+}
 
-  .ldm{
-    max-width: var(--ldm-max);
-    margin: 16px auto 0;
-    padding: 0 14px 26px;
-    color: var(--ldm-ink);
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
-  }
+.ldm{
+  max-width:980px;
+  margin:16px auto;
+  padding:0 14px 26px;
+  color:var(--ldm-ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI","Noto Sans KR",sans-serif;
+}
 
-  .ldm__shell{
-    border:1px solid var(--ldm-line);
-    border-radius: var(--ldm-r1);
-    background:
-      radial-gradient(1200px 560px at 15% -20%, rgba(255,79,216,.12), transparent 55%),
-      radial-gradient(900px 520px at 120% 10%, rgba(169,112,255,.09), transparent 55%),
-      linear-gradient(180deg, rgba(20,8,20,.78), rgba(0,0,0,.82));
-    box-shadow: none;
-    overflow:hidden;
-    position:relative;
-  }
+.ldm__shell{
+  overflow:hidden;
+  border-radius:20px;
+  border:1px solid var(--ldm-line);
+  background:
+    radial-gradient(circle at top left, rgba(255,79,216,.10), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(169,112,255,.10), transparent 34%),
+    linear-gradient(180deg, rgba(20,8,20,.96), rgba(0,0,0,.95));
+}
 
-  .ldm__shell::before{
-    content:"";
-    position:absolute; inset:0;
-    pointer-events:none;
-    background:
-      linear-gradient(to right, rgba(255,243,251,.04) 1px, transparent 1px) 0 0/28px 28px,
-      linear-gradient(to bottom, rgba(255,243,251,.03) 1px, transparent 1px) 0 0/28px 28px;
-    opacity:.14;
-  }
+.ldm__head{
+  padding:18px;
+  border-bottom:1px solid var(--ldm-line2);
+  display:grid;
+  gap:10px;
+}
 
-  .ldm__head{
-    position:relative;
-    padding: 16px 16px 12px;
-    border-bottom:1px solid var(--ldm-line2);
-    background: rgba(20,8,20,.44);
-    display:grid;
-    gap: 10px;
-  }
+.ldm__kicker{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.12em;
+}
 
-  .ldm__kicker{
-    display:flex; align-items:center; gap:10px;
-    font-weight: 1000;
-    letter-spacing: .9px;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: rgba(255,243,251,.90);
-  }
+.ldm__liveDot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--ldm-pink);
+  box-shadow:0 0 14px rgba(255,79,216,.55);
+}
 
-  /* ✅ 핑크 반짝 도트 */
-  .ldm__liveDot{
-    width:10px; height:10px; border-radius:50%;
-    background: var(--ldm-pink);
-    box-shadow: 0 0 0 4px rgba(255,79,216,.12), 0 0 18px rgba(255,79,216,.18);
-    animation: ldmPulse 1.2s ease-in-out infinite;
-  }
-  @keyframes ldmPulse{
-    0%,100%{ transform:scale(1); opacity:1; }
-    50%{ transform:scale(.75); opacity:.65; }
-  }
+.ldm__title{
+  margin:0;
+  font-size:22px;
+  font-weight:1000;
+}
 
-  .ldm__titleRow{ display:grid; gap:6px; }
-  .ldm__title{ margin:0; font-size:18px; font-weight:1000; letter-spacing:-.2px; }
-  .ldm__sub{ margin:0; font-size:12px; color: var(--ldm-dim); }
+.ldm__sub{
+  margin:4px 0 0;
+  font-size:13px;
+  color:var(--ldm-dim);
+}
 
-  .ldm__actions{
-    display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap;
-  }
-  .ldm__btn{
-    appearance:none;
-    border:1px solid rgba(255,243,251,.14);
-    background: rgba(255,243,251,.04);
-    color: rgba(255,243,251,.92);
-    font-weight: 1000;
-    font-size: 12px;
-    padding: 10px 12px;
-    border-radius: 12px;
-    cursor:pointer;
-  }
-  .ldm__btn:hover{ background: rgba(255,79,216,.07); }
+.ldm__actions{
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
 
-  .ldm__list{
-    position:relative;
-    padding: 12px;
-    display:grid;
-    gap: 10px;
-  }
+.ldm__btn{
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  color:#fff;
+  border-radius:12px;
+  padding:10px 14px;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:900;
+}
 
-  .ldm__cat{
-    border:1px solid var(--ldm-line2);
-    border-radius: var(--ldm-r2);
-    background: rgba(0,0,0,.28);
-    overflow:hidden;
-  }
+.ldm__btn:hover{
+  background:rgba(255,79,216,.08);
+}
 
-  .ldm__cat > summary{ list-style:none; }
-  .ldm__cat > summary::-webkit-details-marker{ display:none; }
+.ldm__list{
+  padding:12px;
+  display:grid;
+  gap:10px;
+}
 
+.ldm__cat{
+  overflow:hidden;
+  border-radius:16px;
+  border:1px solid var(--ldm-line2);
+  background:rgba(255,255,255,.03);
+}
+
+.ldm__cat > summary{
+  list-style:none;
+}
+
+.ldm__cat > summary::-webkit-details-marker{
+  display:none;
+}
+
+.ldm__sum{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:14px;
+  cursor:pointer;
+}
+
+.ldm__left{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  min-width:0;
+}
+
+.ldm__ic{
+  width:38px;
+  height:38px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at top left, rgba(255,79,216,.25), transparent 60%),
+    rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.10);
+  font-size:15px;
+  flex:0 0 auto;
+}
+
+.ldm__titleBlock{
+  display:grid;
+  gap:8px;
+  min-width:0;
+}
+
+.ldm__catTitle{
+  font-size:14px;
+  font-weight:1000;
+}
+
+.ldm__summary{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.ldm__chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:900;
+  border:1px solid rgba(255,255,255,.10);
+}
+
+.ldm__chip--pink{
+  background:rgba(255,79,216,.12);
+  border-color:rgba(255,79,216,.22);
+}
+
+.ldm__chip--violet{
+  background:rgba(169,112,255,.12);
+  border-color:rgba(169,112,255,.22);
+}
+
+.ldm__chip--soft{
+  background:rgba(255,255,255,.04);
+}
+
+.ldm__right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:0 0 auto;
+}
+
+.ldm__range{
+  font-size:12px;
+  color:rgba(255,255,255,.68);
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.ldm__chev{
+  width:36px;
+  height:36px;
+  border-radius:12px;
+  border:1px solid rgba(255,243,251,.12);
+  background:rgba(255,243,251,.03);
+  position:relative;
+  flex:0 0 auto;
+  transition:.18s;
+}
+
+.ldm__chev::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:9px;
+  height:9px;
+  border-right:2px solid rgba(255,243,251,.82);
+  border-bottom:2px solid rgba(255,243,251,.82);
+  transform:translate(-50%,-65%) rotate(45deg);
+}
+
+.ldm__cat[open] .ldm__chev{
+  transform:rotate(180deg);
+}
+
+.ldm__panel{
+  padding:10px;
+  border-top:1px solid var(--ldm-line2);
+}
+
+.ldm__grid{
+  display:grid;
+  gap:10px;
+}
+
+.ldm__item{
+  border-radius:14px;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  display:grid;
+  gap:8px;
+}
+
+.ldm__itemTop{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.ldm__itemName{
+  font-size:13px;
+  font-weight:1000;
+}
+
+.ldm__price{
+  padding:7px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:1000;
+  white-space:nowrap;
+  background:linear-gradient(135deg, rgba(169,112,255,.22), rgba(255,79,216,.18));
+  border:1px solid rgba(255,255,255,.12);
+}
+
+.ldm__price--hi{
+  background:linear-gradient(135deg, rgba(122,168,255,.20), rgba(255,79,216,.22));
+}
+
+.ldm__desc{
+  font-size:12px;
+  line-height:1.5;
+  color:rgba(255,255,255,.70);
+}
+
+.ldm__note{
+  font-size:12px;
+  font-weight:900;
+  color:rgba(255,255,255,.82);
+  line-height:1.5;
+}
+
+.ldm__bul{
+  margin:0;
+  padding-left:18px;
+  font-size:12px;
+  line-height:1.5;
+  color:rgba(255,255,255,.74);
+}
+
+.ldm__callout{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  border-radius:12px;
+  padding:10px 12px;
+  border:1px solid rgba(255,255,255,.12);
+  background:linear-gradient(90deg, rgba(255,79,216,.18), rgba(169,112,255,.10));
+}
+
+.ldm__callTag{
+  font-size:12px;
+  font-weight:1000;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,79,216,.34);
+  background:rgba(255,79,216,.16);
+}
+
+.ldm__callText{
+  font-size:12px;
+  font-weight:900;
+  color:rgba(255,255,255,.82);
+}
+
+@media (max-width:720px){
   .ldm__sum{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap: 12px;
-    padding: 12px 12px;
-    cursor:pointer;
-    user-select:none;
-  }
-
-  .ldm__left{
-    display:flex; align-items:center; gap:12px;
-    min-width:0;
-  }
-
-  .ldm__ic{
-    width: 34px; height: 34px;
-    border-radius: 12px;
-    display:grid; place-items:center;
-    border:1px solid rgba(255,243,251,.12);
-    background:
-      radial-gradient(14px 14px at 30% 30%, rgba(255,79,216,.18), transparent 60%),
-      radial-gradient(18px 18px at 70% 70%, rgba(169,112,255,.12), transparent 60%),
-      rgba(255,243,251,.03);
-    flex: 0 0 auto;
-  }
-
-  .ldm__titleBlock{ display:grid; gap:8px; min-width:0; }
-  .ldm__catTitle{
-    font-weight: 1000;
-    font-size: 14px;
-    color: rgba(255,243,251,.94);
-    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  }
-
-  .ldm__summary{
-    display:flex;
-    flex-wrap:wrap;
-    gap: 6px;
-    align-items:center;
-  }
-
-  .ldm__chip{
-    display:inline-flex; align-items:center;
-    gap:8px;
-    font-size: 11px;
-    font-weight: 900;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border:1px solid rgba(255,243,251,.12);
-    background: rgba(255,243,251,.035);
-    color: rgba(255,243,251,.84);
-  }
-  .ldm__chip b{ font-weight: 1000; color: rgba(255,243,251,.96); }
-
-  .ldm__chip--pink{
-    border-color: rgba(255,79,216,.30);
-    background: rgba(255,79,216,.12);
-    color: rgba(255,224,245,.98);
-    box-shadow: 0 0 0 3px rgba(255,79,216,.07);
-  }
-  .ldm__chip--violet{
-    border-color: rgba(169,112,255,.30);
-    background: rgba(169,112,255,.12);
-    color: rgba(240,232,255,.98);
-    box-shadow: 0 0 0 3px rgba(169,112,255,.06);
-  }
-  .ldm__chip--soft{
-    border-color: rgba(255,243,251,.16);
-    background: rgba(255,243,251,.04);
-    color: rgba(255,243,251,.80);
+    flex-direction:column;
+    align-items:flex-start;
   }
 
   .ldm__right{
-    display:flex; align-items:center; gap:10px;
-    flex: 0 0 auto;
+    width:100%;
+    justify-content:space-between;
   }
+
   .ldm__range{
-    font-size:12px;
-    font-weight:1000;
-    color: rgba(255,243,251,.74);
-    white-space:nowrap;
+    font-size:11px;
   }
 
-  .ldm__chev{
-    width: 36px; height: 36px;
-    border-radius: 12px;
-    border:1px solid rgba(255,243,251,.12);
-    background: rgba(255,243,251,.03);
-    display:grid; place-items:center;
-  }
-  .ldm__chev svg{ transition: transform .18s ease; opacity:.9; }
-  .ldm__cat[open] .ldm__chev svg{ transform: rotate(180deg); }
-
-  .ldm__panel{
-    border-top:1px solid var(--ldm-line2);
-    background: rgba(0,0,0,.20);
-    padding: 10px 10px 12px;
-  }
-
-  .ldm__grid{ display:grid; gap: 8px; }
-
-  .ldm__item{
-    border:1px solid rgba(255,243,251,.10);
-    background: rgba(0,0,0,.18);
-    border-radius: 12px;
-    padding: 10px 10px;
-    display:grid;
-    gap: 8px;
-  }
   .ldm__itemTop{
-    display:flex; align-items:flex-start; justify-content:space-between;
-    gap: 10px;
+    align-items:flex-start;
   }
-  .ldm__itemName{
-    font-weight: 1000;
-    font-size: 13px;
-    color: rgba(255,243,251,.94);
-    line-height:1.2;
-  }
-
-  .ldm__desc{
-    font-size: 12px;
-    color: rgba(255,243,251,.70);
-    line-height: 1.35;
-  }
-  .ldm__bul{
-    margin:0;
-    padding-left: 16px;
-    color: rgba(255,243,251,.74);
-    font-size: 12px;
-    line-height: 1.35;
-    display:grid;
-    gap: 4px;
-  }
-
-  .ldm__callout{
-    display:flex; align-items:center; gap:10px;
-    border-radius: 12px;
-    padding: 10px 12px;
-    border: 1px solid rgba(255,243,251,.14);
-    background: linear-gradient(90deg, rgba(255,79,216,.18), rgba(169,112,255,.10));
-  }
-  .ldm__callTag{
-    font-size: 12px;
-    font-weight: 1000;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,79,216,.34);
-    background: rgba(255,79,216,.16);
-    color: rgba(255,224,245,.98);
-    white-space:nowrap;
-  }
-  .ldm__callText{
-    font-size: 13px;
-    font-weight: 900;
-    color: rgba(255,243,251,.92);
-    line-height: 1.25;
-    min-width:0;
-  }
-  .ldm__note{
-    font-size: 12px;
-    font-weight: 900;
-    color: rgba(255,243,251,.84);
-  }
-
-  @media (max-width: 720px){
-    .ldm__sum{ flex-direction:column; align-items:flex-start; }
-    .ldm__right{ width:100%; justify-content:space-between; }
-    .ldm__range{ font-size:11px; }
-    .ldm__callout{ flex-wrap:wrap; }
-  }
-
-/* ===== 가격 뱃지: 기본=저가(단색), 고가만 --hi(믹스) ===== */
-
-/* ✅ 저가(10만원 미만) 기본 = 보라 "단색" 톤 */
-.ldm__price{
-  font-weight: 1000;
-  font-size: 13px;
-  padding: 7px 12px;
-  border-radius: 999px;
-  white-space: nowrap;
-
-  color: rgba(255,243,251,.96);
-  border: 1px solid rgba(255,243,251,.14);
-
-  /* 단색(보라) + 은은한 하이라이트만 */
-  background:
-    radial-gradient(26px 26px at 18% 35%, rgba(169,112,255,.38), transparent 62%),
-    linear-gradient(135deg, rgba(169,112,255,.22), rgba(0,0,0,.10));
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.28),
-    inset 0 1px 0 rgba(255,243,251,.06);
 }
-
-/* ✅ 고가(10만원 이상) = 믹스(블루 + 핑크) */
-.ldm__price.ldm__price--hi{
-  border-color: rgba(255,243,251,.18);
-
-  background:
-    radial-gradient(22px 22px at 22% 30%, rgba(122,168,255,.28), transparent 62%),
-    radial-gradient(26px 26px at 78% 70%, rgba(255,79,216,.26), transparent 62%),
-    linear-gradient(135deg, rgba(122,168,255,.18), rgba(255,79,216,.16));
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.28),
-    inset 0 1px 0 rgba(255,243,251,.06);
-}
-
 </style>
-<!-- ===================== /LIVE2D MENU ===================== -->
+<!-- ===================== /LIVE2D MENU FULL ===================== -->
 
 <!-- ===================== PROCESS (PINK BASE / DARK) ===================== -->
 <section class="proc" id="process" aria-label="작업 진행 안내">

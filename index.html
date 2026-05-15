@@ -162,7 +162,6 @@
     color: var(--show-dim2);
   }
 
-  /* 스크롤이 막혀 있어도 문제 없게: 페이지 렌더링이라 overflow에 의존 안함 */
   .show__listWrap{
     max-height: 360px;
     overflow:auto;
@@ -251,7 +250,6 @@
     flex: 0 0 auto;
   }
 
-  /* ✅ CHZZK = (예전 블랙+라임) 초록 라임 */
   .show__plat--chzzk{
     border-color: rgba(183,255,42,.28);
     background: rgba(183,255,42,.12);
@@ -259,7 +257,6 @@
     box-shadow: 0 0 0 3px rgba(183,255,42,.06);
   }
 
-  /* ✅ SOOP = (예전 블랙+라임) 청록 */
   .show__plat--soop{
     border-color: rgba(45,247,214,.26);
     background: rgba(45,247,214,.12);
@@ -273,7 +270,6 @@
     color: rgba(255,243,251,.90);
   }
 
-  /* ✅ 태그(핑크) */
   .show__tag{
     font-size:11px;
     padding:4px 8px;
@@ -310,7 +306,6 @@
   }
   .show__navBtn:disabled{ opacity:.35; cursor:not-allowed; }
 
-  /* ✅ 페이지 표시 */
   .show__page{
     flex:0 0 auto;
     min-width: 72px;
@@ -410,10 +405,8 @@
       border-bottom:1px solid var(--show-line2);
     }
 
-    /* ✅ 모바일은 "4개씩 페이지"라서 스크롤 높이는 크게 중요 없음 (원하면 줄여도 됨) */
     .show__listWrap{ max-height: none; overflow: hidden; }
 
-    /* ✅✅ [모바일에서 플레이어 "가운데" 고정] (PC 영향 없음) */
     .show__panel--player{
       justify-items: center;
     }
@@ -433,22 +426,22 @@
 (function(){
   const VIDEOS = [
     { id:"Vwv1Ut-qEtg", title:"Showcase 11", name:"슬묘", platform:"CHZZK" },
-    
-{ id:"GmHCBD8DT_4", title:"Showcase 10", name:"하주야", platform:"CHZZK" },
-    
+
+    { id:"GmHCBD8DT_4", title:"Showcase 10", name:"하주야", platform:"CHZZK" },
+
     { id:"u9pkq4Gwj9c", title:"Showcase 09", name:"박유넬", platform:"CHZZK", tags:["반신리깅"] },
-    
+
     { id:"zM50eZXTxVY", title:"Showcase 08", name:"시로가네 미오", platform:"SOOP", tags:["신의상"] },
+
     { id:"nKnbNQM_E6Y", title:"Showcase 01", name:"아야린", platform:"CHZZK" },
+
     { id:"GSNXmsDC6VY", title:"Showcase 02", name:"시로가네 미오", platform:"SOOP" },
-    { id:"G7E7gPjzzm4", title:"Showcase 03", name:"유채리", platform:"CHZZK" },
-    { id:"6fePAVY9eMY", title:"Showcase 04", name:"포욘", platform:"CHZZK" },
-];
+  ];
 
   const list = document.getElementById("showList");
   const player = document.getElementById("showPlayer");
-  const prev = document.getElementById("showPrev"); // ✅ 페이지 PREV
-  const next = document.getElementById("showNext"); // ✅ 페이지 NEXT
+  const prev = document.getElementById("showPrev");
+  const next = document.getElementById("showNext");
   const pageEl = document.getElementById("showPage");
   const nowTitle = document.getElementById("showNowTitle");
   const count = document.getElementById("showCount");
@@ -466,8 +459,6 @@
   const thumb = (id)=> "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
 
   function pageSize(){
-    // ✅ 모바일: 4개씩 페이지
-    // ✅ PC: 전부 보여주기(원하면 8/10 등으로 바꿔도 됨)
     return mq.matches ? 4 : VIDEOS.length;
   }
 
@@ -506,11 +497,9 @@
     if(i < 0 || i >= VIDEOS.length) return;
     active = i;
 
-    // 플레이어 갱신
     player.src = embed(VIDEOS[active].id);
     if(nowTitle) nowTitle.textContent = "";
 
-    // ✅ 현재 active가 포함된 페이지로 자동 이동
     ensurePageForActive();
 
     renderPage();
@@ -535,10 +524,12 @@
 
       const t = document.createElement("div");
       t.className = "show__thumb";
+
       const img = document.createElement("img");
       img.loading = "lazy";
       img.alt = v.name || "샘플";
       img.src = thumb(v.id);
+
       t.appendChild(img);
 
       const main = document.createElement("div");
@@ -547,6 +538,7 @@
       const title = document.createElement("div");
       title.className = "show__rowTitle";
       title.textContent = v.title;
+
       main.appendChild(title);
 
       const meta = document.createElement("div");
@@ -555,26 +547,30 @@
       const name = document.createElement("span");
       name.className = "show__name";
       name.textContent = v.name || "샘플";
+
       meta.appendChild(name);
 
       const isSample = (v.name === "샘플");
 
-      // ✅ 요청 순서에 맞춰서 추가 태그(예: 반신리깅, 신의상)를 플랫폼보다 먼저 출력되도록 순서 변경
       const tags = Array.isArray(v.tags) ? v.tags : [];
+
       tags.forEach((tag)=>{
         if(!tag) return;
+
         const tg = document.createElement("span");
         tg.className = "show__tag show__tag--newfit";
         tg.textContent = tag;
+
         meta.appendChild(tg);
       });
 
-      // 플랫폼 태그
       const p = (v.platform || "").trim();
+
       if(!isSample && p){
         const plat = document.createElement("span");
         plat.className = platClass(p);
         plat.textContent = p;
+
         meta.appendChild(plat);
       }
 
@@ -595,26 +591,30 @@
     updatePager();
   }
 
-  // ✅ 페이지 PREV/NEXT
   prev.addEventListener("click", (e)=>{
     e.preventDefault();
     prev.blur();
+
     page = clampPage(page - 1);
+
     renderPage();
   });
 
   next.addEventListener("click", (e)=>{
     e.preventDefault();
     next.blur();
+
     page = clampPage(page + 1);
+
     renderPage();
   });
 
-  // ✅ 모바일 스와이프(플레이어 영역): 영상 자체를 이전/다음으로 넘김
   let sx=0, sy=0, tracking=false;
+
   if(swipeArea){
     swipeArea.addEventListener("touchstart",(e)=>{
       if(!e.touches || e.touches.length!==1) return;
+
       tracking=true;
       sx=e.touches[0].clientX;
       sy=e.touches[0].clientY;
@@ -622,7 +622,9 @@
 
     swipeArea.addEventListener("touchend",(e)=>{
       if(!tracking) return;
+
       tracking=false;
+
       const t=e.changedTouches && e.changedTouches[0];
       if(!t) return;
 
@@ -636,15 +638,14 @@
     },{passive:true});
   }
 
-  // ✅ 화면 크기 바뀌면(모바일/PC 전환) 페이지 계산 다시
   function onResizeModeChange(){
     ensurePageForActive();
     renderPage();
   }
+
   if(mq.addEventListener) mq.addEventListener("change", onResizeModeChange);
   else mq.addListener(onResizeModeChange);
 
-  // init
   ensurePageForActive();
   renderPage();
   setActive(0);

@@ -12,14 +12,14 @@
   --grad: linear-gradient(120deg, #E42E6E 0%, #CF3A90 55%, #8B4FD6 100%);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
 body { font-family: 'Pretendard Variable', Pretendard, -apple-system, 'Malgun Gothic', sans-serif; background: #fff; color: var(--text); word-break: keep-all; }
 .wrap { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
 h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--ink); }
 .lede { margin-top: 8px; color: var(--mute); line-height: 1.6; }
 
 .drop {
-  display: block;
-  margin-top: 28px;
+  display: block; margin-top: 22px;
   border: 2px dashed #E3B9CC; border-radius: 22px;
   padding: 44px 24px; text-align: center; cursor: pointer;
   transition: border-color .2s, background .2s;
@@ -29,48 +29,60 @@ h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--in
 .drop span { display: block; margin-top: 6px; font-size: .9rem; color: var(--mute); }
 .drop input { display: none; }
 
-.opts { margin-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.opt label { display: block; font-size: .85rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
 .seg { display: flex; border: 1.5px solid var(--line); border-radius: 12px; overflow: hidden; }
 .seg button { all: unset; flex: 1; text-align: center; padding: 10px 4px; font-size: .86rem; white-space: nowrap; font-weight: 600; color: var(--text); cursor: pointer; }
 .seg button + button { border-left: 1.5px solid var(--line); }
 .seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
-.seg button:focus-visible { outline: 2px solid var(--pink); outline-offset: -2px; }
+.seg button:focus-visible, .chips button:focus-visible { outline: 2px solid var(--pink); outline-offset: -2px; }
 .mode { margin-top: 26px; max-width: 480px; }
-.v2g { display: none; margin-top: 22px; border: 1.5px solid var(--line); border-radius: 18px; padding: 20px; }
-.v2g.on { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; }
-.v2g .full { grid-column: 1 / -1; }
-.v2g label.t { display: block; font-size: .85rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-.v2g label.t small { font-weight: 500; color: var(--mute); margin-left: 6px; }
+.mode button { padding: 12px 4px; font-size: .95rem; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips button { all: unset; cursor: pointer; padding: 8px 13px; border: 1.5px solid var(--line); border-radius: 999px; font-size: .86rem; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+.chips button:hover { border-color: #D9B3C6; }
+.chips button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+.panel { margin-top: 22px; border: 1.5px solid var(--line); border-radius: 18px; padding: 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; }
+.panel .full { grid-column: 1 / -1; }
+.panel label.t { display: block; font-size: .85rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.panel label.t small { font-weight: 500; color: var(--mute); margin-left: 6px; }
+.hint { margin-top: 8px; font-size: .82rem; color: var(--mute); line-height: 1.5; }
 .row { display: flex; gap: 8px; align-items: center; }
 .num { width: 100%; font: inherit; font-size: .92rem; color: var(--ink); padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 12px; background: #fff; }
+.num:disabled { background: var(--soft); color: var(--mute); }
 .num:focus { outline: none; border-color: var(--pink); box-shadow: 0 0 0 3px rgba(232, 51, 111, .15); }
 .row span { font-size: .85rem; color: var(--mute); white-space: nowrap; }
-.opts.off { display: none; }
+.row .seg { flex: 0 0 auto; }
+.row .seg button { padding: 10px 14px; }
 .preview { grid-column: 1 / -1; margin-top: 6px; }
-.preview img { max-width: 220px; max-height: 220px; border-radius: 10px; border: 1px solid var(--line); display: block; }
-@media (max-width: 640px) { .v2g.on { grid-template-columns: 1fr; } }
-.mode button { padding: 12px 4px; font-size: .95rem; }
-.check { margin-top: 16px; display: flex; align-items: center; gap: 8px; font-size: .9rem; color: var(--text); }
-.check input { width: 18px; height: 18px; accent-color: var(--pink); }
+.preview img, .preview video { max-width: 260px; max-height: 260px; border-radius: 10px; border: 1px solid var(--line); display: block; }
+.check { display: flex; align-items: center; gap: 8px; font-size: .9rem; color: var(--text); }
+.check input { width: 18px; height: 18px; accent-color: var(--pink); flex: none; }
+.checks { display: grid; gap: 10px; }
+.keep { margin-top: 16px; }
 
 .bar { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
 .btn { all: unset; cursor: pointer; padding: 13px 22px; border-radius: 14px; font-weight: 700; font-size: .95rem; }
 .btn--main { background: var(--grad); color: #fff; box-shadow: 0 12px 26px -12px rgba(194, 24, 91, .6); }
 .btn--ghost { background: var(--soft); color: var(--ink); }
 .btn[disabled] { opacity: .4; pointer-events: none; }
+.btn:focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
 
 .note { margin-top: 18px; padding: 14px 16px; border-radius: 12px; background: #FFF7E8; color: #7A5410; font-size: .88rem; line-height: 1.6; }
 .note.err { background: #FDECEC; color: var(--bad); }
+.eng { margin-top: 10px; font-size: .82rem; color: var(--mute); }
+.eng.ok { color: var(--ok); }
+.eng.bad { color: var(--bad); }
 
 .list { margin-top: 26px; display: grid; gap: 10px; }
 .item { border: 1.5px solid var(--line); border-radius: 16px; padding: 16px 18px; display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: center; }
 .item b { color: var(--ink); font-size: .98rem; overflow-wrap: anywhere; }
 .meta { font-size: .85rem; color: var(--mute); font-variant-numeric: tabular-nums; }
 .meta em { font-style: normal; font-weight: 800; color: var(--ok); }
+.meta .warn { color: var(--bad); font-weight: 700; }
 .prog { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--soft); overflow: hidden; }
 .prog i { display: block; height: 100%; width: 0; background: var(--grad); transition: width .2s; }
-.state { font-size: .85rem; font-weight: 700; color: var(--mute); white-space: nowrap; }
+.state { font-size: .85rem; font-weight: 700; color: var(--mute); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .state.done { color: var(--ok); }
 .state.fail { color: var(--bad); }
 .dl { all: unset; cursor: pointer; font-size: .85rem; font-weight: 700; color: var(--pink-ink); }
@@ -80,7 +92,7 @@ details { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 20px
 summary { cursor: pointer; font-weight: 700; color: var(--ink); }
 details p, details li { margin-top: 8px; font-size: .9rem; line-height: 1.7; color: var(--text); }
 details ul { padding-left: 18px; }
-@media (max-width: 640px) { .opts { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .panel { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -100,8 +112,102 @@ details ul { padding-left: 18px; }
     <span id="dropSub">여러 개를 한 번에 넣을 수 있어요 · mp4, mov, mkv, webm</span>
   </label>
 
+  <!-- 영상 압축 / GIF 압축 옵션 -->
+  <div class="panel" id="vopts">
+    <div class="full">
+      <label class="t">크기 <small>긴 쪽 기준 · 원본보다 크게는 안 늘려요</small></label>
+      <div class="chips" data-k="size">
+        <button type="button" data-v="orig">원본</button>
+        <button type="button" data-v="1920">1920</button>
+        <button type="button" data-v="1500">1500</button>
+        <button type="button" data-v="1280">1280</button>
+        <button type="button" data-v="1080">1080</button>
+        <button type="button" data-v="1000">1000</button>
+        <button type="button" data-v="750" aria-pressed="true">750</button>
+        <button type="button" data-v="640">640</button>
+        <button type="button" data-v="500">500</button>
+        <button type="button" data-v="360">360</button>
+        <button type="button" data-v="custom">직접</button>
+      </div>
+      <div class="row" style="margin-top:8px;max-width:220px"><input class="num" id="vSize" type="number" min="64" max="4096" step="10" value="750" disabled aria-label="긴 쪽 픽셀"><span>px</span></div>
+    </div>
 
-  <div class="v2g" id="v2g">
+    <div class="full" data-mode="video">
+      <label class="t">압축 기준</label>
+      <div class="seg" data-k="qmode" style="max-width:360px">
+        <button type="button" data-v="crf" aria-pressed="true">화질 우선</button>
+        <button type="button" data-v="target">목표 용량</button>
+      </div>
+    </div>
+
+    <div class="full" data-mode="video" data-q="crf">
+      <label class="t">화질 <small>왼쪽일수록 선명하고 무거워요</small></label>
+      <div class="chips" data-k="crf">
+        <button type="button" data-v="20">최고화질</button>
+        <button type="button" data-v="23" aria-pressed="true">선명하게</button>
+        <button type="button" data-v="26">보통</button>
+        <button type="button" data-v="29">가볍게</button>
+        <button type="button" data-v="32">최소 용량</button>
+      </div>
+      <p class="hint" id="crfHint"></p>
+    </div>
+
+    <div class="full" data-mode="video" data-q="target">
+      <label class="t">목표 용량 <small>이 크기에 맞춰 두 번 나눠 압축해요 (시간이 2배)</small></label>
+      <div class="row" style="max-width:360px">
+        <input class="num" id="target" type="number" min="1" step="1" value="30" aria-label="목표 용량">
+        <div class="seg" data-k="unit">
+          <button type="button" data-v="%" aria-pressed="true">원본의 %</button>
+          <button type="button" data-v="MB">MB</button>
+        </div>
+      </div>
+    </div>
+
+    <div data-mode="video">
+      <label class="t">프레임</label>
+      <div class="seg" data-k="fps">
+        <button type="button" data-v="orig">원본</button>
+        <button type="button" data-v="60">60</button>
+        <button type="button" data-v="30" aria-pressed="true">30</button>
+        <button type="button" data-v="24">24</button>
+        <button type="button" data-v="15">15</button>
+      </div>
+    </div>
+
+    <div data-mode="video">
+      <label class="t">압축 속도 <small>꼼꼼할수록 더 작아요</small></label>
+      <div class="seg" data-k="preset">
+        <button type="button" data-v="veryfast">빠르게</button>
+        <button type="button" data-v="medium" aria-pressed="true">보통</button>
+        <button type="button" data-v="slow">꼼꼼히</button>
+      </div>
+    </div>
+
+    <div class="full checks" data-mode="video">
+      <label class="check"><input type="checkbox" id="anim" checked> 그림체 영상에 맞춰 압축 (Live2D·일러스트처럼 면이 깔끔한 영상에서 더 선명해요)</label>
+      <label class="check"><input type="checkbox" id="audio"> 소리도 넣기 (사이트용 예시 영상이면 꺼 두세요)</label>
+    </div>
+
+    <div data-mode="gif">
+      <label class="t">색상 수</label>
+      <div class="seg" data-k="gColors">
+        <button type="button" data-v="256">256</button>
+        <button type="button" data-v="128" aria-pressed="true">128</button>
+        <button type="button" data-v="64">64</button>
+      </div>
+    </div>
+    <div data-mode="gif">
+      <label class="t">프레임</label>
+      <div class="seg" data-k="gFps">
+        <button type="button" data-v="orig">원본 유지</button>
+        <button type="button" data-v="30" aria-pressed="true">30 이하</button>
+        <button type="button" data-v="15">15 이하</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MP4 → GIF 옵션 -->
+  <div class="panel" id="v2g" hidden>
     <div>
       <label class="t">크기 <small>긴 쪽 기준 · 원본보다 크게는 안 늘려요</small></label>
       <div class="seg" data-g="size">
@@ -111,7 +217,7 @@ details ul { padding-left: 18px; }
         <button type="button" data-v="750">750</button>
         <button type="button" data-v="custom">직접</button>
       </div>
-      <div class="row" style="margin-top:8px"><input class="num" id="gSize" type="number" min="64" max="1500" step="10" value="480" disabled><span>px</span></div>
+      <div class="row" style="margin-top:8px"><input class="num" id="gSize" type="number" min="64" max="1500" step="10" value="480" disabled aria-label="GIF 긴 쪽 픽셀"><span>px</span></div>
     </div>
     <div>
       <label class="t">프레임 <small>낮을수록 가벼워요</small></label>
@@ -126,8 +232,8 @@ details ul { padding-left: 18px; }
     <div>
       <label class="t">색상 수 <small>적을수록 가벼워요</small></label>
       <div class="seg" data-g="colors">
-        <button type="button" data-v="256">256</button>
-        <button type="button" data-v="128" aria-pressed="true">128</button>
+        <button type="button" data-v="256" aria-pressed="true">256</button>
+        <button type="button" data-v="128">128</button>
         <button type="button" data-v="64">64</button>
         <button type="button" data-v="32">32</button>
       </div>
@@ -143,7 +249,7 @@ details ul { padding-left: 18px; }
     </div>
     <div>
       <label class="t">구간 자르기 <small>비워두면 전체</small></label>
-      <div class="row"><input class="num" id="gStart" type="number" min="0" step="0.1" placeholder="시작"><span>초 ~</span><input class="num" id="gEnd" type="number" min="0" step="0.1" placeholder="끝"><span>초</span></div>
+      <div class="row"><input class="num" id="gStart" type="number" min="0" step="0.1" placeholder="시작" aria-label="시작 초"><span>초 ~</span><input class="num" id="gEnd" type="number" min="0" step="0.1" placeholder="끝" aria-label="끝 초"><span>초</span></div>
     </div>
     <div>
       <label class="t">반복</label>
@@ -152,69 +258,50 @@ details ul { padding-left: 18px; }
         <button type="button" data-v="-1">한 번만</button>
       </div>
     </div>
-    <div>
-      <label class="t">색 맞추는 방식 <small>공통이 깜빡임이 적어요</small></label>
+    <div class="full">
+      <label class="t">색 맞추는 방식</label>
       <div class="seg" data-g="palette">
         <button type="button" data-v="global" aria-pressed="true">전체 공통</button>
+        <button type="button" data-v="diff">움직이는 부분 우선</button>
         <button type="button" data-v="frame">장면마다</button>
       </div>
+      <p class="hint">배경은 가만히 있고 캐릭터만 움직이는 리깅 영상이면 "움직이는 부분 우선"이 캐릭터 색을 더 정확하게 살려요.</p>
     </div>
-    <div>
-      <label class="t">디더링 <small>그라데이션 줄무늬 완화</small></label>
+    <div class="full">
+      <label class="t">디더링 <small>색이 부족한 곳을 점으로 섞어 메우는 방식</small></label>
       <div class="seg" data-g="dither">
-        <button type="button" data-v="0" aria-pressed="true">끔</button>
-        <button type="button" data-v="1">켬</button>
+        <button type="button" data-v="sierra2_4a" aria-pressed="true">부드럽게</button>
+        <button type="button" data-v="bayer">격자 무늬</button>
+        <button type="button" data-v="none">끔</button>
       </div>
+      <p class="hint">"부드럽게"가 그라데이션이 가장 자연스러워요. 그래도 자글거리면 "끔"이 가장 깔끔하고 가벼워요 (대신 그라데이션에 줄무늬가 생길 수 있어요).</p>
     </div>
   </div>
-  <div class="opts">
-    <div class="opt">
-      <label>크기 (긴 쪽 기준)</label>
-      <div class="seg" data-key="size">
-        <button type="button" data-v="1000">1000px</button>
-        <button type="button" data-v="750" aria-pressed="true">750px</button>
-        <button type="button" data-v="500">500px</button>
-      </div>
-    </div>
-    <div class="opt">
-      <label id="qLabel">화질</label>
-      <div class="seg" data-key="q">
-        <button type="button" data-v="high">선명하게</button>
-        <button type="button" data-v="mid" aria-pressed="true">보통</button>
-        <button type="button" data-v="low">가볍게</button>
-      </div>
-    </div>
-    <div class="opt">
-      <label>프레임</label>
-      <div class="seg" data-key="fps">
-        <button type="button" data-v="60">60fps</button>
-        <button type="button" data-v="30" aria-pressed="true">30fps</button>
-      </div>
-    </div>
-  </div>
-  <label class="check"><input type="checkbox" id="keepName" checked> 원래 파일 이름 그대로 저장 (사이트 영상 교체할 때 편해요)</label>
+
+  <label class="check keep"><input type="checkbox" id="keepName" checked> 원래 파일 이름 그대로 저장 (사이트 영상 교체할 때 편해요)</label>
 
   <div class="bar">
     <button class="btn btn--main" id="go" type="button" disabled>압축 시작</button>
     <button class="btn btn--ghost" id="dlAll" type="button" disabled>전부 다운로드</button>
     <button class="btn btn--ghost" id="clear" type="button">목록 비우기</button>
   </div>
-  <p class="note" id="note">영상 압축은 영상 길이만큼 시간이 걸려요 (10초 영상이면 약 10초). 진행 중에는 이 탭을 다른 탭으로 바꾸지 말고 화면에 띄워 두세요.</p>
+  <p class="note" id="note"></p>
+  <p class="eng" id="eng"></p>
 
   <div class="list" id="list"></div>
 
   <details>
     <summary>도움말</summary>
     <ul>
-      <li>추천 설정은 <b>750px · 보통 · 30fps</b>예요. 1500×1500 영상이 보통 5~10배 가볍게 줄어들고, 사이트 카드 크기에서는 차이가 거의 안 보여요.</li>
-      <li>소리는 넣지 않아요. 사이트의 리깅 예시 영상은 모두 음소거로 재생되기 때문이에요.</li>
-      <li>MP4로 저장돼요. 오래된 브라우저에서는 WebM으로 저장될 수 있는데, 그럴 땐 크롬을 최신으로 업데이트해 주세요.</li>
-      <li>압축 중에 다른 탭으로 바꾸면 브라우저가 화면 그리기를 멈춰서 영상이 끊길 수 있어요.</li>
-      <li><b>GIF 모드</b>에서는 크기를 줄이고 색상 수를 줄여서 GIF 그대로 가볍게 만들어요. "프레임 30fps"를 고르면 너무 촘촘한 프레임을 덜어내서 더 가벼워집니다. 투명 배경도 유지돼요.</li>
-      <li>GIF 압축은 인터넷에 연결된 상태에서 처음 한 번 작은 도구를 불러와요. GIF는 영상 길이와 상관없이 빠르게 처리됩니다.</li>
-      <li><b>MP4 → GIF</b>는 영상을 GIF로 바꿔요. GIF는 영상보다 훨씬 무거워서, 480px · 15프레임 · 128색 정도를 추천해요. 더 가볍게 하려면 크기나 프레임부터 줄여 보세요.</li>
-      <li>"전체 공통"은 모든 장면에 같은 색표를 써서 깜빡임이 적고 가벼워요. 장면마다 색이 크게 바뀌는 영상이면 "장면마다"가 색이 더 정확해요.</li>
-      <li>디더링을 켜면 하늘이나 그림자 같은 그라데이션의 줄무늬가 부드러워지지만, 용량이 조금 늘어요.</li>
+      <li>추천 설정은 <b>750px · 화질 우선 · 선명하게 · 30프레임</b>이에요. 영상 전문 압축 사이트들과 같은 방식(H.264, 화질 고정 압축)으로 처리해서, 같은 용량이면 이전보다 훨씬 선명해요.</li>
+      <li><b>화질 우선</b>은 화질을 정해 두고 용량은 영상에 맞게 알아서 줄여요. 움직임이 적은 리깅 영상일수록 많이 줄어요. <b>목표 용량</b>은 "10MB 이하"처럼 용량이 정해져 있을 때 쓰세요.</li>
+      <li>처음 한 번은 압축 도구(약 30MB)를 내려받아서 인터넷 연결이 필요하고 조금 기다려야 해요. 그 다음부터는 브라우저에 저장돼서 빨라요.</li>
+      <li>압축은 내 컴퓨터에서 하기 때문에 영상 길이보다 오래 걸릴 수 있어요 (1500px 영상 → 750px 기준, 10초 영상이 대략 30초~1분). 다른 탭으로 바꿔도 계속 진행돼요.</li>
+      <li>"꼼꼼히"는 같은 화질에서 용량이 조금 더 줄지만 시간이 1.5~2배 걸려요. 급하면 "빠르게"를 쓰세요.</li>
+      <li>수백 MB가 넘는 아주 큰 영상은 메모리가 부족해 실패할 수 있어요. 그럴 땐 OBS에서 짧게 잘라 녹화하거나 나눠서 넣어 주세요.</li>
+      <li>압축 도구를 불러오지 못하면 예전 방식(간편 모드)으로 압축해요. 이때는 화질이 조금 떨어질 수 있으니 인터넷 연결을 확인하고 새로고침해 보세요.</li>
+      <li><b>GIF 압축</b>은 크기와 색상 수를 줄여서 GIF 그대로 가볍게 만들어요. 투명 배경도 유지돼요.</li>
+      <li><b>MP4 → GIF</b>는 ezgif 같은 사이트와 같은 방식(영상 전체 색 분석 후 색표 만들기)으로 바꿔요. 256색 · 15프레임 · 480px부터 시작해서, 너무 무거우면 크기나 프레임부터 줄여 보세요.</li>
     </ul>
   </details>
 </main>
@@ -222,71 +309,478 @@ details ul { padding-left: 18px; }
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var opts = { size: 750, q: 'mid', fps: 30 };
+  var opts = { size: 750, qmode: 'crf', crf: 23, unit: '%', fps: 30, preset: 'medium', gColors: 128, gFps: 30 };
   var mode = 'video';
-  var g = { size: 480, fps: 15, colors: 128, speed: 1, loop: 0, palette: 'global', dither: 0 };
-  var GIF_COLORS = { high: 256, mid: 128, low: 64 };
+  var g = { size: 480, fps: 15, colors: 256, speed: 1, loop: 0, palette: 'global', dither: 'sierra2_4a' };
+  var CRF_HINT = {
+    20: '원본과 거의 구별이 안 돼요. 용량은 가장 커요.',
+    23: '눈으로 보기엔 원본과 거의 같고, 용량은 크게 줄어요. 추천.',
+    26: '가까이 보면 살짝 뭉개지지만 사이트 카드 크기에서는 티가 안 나요.',
+    29: '머리카락 끝이나 얇은 선이 조금 흐려질 수 있어요.',
+    32: '미리보기용. 용량이 가장 작지만 뭉개짐이 보여요.'
+  };
+  var queue = [];
+  var busy = false;
+
+  /* ================= 고화질 압축 엔진 (ffmpeg.wasm, 별도 작업 스레드) ================= */
+  var CORE = 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd/';
+  function workerMain() {
+    var core = null, logs = [];
+    self.onmessage = async function (e) {
+      var d = e.data, id = d.id;
+      function ok(x, t) { x = x || {}; x.id = id; self.postMessage(x, t || []); }
+      try {
+        if (d.type === 'load') {
+          if (!core) {
+            importScripts(d.base + 'ffmpeg-core.js');
+            core = await self.createFFmpegCore({
+              mainScriptUrlOrBlob: d.base + 'ffmpeg-core.js#' + btoa(JSON.stringify({ wasmURL: d.base + 'ffmpeg-core.wasm' }))
+            });
+            core.setLogger(function (m) { logs.push(m.message); if (logs.length > 600) logs.splice(0, 300); });
+            core.setProgress(function (p) { self.postMessage({ type: 'progress', time: p.time }); });
+          }
+          ok();
+        } else if (d.type === 'write') {
+          core.FS.writeFile(d.name, new Uint8Array(d.buf)); ok();
+        } else if (d.type === 'exec') {
+          logs = [];
+          core.setTimeout(-1);
+          core.exec.apply(core, d.args);
+          var r = core.ret; core.reset();
+          ok({ ret: r, logs: logs.slice() });
+        } else if (d.type === 'read') {
+          var u = core.FS.readFile(d.name);
+          var b = u.buffer.slice(u.byteOffset, u.byteOffset + u.byteLength);
+          ok({ buf: b }, [b]);
+        } else if (d.type === 'rm') {
+          d.names.forEach(function (n) { try { core.FS.unlink(n); } catch (_) {} });
+          ok();
+        }
+      } catch (err) {
+        self.postMessage({ id: id, error: String((err && err.message) || err), crash: true });
+      }
+    };
+  }
+  var eng = { w: null, ready: null, cb: {}, seq: 0, onprog: null, failed: false };
+  function engStatus(text, cls) { $('eng').textContent = text; $('eng').className = 'eng' + (cls ? ' ' + cls : ''); }
+  function resetEngine() {
+    if (eng.w) eng.w.terminate();
+    Object.keys(eng.cb).forEach(function (k) { eng.cb[k].rej(new Error('압축 도구가 멈췄어요')); });
+    eng.w = null; eng.ready = null; eng.cb = {};
+  }
+  function call(type, data, transfer) {
+    return new Promise(function (res, rej) {
+      var id = ++eng.seq; eng.cb[id] = { res: res, rej: rej };
+      data = data || {}; data.type = type; data.id = id;
+      eng.w.postMessage(data, transfer || []);
+    });
+  }
+  function engine() {
+    if (eng.ready) return eng.ready;
+    engStatus('고화질 압축 도구 불러오는 중… (처음 한 번 약 30MB)');
+    eng.ready = new Promise(function (res, rej) {
+      try {
+        var blob = new Blob(['(' + workerMain.toString() + ')()'], { type: 'text/javascript' });
+        eng.w = new Worker(URL.createObjectURL(blob));
+      } catch (e) { rej(e); return; }
+      eng.w.onmessage = function (e) {
+        var d = e.data;
+        if (d.type === 'progress') { if (eng.onprog) eng.onprog(d.time); return; }
+        var c = eng.cb[d.id]; if (!c) return;
+        delete eng.cb[d.id];
+        if (d.error) { var er = new Error(d.error); er.crash = d.crash; c.rej(er); } else c.res(d);
+      };
+      eng.w.onerror = function (e) {
+        e.preventDefault();
+        var err = new Error('압축 도구 오류');
+        Object.keys(eng.cb).forEach(function (k) { eng.cb[k].rej(err); });
+        eng.cb = {}; rej(err);
+      };
+      call('load', { base: CORE }).then(function () { res(true); }, rej);
+    });
+    eng.ready.then(function () {
+      eng.failed = false; engStatus('고화질 압축 준비 완료', 'ok');
+    }, function () {
+      eng.failed = true; resetEngine();
+      engStatus('고화질 압축 도구를 불러오지 못해서 간편 모드로 압축해요 (화질이 낮을 수 있어요). 인터넷 연결을 확인하고 새로고침해 보세요.', 'bad');
+    });
+    return eng.ready;
+  }
+  function hasEngine() { return engine().then(function () { return true; }, function () { return false; }); }
+
+  function probe(name) {
+    return call('exec', { args: ['-hide_banner', '-i', name] }).then(function (r) {
+      var t = r.logs.join('\n'), m = { w: 0, h: 0, dur: 0, fps: 0, audio: /Stream #.*Audio:/.test(t) };
+      var d = t.match(/Duration: (\d+):(\d+):([\d.]+)/);
+      if (d) m.dur = (+d[1]) * 3600 + (+d[2]) * 60 + parseFloat(d[3]);
+      var vline = (t.match(/Stream #.*Video:.*/) || [''])[0];
+      var s = vline.match(/, (\d{2,5})x(\d{2,5})/);
+      if (s) { m.w = +s[1]; m.h = +s[2]; }
+      var f = vline.match(/, ([\d.]+) fps/);
+      if (f) m.fps = parseFloat(f[1]);
+      if (/rotation of -?(90|270)/.test(t)) { var x = m.w; m.w = m.h; m.h = x; }
+      return m;
+    });
+  }
+  function ffError(logs) {
+    var bad = logs.filter(function (l) { return /error|invalid|failed|cannot|could not|not found/i.test(l); });
+    var all = bad.join(' ');
+    if (/memory|OOM|Cannot enlarge/i.test(all)) return '영상이 너무 커서 메모리가 부족해요. 짧게 나누거나 크기를 줄여 보세요';
+    return '압축하지 못했어요' + (bad.length ? ' (' + bad[bad.length - 1].trim().slice(0, 120) + ')' : '');
+  }
+  function extOf(name, def) { var m = name.match(/\.([a-z0-9]{2,5})$/i); return m ? m[1].toLowerCase() : def; }
+  function sizeNum() { return opts.size === 'orig' ? Infinity : opts.size; }
+  function fit(W, H, L, even) {
+    var s = Math.min(1, L / Math.max(W, H));
+    if (even) return { w: Math.max(2, Math.round(W * s / 2) * 2), h: Math.max(2, Math.round(H * s / 2) * 2) };
+    return { w: Math.max(2, Math.round(W * s)), h: Math.max(2, Math.round(H * s)) };
+  }
+  function track(q, from, span, outDur) {
+    var state = q.el.querySelector('.state'), bar = q.el.querySelector('.prog i');
+    eng.onprog = function (us) {
+      var sec = us / 1e6;
+      if (outDur > 0) {
+        var p = Math.max(0, Math.min(1, sec / outDur));
+        var pct = Math.round((from + p * span) * 100);
+        bar.style.width = pct + '%';
+        state.textContent = q.label + ' ' + pct + '%';
+      } else {
+        state.textContent = q.label + ' ' + sec.toFixed(0) + '초 지점';
+      }
+    };
+  }
+
+  /* ---------- 영상 압축 (x264, 화질 고정 또는 목표 용량 2패스) ---------- */
+  async function ffVideo(q) {
+    var state = q.el.querySelector('.state');
+    var IN = 'in.' + extOf(q.file.name, 'mp4'), OUT = 'out.mp4';
+    var files = [IN, OUT, 'pl-0.log', 'pl-0.log.mbtree', 'pl-0.log.temp', 'pl-0.log.mbtree.temp'];
+    state.textContent = '파일 읽는 중';
+    var buf = await q.file.arrayBuffer();
+    await call('write', { name: IN, buf: buf }, [buf]);
+    try {
+      var m = await probe(IN);
+      if (!m.w) throw new Error('영상 정보를 읽지 못했어요');
+      var d = fit(m.w, m.h, sizeNum(), true);
+      var vf = [];
+      var fps = opts.fps === 'orig' ? 0 : opts.fps;
+      if (fps && (!m.fps || m.fps > fps + 0.5)) vf.push('fps=' + fps);
+      vf.push('scale=' + d.w + ':' + d.h + ':flags=lanczos', 'format=yuv420p');
+      var base = ['-y', '-i', IN, '-vf', vf.join(','), '-c:v', 'libx264', '-preset', opts.preset, '-profile:v', 'high'];
+      if ($('anim').checked) base.push('-tune', 'animation');
+      var audio = $('audio').checked && m.audio;
+      var aArgs = audio ? ['-c:a', 'aac', '-b:a', '128k'] : ['-an'];
+      var tail = ['-movflags', '+faststart', OUT];
+      var r;
+      q.label = '압축 중';
+      if (opts.qmode === 'crf') {
+        track(q, 0, 1, m.dur);
+        r = await call('exec', { args: base.concat(['-crf', String(opts.crf)], aArgs, tail) });
+      } else {
+        if (!m.dur) throw new Error('길이를 알 수 없는 영상이라 목표 용량을 맞출 수 없어요. "화질 우선"으로 해 보세요');
+        var tv = parseFloat($('target').value);
+        if (!(tv > 0)) throw new Error('목표 용량을 입력해 주세요');
+        var bytes = opts.unit === '%' ? q.file.size * Math.min(tv, 100) / 100 : tv * 1048576;
+        var kbps = Math.floor(bytes * 8 * 0.95 / m.dur / 1000 - (audio ? 128 : 0));
+        if (kbps < 60) throw new Error('목표 용량이 너무 작아요. 크기를 줄이거나 목표 용량을 늘려 보세요');
+        var rate = ['-b:v', kbps + 'k', '-maxrate', Math.round(kbps * 1.5) + 'k', '-bufsize', (kbps * 2) + 'k'];
+        q.label = '분석 중'; track(q, 0, 0.5, m.dur);
+        r = await call('exec', { args: base.concat(rate, ['-pass', '1', '-passlogfile', 'pl', '-an', '-f', 'null', '/dev/null']) });
+        if (r.ret !== 0) throw new Error(ffError(r.logs));
+        q.label = '압축 중'; track(q, 0.5, 0.5, m.dur);
+        r = await call('exec', { args: base.concat(rate, ['-pass', '2', '-passlogfile', 'pl'], aArgs, tail) });
+      }
+      if (r.ret !== 0) throw new Error(ffError(r.logs));
+      var o = await call('read', { name: OUT });
+      return { blob: new Blob([o.buf], { type: 'video/mp4' }), w: d.w, h: d.h, ext: 'mp4' };
+    } finally {
+      eng.onprog = null;
+      if (eng.w) call('rm', { names: files }).catch(function () {});
+    }
+  }
+
+  /* ---------- MP4 → GIF (전체 색 분석 → 색표 → 디더링, ezgif와 같은 방식) ---------- */
+  async function ffGif(q) {
+    var state = q.el.querySelector('.state');
+    var IN = 'in.' + extOf(q.file.name, 'mp4'), OUT = 'out.gif';
+    state.textContent = '파일 읽는 중';
+    var buf = await q.file.arrayBuffer();
+    await call('write', { name: IN, buf: buf }, [buf]);
+    try {
+      var m = await probe(IN);
+      if (!m.w) throw new Error('영상 정보를 읽지 못했어요');
+      var st = parseFloat($('gStart').value), en = parseFloat($('gEnd').value);
+      st = isFinite(st) && st > 0 ? st : 0;
+      if (m.dur) st = Math.min(st, Math.max(0, m.dur - 0.05));
+      en = isFinite(en) && en > st ? (m.dur ? Math.min(en, m.dur) : en) : 0;
+      var span = (en || m.dur) - st;
+      var d = fit(m.w, m.h, g.size, false);
+      var stats = g.palette === 'frame' ? 'single' : g.palette === 'diff' ? 'diff' : 'full';
+      var dither = g.dither === 'bayer' ? 'dither=bayer:bayer_scale=3' : 'dither=' + g.dither;
+      var fc = '[0:v]' + (g.speed !== 1 ? 'setpts=PTS/' + g.speed + ',' : '') +
+        'fps=' + g.fps + ',scale=' + d.w + ':' + d.h + ':flags=lanczos,split[a][b];' +
+        '[a]palettegen=max_colors=' + g.colors + ':stats_mode=' + stats + '[p];' +
+        '[b][p]paletteuse=' + dither + ':diff_mode=rectangle' + (stats === 'single' ? ':new=1' : '');
+      var args = ['-y'];
+      if (st > 0) args.push('-ss', String(st));
+      if (en) args.push('-to', String(en));
+      args = args.concat(['-i', IN, '-filter_complex', fc, '-loop', String(g.loop), OUT]);
+      q.label = 'GIF 만드는 중';
+      track(q, 0, 1, span > 0 ? span / g.speed : 0);
+      var r = await call('exec', { args: args });
+      if (r.ret !== 0) throw new Error(ffError(r.logs));
+      var o = await call('read', { name: OUT });
+      return { blob: new Blob([o.buf], { type: 'image/gif' }), w: d.w, h: d.h, frames: span > 0 ? Math.round(span / g.speed * g.fps) : 0 };
+    } finally {
+      eng.onprog = null;
+      if (eng.w) call('rm', { names: [IN, OUT] }).catch(function () {});
+    }
+  }
+
+  /* ================= 간편 모드 (압축 도구를 못 불러왔을 때만 사용) ================= */
+  var MIME = ['video/mp4;codecs=avc1.640028', 'video/mp4;codecs=avc1.42E01F', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'];
+  var mime = (window.MediaRecorder && MIME.find(function (m) { return MediaRecorder.isTypeSupported(m); })) || '';
+  var recExt = mime.indexOf('mp4') > -1 ? 'mp4' : 'webm';
+  var BPP = { 20: 0.16, 23: 0.11, 26: 0.08, 29: 0.055, 32: 0.04 };
+
+  function compressSimple(q) {
+    return new Promise(function (resolve, reject) {
+      if (!mime || !HTMLCanvasElement.prototype.captureStream) { reject(new Error('이 브라우저에서는 영상 압축이 지원되지 않아요')); return; }
+      var v = document.createElement('video');
+      v.muted = true; v.playsInline = true; v.preload = 'auto';
+      var src = URL.createObjectURL(q.file);
+      v.src = src;
+      var state = q.el.querySelector('.state'), bar = q.el.querySelector('.prog i');
+      state.className = 'state'; state.textContent = '준비 중';
+      v.addEventListener('error', function () { URL.revokeObjectURL(src); reject(new Error('영상을 열 수 없어요')); });
+      v.addEventListener('loadedmetadata', function () {
+        var d = fit(v.videoWidth, v.videoHeight, sizeNum(), true), w = d.w, h = d.h;
+        var fps = opts.fps === 'orig' ? 60 : opts.fps;
+        var bps;
+        if (opts.qmode === 'target' && isFinite(v.duration) && v.duration > 0) {
+          var tv = parseFloat($('target').value) || 30;
+          var bytes = opts.unit === '%' ? q.file.size * Math.min(tv, 100) / 100 : tv * 1048576;
+          bps = Math.max(150000, bytes * 8 * 0.9 / v.duration);
+        } else bps = Math.round(w * h * Math.min(fps, 30) * (BPP[opts.crf] || 0.11));
+        var c = document.createElement('canvas'); c.width = w; c.height = h;
+        var ctx = c.getContext('2d', { alpha: false });
+        ctx.imageSmoothingQuality = 'high';
+        var stream = c.captureStream(fps);
+        var rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: bps });
+        var chunks = [];
+        rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+        rec.onstop = function () {
+          URL.revokeObjectURL(src);
+          resolve({ blob: new Blob(chunks, { type: mime.split(';')[0] }), w: w, h: h, ext: recExt, simple: true });
+        };
+        var stopped = false;
+        function draw() {
+          ctx.drawImage(v, 0, 0, w, h);
+          if (v.duration) bar.style.width = Math.min(100, v.currentTime / v.duration * 100) + '%';
+          if (!stopped) {
+            if (v.requestVideoFrameCallback) v.requestVideoFrameCallback(draw);
+            else requestAnimationFrame(draw);
+          }
+        }
+        v.addEventListener('seeked', function once() {
+          v.removeEventListener('seeked', once);
+          ctx.drawImage(v, 0, 0, w, h);
+          rec.start(250);
+          state.textContent = '압축 중 (간편 모드)';
+          v.play().then(draw).catch(function (err) { stopped = true; rec.stop(); reject(err); });
+        });
+        v.addEventListener('ended', function () {
+          ctx.drawImage(v, 0, 0, w, h);
+          setTimeout(function () { stopped = true; rec.stop(); }, 200);
+        });
+        v.currentTime = 0;
+      });
+    });
+  }
+
+  /* ---------- GIF 압축 (GIF → GIF, 투명 유지) ---------- */
   var gifenc = null;
   function loadGifenc() {
     if (gifenc) return Promise.resolve(gifenc);
     return import('https://cdn.jsdelivr.net/npm/gifenc@1.0.3/dist/gifenc.esm.js').then(function (m) { gifenc = m; return m; });
   }
-  var queue = [];
-  var busy = false;
+  async function compressGif(q) {
+    if (!window.ImageDecoder) throw new Error('이 브라우저는 GIF 읽기를 지원하지 않아요 (크롬/엣지 최신 버전 필요)');
+    var state = q.el.querySelector('.state'), bar = q.el.querySelector('.prog i');
+    state.className = 'state'; state.textContent = '준비 중';
+    var lib;
+    try { lib = await loadGifenc(); } catch (e) { throw new Error('GIF 도구를 불러오지 못했어요. 인터넷 연결을 확인해 주세요'); }
+    var dec = new ImageDecoder({ data: await q.file.arrayBuffer(), type: 'image/gif' });
+    await dec.tracks.ready;
+    var count = dec.tracks.selectedTrack.frameCount;
+    var first = (await dec.decode({ frameIndex: 0 })).image;
+    var d = fit(first.displayWidth, first.displayHeight, sizeNum(), false);
+    var w = d.w, h = d.h;
+    var c = document.createElement('canvas'); c.width = w; c.height = h;
+    var ctx = c.getContext('2d', { willReadFrequently: true });
+    ctx.imageSmoothingQuality = 'high';
+    var enc = lib.GIFEncoder();
+    var minDelay = opts.gFps === 15 ? 66 : opts.gFps === 30 ? 33 : 16;
+    var colors = opts.gColors;
+    var pending = null, carry = 0, alphaUsed = false;
+    state.textContent = '압축 중';
 
-  // 긴 쪽 픽셀 기준 비트레이트 (bps)
-  var RATE = {
-    1000: { high: 4000000, mid: 2500000, low: 1500000 },
-    750:  { high: 2500000, mid: 1500000, low: 900000 },
-    500:  { high: 1400000, mid: 900000,  low: 550000 }
-  };
+    function flush(img, delay) {
+      var data = img.data;
+      var hasAlpha = false;
+      for (var k = 3; k < data.length; k += 4) { if (data[k] < 128) { hasAlpha = true; break; } }
+      if (hasAlpha) alphaUsed = true;
+      var palette = lib.quantize(data, colors, hasAlpha ? { format: 'rgba4444', oneBitAlpha: true } : { format: 'rgb565' });
+      var index = lib.applyPalette(data, palette, hasAlpha ? 'rgba4444' : 'rgb565');
+      var o = { palette: palette, delay: Math.max(20, Math.round(delay / 10) * 10) };
+      if (hasAlpha) {
+        var ti = palette.findIndex(function (p) { return p[3] === 0; });
+        if (ti >= 0) { o.transparent = true; o.transparentIndex = ti; }
+      }
+      if (alphaUsed) o.dispose = 2;
+      enc.writeFrame(index, w, h, o);
+    }
+    for (var i = 0; i < count; i++) {
+      var fr = i === 0 ? { image: first } : await dec.decode({ frameIndex: i });
+      var img = fr.image;
+      var delay = (img.duration || 100000) / 1000;
+      ctx.clearRect(0, 0, w, h);
+      ctx.drawImage(img, 0, 0, w, h);
+      img.close();
+      if (pending && carry < minDelay) { carry += delay; }
+      else {
+        if (pending) flush(pending, carry);
+        pending = ctx.getImageData(0, 0, w, h);
+        carry = delay;
+      }
+      bar.style.width = Math.round((i + 1) / count * 100) + '%';
+      if (i % 4 === 3) await new Promise(function (r) { setTimeout(r, 0); });
+    }
+    if (pending) flush(pending, carry);
+    enc.finish();
+    dec.close();
+    return { blob: new Blob([enc.bytes()], { type: 'image/gif' }), w: w, h: h };
+  }
 
-  var MIME = ['video/mp4;codecs=avc1.640028', 'video/mp4;codecs=avc1.42E01F', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'];
-  var mime = (window.MediaRecorder && MIME.find(function (m) { return MediaRecorder.isTypeSupported(m); })) || '';
-  var ext = mime.indexOf('mp4') > -1 ? 'mp4' : 'webm';
-  if (!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) {
-    $('note').className = 'note err';
-    $('note').textContent = '이 브라우저에서는 압축이 지원되지 않아요. 크롬이나 엣지 최신 버전으로 열어 주세요.';
-  } else if (mime.indexOf('avc1') < 0 && ext === 'mp4') {
-    $('note').className = 'note err';
-    $('note').textContent = '이 브라우저는 H.264 MP4를 만들 수 없어서 아이폰에서 재생이 안 될 수 있어요. 크롬 또는 엣지 최신 버전으로 열어 주세요.';
-  } else if (ext === 'webm') {
-    $('note').textContent = '이 브라우저는 MP4 저장을 지원하지 않아 WebM으로 저장돼요. 크롬 최신 버전을 쓰시면 MP4로 저장됩니다.';
+  /* ---------- MP4 → GIF 간편 모드 (압축 도구를 못 불러왔을 때만) ---------- */
+  function seek(v, t) {
+    return new Promise(function (res) {
+      var done = function () { v.removeEventListener('seeked', done); res(); };
+      v.addEventListener('seeked', done);
+      v.currentTime = t;
+    });
+  }
+  async function videoToGifSimple(q) {
+    var state = q.el.querySelector('.state'), bar = q.el.querySelector('.prog i');
+    state.className = 'state'; state.textContent = '준비 중';
+    var lib;
+    try { lib = await loadGifenc(); } catch (e) { throw new Error('GIF 도구를 불러오지 못했어요. 인터넷 연결을 확인해 주세요'); }
+    var v = document.createElement('video');
+    v.muted = true; v.preload = 'auto'; v.playsInline = true;
+    var src = URL.createObjectURL(q.file); v.src = src;
+    await new Promise(function (res, rej) {
+      v.addEventListener('loadeddata', res, { once: true });
+      v.addEventListener('error', function () { rej(new Error('영상을 열 수 없어요')); }, { once: true });
+    });
+    var dur = v.duration;
+    var st = parseFloat($('gStart').value), en = parseFloat($('gEnd').value);
+    st = isFinite(st) ? Math.max(0, Math.min(st, dur)) : 0;
+    en = isFinite(en) && en > st ? Math.min(en, dur) : dur;
+    var d = fit(v.videoWidth, v.videoHeight, g.size, false), w = d.w, h = d.h;
+    var c = document.createElement('canvas'); c.width = w; c.height = h;
+    var ctx = c.getContext('2d', { willReadFrequently: true });
+    ctx.imageSmoothingQuality = 'high';
+    var step = g.speed / g.fps, times = [];
+    for (var t = st; t < en - 0.0001; t += step) times.push(t);
+    if (!times.length) times.push(st);
+    var delay = Math.max(20, Math.round(1000 / g.fps / 10) * 10);
+    var grab = async function (tt) { await seek(v, Math.min(tt, dur - 0.001)); ctx.drawImage(v, 0, 0, w, h); return ctx.getImageData(0, 0, w, h).data; };
+    var globalPal = null;
+    if (g.palette !== 'frame') {
+      state.textContent = '색 분석 중';
+      var n = Math.min(12, times.length), parts = [];
+      for (var k = 0; k < n; k++) parts.push(await grab(times[Math.floor(k * times.length / n)]));
+      var all = new Uint8ClampedArray(parts.length * parts[0].length);
+      parts.forEach(function (p, i) { all.set(p, i * p.length); });
+      globalPal = lib.quantize(all, g.colors);
+    }
+    var enc = lib.GIFEncoder();
+    state.textContent = 'GIF 만드는 중 (간편 모드)';
+    for (var i = 0; i < times.length; i++) {
+      var data = await grab(times[i]);
+      var pal = globalPal || lib.quantize(data, g.colors);
+      var index = lib.applyPalette(data, pal);
+      var o = { delay: delay };
+      if (i === 0) { o.palette = pal; o.repeat = g.loop; }
+      else if (!globalPal) o.palette = pal;
+      enc.writeFrame(index, w, h, o);
+      bar.style.width = Math.round((i + 1) / times.length * 100) + '%';
+      if (i % 3 === 2) await new Promise(function (r) { setTimeout(r, 0); });
+    }
+    enc.finish();
+    URL.revokeObjectURL(src);
+    return { blob: new Blob([enc.bytes()], { type: 'image/gif' }), w: w, h: h, frames: times.length, simple: true };
+  }
+
+  /* ================= 화면 ================= */
+  function press(grp, b) { grp.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); }
+
+  function setNote() {
+    var n = $('note'); n.className = 'note';
+    if (mode === 'gif') {
+      n.textContent = window.ImageDecoder ? 'GIF는 크기와 색상 수를 줄여서 GIF 그대로 저장해요. 투명 배경도 유지돼요.' : '이 브라우저는 GIF 읽기를 지원하지 않아요. 크롬이나 엣지 최신 버전으로 열어 주세요.';
+      if (!window.ImageDecoder) n.className = 'note err';
+    } else if (mode === 'v2g') {
+      n.textContent = '영상을 GIF로 바꿔요. 영상 전체의 색을 분석해서 색표를 만들기 때문에 자글거림이 적어요. 처음 한 번은 인터넷 연결이 필요해요.';
+    } else {
+      n.textContent = '전문 압축 사이트와 같은 방식(H.264)으로 화질은 지키고 용량은 줄여요. 처음 한 번은 압축 도구를 내려받느라 조금 기다려야 해요.';
+    }
+  }
+  function updateVis() {
+    $('vopts').hidden = mode === 'v2g';
+    $('v2g').hidden = mode !== 'v2g';
+    document.querySelectorAll('#vopts [data-mode]').forEach(function (el) {
+      var okMode = el.dataset.mode.split(' ').indexOf(mode) > -1;
+      var okQ = !el.dataset.q || el.dataset.q === opts.qmode;
+      el.hidden = !(okMode && okQ);
+    });
+    $('crfHint').textContent = CRF_HINT[opts.crf] || '';
   }
 
   $('mode').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b || busy) return;
-    this.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+    press(this, b);
     mode = b.dataset.v;
     var gif = mode === 'gif', v2g = mode === 'v2g';
-    $('v2g').classList.toggle('on', v2g);
     $('go').textContent = v2g ? '변환 시작' : '압축 시작';
-    document.querySelector('.opts').classList.toggle('off', v2g);
     $('file').accept = gif ? 'image/gif' : 'video/*';
-    $('dropTitle').textContent = gif ? 'GIF를 여기에 끌어다 놓거나 눌러서 고르세요' : '영상을 여기에 끌어다 놓거나 눌러서 고르세요';
+    $('dropTitle').textContent = gif ? 'GIF를 여기에 끌어다 놓거나 눌러서 고르세요' : v2g ? 'GIF로 만들 영상을 끌어다 놓거나 눌러서 고르세요' : '영상을 여기에 끌어다 놓거나 눌러서 고르세요';
     $('dropSub').textContent = gif ? '여러 개를 한 번에 넣을 수 있어요 · gif' : '여러 개를 한 번에 넣을 수 있어요 · mp4, mov, mkv, webm';
-    $('qLabel').textContent = gif ? '화질 (색상 수)' : '화질';
-    var q = document.querySelectorAll('[data-key="q"] button');
-    q[0].textContent = gif ? '선명 256색' : '선명하게';
-    q[1].textContent = gif ? '보통 128색' : '보통';
-    q[2].textContent = gif ? '가볍게 64색' : '가볍게';
-    $('note').className = 'note';
-    $('note').textContent = gif
-      ? (window.ImageDecoder ? 'GIF는 크기와 색상 수를 줄여서 GIF 그대로 저장해요. 영상보다 훨씬 빨리 끝나요.' : '이 브라우저는 GIF 읽기를 지원하지 않아요. 크롬이나 엣지 최신 버전으로 열어 주세요.')
-      : '영상 압축은 영상 길이만큼 시간이 걸려요 (10초 영상이면 약 10초). 진행 중에는 이 탭을 다른 탭으로 바꾸지 말고 화면에 띄워 두세요.';
-    if (gif && !window.ImageDecoder) $('note').className = 'note err';
-    if (v2g) {
-      $('dropTitle').textContent = 'GIF로 만들 영상을 끌어다 놓거나 눌러서 고르세요';
-      $('note').className = 'note';
-      $('note').textContent = '영상을 GIF로 바꿔요. 아래 옵션으로 크기, 프레임, 색상 수, 구간, 속도를 정할 수 있어요. 처음 한 번은 인터넷 연결이 필요해요.';
-    }
-    refresh();
+    setNote(); updateVis(); refresh();
   });
+
+  document.querySelectorAll('#vopts [data-k]').forEach(function (grp) {
+    grp.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b || busy) return;
+      press(grp, b);
+      var k = grp.dataset.k, v = b.dataset.v;
+      if (k === 'size') {
+        var custom = v === 'custom';
+        $('vSize').disabled = !custom;
+        if (custom) { $('vSize').focus(); var n = parseInt($('vSize').value, 10); if (n >= 64) opts.size = n; }
+        else { opts.size = v === 'orig' ? 'orig' : parseInt(v, 10); if (v !== 'orig') $('vSize').value = v; }
+        return;
+      }
+      opts[k] = isNaN(+v) ? v : +v;
+      updateVis();
+    });
+  });
+  $('vSize').addEventListener('input', function () { var n = parseInt(this.value, 10); if (n >= 64) opts.size = Math.min(4096, n); });
 
   document.querySelectorAll('#v2g .seg').forEach(function (seg) {
     seg.addEventListener('click', function (e) {
       var b = e.target.closest('button'); if (!b || busy) return;
-      seg.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      press(seg, b);
       var k = seg.dataset.g, v = b.dataset.v;
       if (k === 'size') {
         var custom = v === 'custom';
@@ -294,35 +788,29 @@ details ul { padding-left: 18px; }
         if (!custom) { $('gSize').value = v; g.size = parseInt(v, 10); } else $('gSize').focus();
         return;
       }
-      g[k] = (k === 'palette') ? v : parseFloat(v);
+      g[k] = (k === 'palette' || k === 'dither') ? v : parseFloat(v);
     });
   });
   $('gSize').addEventListener('input', function () { var n = parseInt(this.value, 10); if (n >= 64) g.size = Math.min(1500, n); });
 
-  document.querySelectorAll('.opts .seg').forEach(function (seg) {
-    seg.addEventListener('click', function (e) {
-      var b = e.target.closest('button'); if (!b || busy) return;
-      seg.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
-      var k = seg.dataset.key, v = b.dataset.v;
-      opts[k] = (k === 'q') ? v : parseInt(v, 10);
-    });
-  });
-
-  function mb(n) { return (n / 1048576).toFixed(n > 10485760 ? 0 : 1) + 'MB'; }
+  function mb(n) { return n < 1048576 ? Math.max(1, Math.round(n / 1024)) + 'KB' : (n / 1048576).toFixed(n > 10485760 ? 0 : 1) + 'MB'; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
   function add(files) {
+    var needEngine = false;
     Array.prototype.forEach.call(files, function (f) {
       var isGif = f.type === 'image/gif' || /\.gif$/i.test(f.name);
-      var isVid = /^video\//.test(f.type) || /\.(mp4|mov|mkv|webm|m4v)$/i.test(f.name);
+      var isVid = /^video\//.test(f.type) || /\.(mp4|mov|mkv|webm|m4v|avi)$/i.test(f.name);
       if (!isGif && !isVid) return;
+      var kind = isGif ? 'gif' : (mode === 'v2g' ? 'v2g' : 'video');
+      if (kind !== 'gif') needEngine = true;
       var el = document.createElement('div');
       el.className = 'item';
-      el.innerHTML = '<b>' + esc(f.name) + '</b><span class="state">대기</span><span class="meta">원본 ' + mb(f.size) + '</span><span class="act"></span><span class="prog"><i></i></span>';
+      el.innerHTML = '<b>' + esc(f.name) + '</b><span class="state">' + (kind === 'v2g' ? 'GIF 변환 대기' : '대기') + '</span><span class="meta">원본 ' + mb(f.size) + '</span><span class="act"></span><span class="prog"><i></i></span>';
       $('list').appendChild(el);
-      queue.push({ file: f, el: el, out: null, done: false, gif: isGif, kind: isGif ? 'gif' : (mode === 'v2g' ? 'v2g' : 'video') });
-      if (!isGif && mode === 'v2g') el.querySelector('.state').textContent = 'GIF 변환 대기';
+      queue.push({ file: f, el: el, out: null, done: false, kind: kind });
     });
+    if (needEngine) engine().catch(function () {});
     refresh();
   }
   function refresh() {
@@ -342,13 +830,13 @@ details ul { padding-left: 18px; }
     queue = []; $('list').innerHTML = ''; refresh();
   });
 
-  function outName(name, e) {
-    var base = name.replace(/\.[^.]+$/, '');
-    return ($('keepName').checked ? base : base + '_small') + '.' + e;
+  function outName(q) {
+    var base = q.file.name.replace(/\.[^.]+$/, '');
+    return ($('keepName').checked ? base : base + '_small') + '.' + q.ext;
   }
   function save(q) {
     var a = document.createElement('a');
-    a.href = q.url; a.download = outName(q.file.name, q.kind === 'video' ? ext : 'gif');
+    a.href = q.url; a.download = outName(q);
     document.body.appendChild(a); a.click(); a.remove();
   }
   $('dlAll').addEventListener('click', function () {
@@ -356,212 +844,40 @@ details ul { padding-left: 18px; }
     list.forEach(function (q, i) { setTimeout(function () { save(q); }, i * 400); });
   });
 
-  function compress(q) {
-    return new Promise(function (resolve, reject) {
-      var v = document.createElement('video');
-      v.muted = true; v.playsInline = true; v.preload = 'auto';
-      var src = URL.createObjectURL(q.file);
-      v.src = src;
-      var state = q.el.querySelector('.state'), bar = q.el.querySelector('.prog i');
-      state.className = 'state'; state.textContent = '준비 중';
-
-      v.addEventListener('error', function () { URL.revokeObjectURL(src); reject(new Error('영상을 열 수 없어요')); });
-      v.addEventListener('loadedmetadata', function () {
-        var W = v.videoWidth, H = v.videoHeight, L = opts.size;
-        var s = Math.min(1, L / Math.max(W, H));
-        var w = Math.max(2, Math.round(W * s / 2) * 2), h = Math.max(2, Math.round(H * s / 2) * 2);
-        var c = document.createElement('canvas'); c.width = w; c.height = h;
-        var ctx = c.getContext('2d', { alpha: false });
-        ctx.imageSmoothingQuality = 'high';
-        var stream = c.captureStream(opts.fps);
-        var rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: RATE[L][opts.q] });
-        var chunks = [];
-        rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
-        rec.onstop = function () {
-          URL.revokeObjectURL(src);
-          resolve({ blob: new Blob(chunks, { type: mime.split(';')[0] }), w: w, h: h });
-        };
-        var stopped = false;
-        function draw() {
-          ctx.drawImage(v, 0, 0, w, h);
-          if (v.duration) bar.style.width = Math.min(100, v.currentTime / v.duration * 100) + '%';
-          if (!stopped) {
-            if (v.requestVideoFrameCallback) v.requestVideoFrameCallback(draw);
-            else requestAnimationFrame(draw);
-          }
-        }
-        v.addEventListener('seeked', function once() {
-          v.removeEventListener('seeked', once);
-          ctx.drawImage(v, 0, 0, w, h);          // 첫 프레임이 검게 나오지 않도록 먼저 그림
-          rec.start(250);
-          state.textContent = '압축 중';
-          v.play().then(draw).catch(function (err) { stopped = true; rec.stop(); reject(err); });
-        });
-        v.addEventListener('ended', function () {
-          ctx.drawImage(v, 0, 0, w, h);
-          setTimeout(function () { stopped = true; rec.stop(); }, 200);
-        });
-        v.currentTime = 0;
-      });
-    });
-  }
-
-  /* ---------- GIF 압축: 프레임 읽기(ImageDecoder) → 축소 → 색상 줄이기 → GIF 다시 만들기 ---------- */
-  async function compressGif(q) {
-    if (!window.ImageDecoder) throw new Error('이 브라우저는 GIF 읽기를 지원하지 않아요 (크롬/엣지 최신 버전 필요)');
-    var state = q.el.querySelector('.state'), bar = q.el.querySelector('.prog i');
-    state.className = 'state'; state.textContent = '준비 중';
-    var lib;
-    try { lib = await loadGifenc(); } catch (e) { throw new Error('GIF 도구를 불러오지 못했어요. 인터넷 연결을 확인해 주세요'); }
-    var dec = new ImageDecoder({ data: await q.file.arrayBuffer(), type: 'image/gif' });
-    await dec.tracks.ready;
-    var track = dec.tracks.selectedTrack, count = track.frameCount;
-    var first = (await dec.decode({ frameIndex: 0 })).image;
-    var W = first.displayWidth, H = first.displayHeight;
-    var s = Math.min(1, opts.size / Math.max(W, H));
-    var w = Math.max(1, Math.round(W * s)), h = Math.max(1, Math.round(H * s));
-    var c = document.createElement('canvas'); c.width = w; c.height = h;
-    var ctx = c.getContext('2d', { willReadFrequently: true });
-    ctx.imageSmoothingQuality = 'high';
-    var enc = lib.GIFEncoder();
-    var minDelay = opts.fps === 30 ? 33 : 16;   // 30fps면 33ms보다 촘촘한 프레임은 합침
-    var colors = GIF_COLORS[opts.q];
-    var pending = null, carry = 0, alphaUsed = false;
-    state.textContent = '압축 중';
-
-    function flush(img, delay) {
-      var data = img.data;
-      var hasAlpha = false;
-      for (var k = 3; k < data.length; k += 4) { if (data[k] < 128) { hasAlpha = true; break; } }
-      if (hasAlpha) alphaUsed = true;
-      var palette = lib.quantize(data, colors, hasAlpha ? { format: 'rgba4444', oneBitAlpha: true } : { format: 'rgb565' });
-      var index = lib.applyPalette(data, palette, hasAlpha ? 'rgba4444' : 'rgb565');
-      var opt = { palette: palette, delay: Math.max(20, Math.round(delay / 10) * 10) };
-      if (hasAlpha) {
-        var ti = palette.findIndex(function (p) { return p[3] === 0; });
-        if (ti >= 0) { opt.transparent = true; opt.transparentIndex = ti; }
-      }
-      if (alphaUsed) opt.dispose = 2;
-      enc.writeFrame(index, w, h, opt);
-    }
-
-    for (var i = 0; i < count; i++) {
-      var fr = i === 0 ? { image: first } : await dec.decode({ frameIndex: i });
-      var img = fr.image;
-      var delay = (img.duration || 100000) / 1000;   // 마이크로초 → ms
-      ctx.clearRect(0, 0, w, h);
-      ctx.drawImage(img, 0, 0, w, h);
-      img.close();
-      if (pending && carry < minDelay) { carry += delay; }   // 너무 짧은 프레임은 앞 프레임에 합침
-      else {
-        if (pending) flush(pending, carry);
-        pending = ctx.getImageData(0, 0, w, h);
-        carry = delay;
-      }
-      bar.style.width = Math.round((i + 1) / count * 100) + '%';
-      if (i % 4 === 3) await new Promise(function (r) { setTimeout(r, 0); });
-    }
-    if (pending) flush(pending, carry);
-    enc.finish();
-    dec.close();
-    return { blob: new Blob([enc.bytes()], { type: 'image/gif' }), w: w, h: h };
-  }
-
-  /* ---------- MP4 → GIF ---------- */
-  var BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
-  function ditherCopy(data, w, h, colors) {
-    var out = new Uint8ClampedArray(data.length);
-    var spread = 255 / Math.cbrt(colors);
-    for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
-      var i = (y * w + x) * 4, d = (BAYER[(y & 3) * 4 + (x & 3)] / 16 - 0.5) * spread;
-      out[i] = data[i] + d; out[i + 1] = data[i + 1] + d; out[i + 2] = data[i + 2] + d; out[i + 3] = 255;
-    }
-    return out;
-  }
-  function seek(v, t) {
-    return new Promise(function (res) {
-      var done = function () { v.removeEventListener('seeked', done); res(); };
-      v.addEventListener('seeked', done);
-      v.currentTime = t;
-    });
-  }
-  async function videoToGif(q) {
-    var state = q.el.querySelector('.state'), bar = q.el.querySelector('.prog i');
-    state.className = 'state'; state.textContent = '준비 중';
-    var lib;
-    try { lib = await loadGifenc(); } catch (e) { throw new Error('GIF 도구를 불러오지 못했어요. 인터넷 연결을 확인해 주세요'); }
-    var v = document.createElement('video');
-    v.muted = true; v.preload = 'auto'; v.playsInline = true;
-    var src = URL.createObjectURL(q.file); v.src = src;
-    await new Promise(function (res, rej) {
-      v.addEventListener('loadeddata', res, { once: true });
-      v.addEventListener('error', function () { rej(new Error('영상을 열 수 없어요')); }, { once: true });
-    });
-    var dur = v.duration;
-    var st = parseFloat($('gStart').value), en = parseFloat($('gEnd').value);
-    st = isFinite(st) ? Math.max(0, Math.min(st, dur)) : 0;
-    en = isFinite(en) && en > st ? Math.min(en, dur) : dur;
-    var W = v.videoWidth, H = v.videoHeight;
-    var s = Math.min(1, g.size / Math.max(W, H));
-    var w = Math.max(2, Math.round(W * s)), h = Math.max(2, Math.round(H * s));
-    var c = document.createElement('canvas'); c.width = w; c.height = h;
-    var ctx = c.getContext('2d', { willReadFrequently: true });
-    ctx.imageSmoothingQuality = 'high';
-    var step = 1 / g.fps, times = [];
-    for (var t = st; t < en - 0.0001; t += step) times.push(t);
-    if (!times.length) times.push(st);
-    var delay = Math.max(20, Math.round(1000 / g.fps / g.speed / 10) * 10);
-    var colors = g.colors;
-    var grab = async function (tt) { await seek(v, Math.min(tt, dur - 0.001)); ctx.drawImage(v, 0, 0, w, h); return ctx.getImageData(0, 0, w, h).data; };
-
-    var globalPal = null;
-    if (g.palette === 'global') {
-      state.textContent = '색 분석 중';
-      var n = Math.min(12, times.length), parts = [];
-      for (var k = 0; k < n; k++) parts.push(await grab(times[Math.floor(k * times.length / n)]));
-      var all = new Uint8ClampedArray(parts.length * parts[0].length);
-      parts.forEach(function (p, i) { all.set(p, i * p.length); });
-      globalPal = lib.quantize(all, colors, { format: 'rgb565' });
-    }
-
-    var enc = lib.GIFEncoder();
-    state.textContent = 'GIF 만드는 중';
-    for (var i = 0; i < times.length; i++) {
-      var data = await grab(times[i]);
-      var src2 = g.dither ? ditherCopy(data, w, h, colors) : data;
-      var pal = globalPal || lib.quantize(src2, colors, { format: 'rgb565' });
-      var index = lib.applyPalette(src2, pal, 'rgb565');
-      var o = { delay: delay };
-      if (i === 0) { o.palette = pal; o.repeat = g.loop; }
-      else if (!globalPal) o.palette = pal;
-      enc.writeFrame(index, w, h, o);
-      bar.style.width = Math.round((i + 1) / times.length * 100) + '%';
-      if (i % 3 === 2) await new Promise(function (r) { setTimeout(r, 0); });
-    }
-    enc.finish();
-    URL.revokeObjectURL(src);
-    return { blob: new Blob([enc.bytes()], { type: 'image/gif' }), w: w, h: h, frames: times.length };
+  async function run(q) {
+    if (q.kind === 'gif') return compressGif(q);
+    var ff = await hasEngine();
+    if (q.kind === 'v2g') return ff ? ffGif(q) : videoToGifSimple(q);
+    return ff ? ffVideo(q) : compressSimple(q);
   }
 
   $('go').addEventListener('click', async function () {
     busy = true; refresh();
     for (var i = 0; i < queue.length; i++) {
       var q = queue[i]; if (q.done) continue;
-      var state = q.el.querySelector('.state');
+      var state = q.el.querySelector('.state'), t0 = Date.now();
+      state.className = 'state'; state.textContent = '준비 중';
       try {
-        if (q.kind === 'video' && !mime) throw new Error('이 브라우저에서는 영상 압축이 지원되지 않아요');
-        var r = q.kind === 'gif' ? await compressGif(q) : q.kind === 'v2g' ? await videoToGif(q) : await compress(q);
+        var r = await run(q);
         q.out = r.blob; q.url = URL.createObjectURL(r.blob); q.done = true;
+        q.ext = q.kind === 'video' ? (r.ext || 'mp4') : 'gif';
+        var sec = Math.round((Date.now() - t0) / 1000);
         var pct = Math.round((1 - r.blob.size / q.file.size) * 100);
+        var meta = q.el.querySelector('.meta');
+        var pv = document.createElement('div'); pv.className = 'preview';
         if (q.kind === 'v2g') {
-          q.el.querySelector('.meta').innerHTML = '영상 ' + mb(q.file.size) + ' → GIF ' + mb(r.blob.size) + ' · ' + r.w + '×' + r.h + ' · ' + r.frames + '장면';
-          var pv = document.createElement('div'); pv.className = 'preview';
+          meta.innerHTML = '영상 ' + mb(q.file.size) + ' → GIF ' + mb(r.blob.size) + ' · ' + r.w + '×' + r.h + (r.frames ? ' · 약 ' + r.frames + '장면' : '') + ' · ' + sec + '초 걸림';
           pv.innerHTML = '<img alt="변환된 GIF 미리보기">'; pv.querySelector('img').src = q.url;
-          q.el.appendChild(pv);
         } else {
-          q.el.querySelector('.meta').innerHTML = '원본 ' + mb(q.file.size) + ' → ' + mb(r.blob.size) + ' · ' + r.w + '×' + r.h + ' · ' +
-            (pct > 0 ? '<em>' + pct + '% 줄었어요</em>' : '<span style="color:#C62828;font-weight:700">원본이 더 가벼워요 · 크기나 화질을 낮춰 보세요</span>');
+          meta.innerHTML = '원본 ' + mb(q.file.size) + ' → ' + mb(r.blob.size) + ' · ' + r.w + '×' + r.h + ' · ' +
+            (pct > 0 ? '<em>' + pct + '% 줄었어요</em>' : '<span class="warn">원본이 더 가벼워요 · 크기나 화질 단계를 낮춰 보세요</span>') +
+            (r.simple ? ' · 간편 모드' : '') + ' · ' + sec + '초 걸림';
+          if (q.kind === 'video') {
+            pv.innerHTML = '<video muted loop playsinline controls aria-label="압축된 영상 미리보기"></video>';
+            pv.querySelector('video').src = q.url;
+          } else { pv.innerHTML = '<img alt="압축된 GIF 미리보기">'; pv.querySelector('img').src = q.url; }
         }
+        q.el.appendChild(pv);
         q.el.querySelector('.prog i').style.width = '100%';
         state.className = 'state done'; state.textContent = '완료';
         var btn = document.createElement('button');
@@ -570,6 +886,7 @@ details ul { padding-left: 18px; }
         q.el.querySelector('.act').appendChild(btn);
       } catch (e) {
         q.done = true;
+        if (e && e.crash) resetEngine();
         state.className = 'state fail'; state.textContent = '실패';
         q.el.querySelector('.meta').textContent = (e && e.message) || '압축하지 못했어요';
       }
@@ -577,6 +894,8 @@ details ul { padding-left: 18px; }
     }
     busy = false; refresh();
   });
+
+  setNote(); updateVis();
 })();
 </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>리깅 예시 영상 · GIF 압축기</title>
+<title>리깅 예시 영상 · GIF 압축 · 변환기</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root {
@@ -36,7 +36,20 @@ h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--in
 .seg button + button { border-left: 1.5px solid var(--line); }
 .seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
 .seg button:focus-visible { outline: 2px solid var(--pink); outline-offset: -2px; }
-.mode { margin-top: 26px; max-width: 320px; }
+.mode { margin-top: 26px; max-width: 480px; }
+.v2g { display: none; margin-top: 22px; border: 1.5px solid var(--line); border-radius: 18px; padding: 20px; }
+.v2g.on { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; }
+.v2g .full { grid-column: 1 / -1; }
+.v2g label.t { display: block; font-size: .85rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.v2g label.t small { font-weight: 500; color: var(--mute); margin-left: 6px; }
+.row { display: flex; gap: 8px; align-items: center; }
+.num { width: 100%; font: inherit; font-size: .92rem; color: var(--ink); padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 12px; background: #fff; }
+.num:focus { outline: none; border-color: var(--pink); box-shadow: 0 0 0 3px rgba(232, 51, 111, .15); }
+.row span { font-size: .85rem; color: var(--mute); white-space: nowrap; }
+.opts.off { display: none; }
+.preview { grid-column: 1 / -1; margin-top: 6px; }
+.preview img { max-width: 220px; max-height: 220px; border-radius: 10px; border: 1px solid var(--line); display: block; }
+@media (max-width: 640px) { .v2g.on { grid-template-columns: 1fr; } }
 .mode button { padding: 12px 4px; font-size: .95rem; }
 .check { margin-top: 16px; display: flex; align-items: center; gap: 8px; font-size: .9rem; color: var(--text); }
 .check input { width: 18px; height: 18px; accent-color: var(--pink); }
@@ -72,12 +85,13 @@ details ul { padding-left: 18px; }
 </head>
 <body>
 <main class="wrap">
-  <h1>리깅 예시 영상 · GIF 압축기</h1>
+  <h1>영상 · GIF 압축 &amp; 변환기</h1>
   <p class="lede">OBS로 녹화한 영상이나 GIF를 끌어다 놓으면 크기와 용량을 한 번에 줄여줍니다. 설치 없이 이 파일을 크롬이나 엣지로 열기만 하면 되고, 파일은 인터넷에 올라가지 않고 내 컴퓨터 안에서만 처리돼요.</p>
 
   <div class="mode seg" id="mode" role="group" aria-label="형식 선택">
-    <button type="button" data-v="video" aria-pressed="true">영상 (MP4)</button>
-    <button type="button" data-v="gif">GIF</button>
+    <button type="button" data-v="video" aria-pressed="true">영상 압축</button>
+    <button type="button" data-v="gif">GIF 압축</button>
+    <button type="button" data-v="v2g">MP4 → GIF</button>
   </div>
 
   <label class="drop" id="drop">
@@ -86,6 +100,73 @@ details ul { padding-left: 18px; }
     <span id="dropSub">여러 개를 한 번에 넣을 수 있어요 · mp4, mov, mkv, webm</span>
   </label>
 
+
+  <div class="v2g" id="v2g">
+    <div>
+      <label class="t">크기 <small>긴 쪽 기준 · 원본보다 크게는 안 늘려요</small></label>
+      <div class="seg" data-g="size">
+        <button type="button" data-v="320">320</button>
+        <button type="button" data-v="480" aria-pressed="true">480</button>
+        <button type="button" data-v="640">640</button>
+        <button type="button" data-v="750">750</button>
+        <button type="button" data-v="custom">직접</button>
+      </div>
+      <div class="row" style="margin-top:8px"><input class="num" id="gSize" type="number" min="64" max="1500" step="10" value="480" disabled><span>px</span></div>
+    </div>
+    <div>
+      <label class="t">프레임 <small>낮을수록 가벼워요</small></label>
+      <div class="seg" data-g="fps">
+        <button type="button" data-v="10">10</button>
+        <button type="button" data-v="15" aria-pressed="true">15</button>
+        <button type="button" data-v="20">20</button>
+        <button type="button" data-v="24">24</button>
+        <button type="button" data-v="30">30</button>
+      </div>
+    </div>
+    <div>
+      <label class="t">색상 수 <small>적을수록 가벼워요</small></label>
+      <div class="seg" data-g="colors">
+        <button type="button" data-v="256">256</button>
+        <button type="button" data-v="128" aria-pressed="true">128</button>
+        <button type="button" data-v="64">64</button>
+        <button type="button" data-v="32">32</button>
+      </div>
+    </div>
+    <div>
+      <label class="t">재생 속도</label>
+      <div class="seg" data-g="speed">
+        <button type="button" data-v="0.5">0.5배</button>
+        <button type="button" data-v="1" aria-pressed="true">1배</button>
+        <button type="button" data-v="1.5">1.5배</button>
+        <button type="button" data-v="2">2배</button>
+      </div>
+    </div>
+    <div>
+      <label class="t">구간 자르기 <small>비워두면 전체</small></label>
+      <div class="row"><input class="num" id="gStart" type="number" min="0" step="0.1" placeholder="시작"><span>초 ~</span><input class="num" id="gEnd" type="number" min="0" step="0.1" placeholder="끝"><span>초</span></div>
+    </div>
+    <div>
+      <label class="t">반복</label>
+      <div class="seg" data-g="loop">
+        <button type="button" data-v="0" aria-pressed="true">무한 반복</button>
+        <button type="button" data-v="-1">한 번만</button>
+      </div>
+    </div>
+    <div>
+      <label class="t">색 맞추는 방식 <small>공통이 깜빡임이 적어요</small></label>
+      <div class="seg" data-g="palette">
+        <button type="button" data-v="global" aria-pressed="true">전체 공통</button>
+        <button type="button" data-v="frame">장면마다</button>
+      </div>
+    </div>
+    <div>
+      <label class="t">디더링 <small>그라데이션 줄무늬 완화</small></label>
+      <div class="seg" data-g="dither">
+        <button type="button" data-v="0" aria-pressed="true">끔</button>
+        <button type="button" data-v="1">켬</button>
+      </div>
+    </div>
+  </div>
   <div class="opts">
     <div class="opt">
       <label>크기 (긴 쪽 기준)</label>
@@ -131,6 +212,9 @@ details ul { padding-left: 18px; }
       <li>압축 중에 다른 탭으로 바꾸면 브라우저가 화면 그리기를 멈춰서 영상이 끊길 수 있어요.</li>
       <li><b>GIF 모드</b>에서는 크기를 줄이고 색상 수를 줄여서 GIF 그대로 가볍게 만들어요. "프레임 30fps"를 고르면 너무 촘촘한 프레임을 덜어내서 더 가벼워집니다. 투명 배경도 유지돼요.</li>
       <li>GIF 압축은 인터넷에 연결된 상태에서 처음 한 번 작은 도구를 불러와요. GIF는 영상 길이와 상관없이 빠르게 처리됩니다.</li>
+      <li><b>MP4 → GIF</b>는 영상을 GIF로 바꿔요. GIF는 영상보다 훨씬 무거워서, 480px · 15프레임 · 128색 정도를 추천해요. 더 가볍게 하려면 크기나 프레임부터 줄여 보세요.</li>
+      <li>"전체 공통"은 모든 장면에 같은 색표를 써서 깜빡임이 적고 가벼워요. 장면마다 색이 크게 바뀌는 영상이면 "장면마다"가 색이 더 정확해요.</li>
+      <li>디더링을 켜면 하늘이나 그림자 같은 그라데이션의 줄무늬가 부드러워지지만, 용량이 조금 늘어요.</li>
     </ul>
   </details>
 </main>
@@ -140,6 +224,7 @@ details ul { padding-left: 18px; }
   var $ = function (id) { return document.getElementById(id); };
   var opts = { size: 750, q: 'mid', fps: 30 };
   var mode = 'video';
+  var g = { size: 480, fps: 15, colors: 128, speed: 1, loop: 0, palette: 'global', dither: 0 };
   var GIF_COLORS = { high: 256, mid: 128, low: 64 };
   var gifenc = null;
   function loadGifenc() {
@@ -173,7 +258,10 @@ details ul { padding-left: 18px; }
     var b = e.target.closest('button'); if (!b || busy) return;
     this.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
     mode = b.dataset.v;
-    var gif = mode === 'gif';
+    var gif = mode === 'gif', v2g = mode === 'v2g';
+    $('v2g').classList.toggle('on', v2g);
+    $('go').textContent = v2g ? '변환 시작' : '압축 시작';
+    document.querySelector('.opts').classList.toggle('off', v2g);
     $('file').accept = gif ? 'image/gif' : 'video/*';
     $('dropTitle').textContent = gif ? 'GIF를 여기에 끌어다 놓거나 눌러서 고르세요' : '영상을 여기에 끌어다 놓거나 눌러서 고르세요';
     $('dropSub').textContent = gif ? '여러 개를 한 번에 넣을 수 있어요 · gif' : '여러 개를 한 번에 넣을 수 있어요 · mp4, mov, mkv, webm';
@@ -187,8 +275,29 @@ details ul { padding-left: 18px; }
       ? (window.ImageDecoder ? 'GIF는 크기와 색상 수를 줄여서 GIF 그대로 저장해요. 영상보다 훨씬 빨리 끝나요.' : '이 브라우저는 GIF 읽기를 지원하지 않아요. 크롬이나 엣지 최신 버전으로 열어 주세요.')
       : '영상 압축은 영상 길이만큼 시간이 걸려요 (10초 영상이면 약 10초). 진행 중에는 이 탭을 다른 탭으로 바꾸지 말고 화면에 띄워 두세요.';
     if (gif && !window.ImageDecoder) $('note').className = 'note err';
+    if (v2g) {
+      $('dropTitle').textContent = 'GIF로 만들 영상을 끌어다 놓거나 눌러서 고르세요';
+      $('note').className = 'note';
+      $('note').textContent = '영상을 GIF로 바꿔요. 아래 옵션으로 크기, 프레임, 색상 수, 구간, 속도를 정할 수 있어요. 처음 한 번은 인터넷 연결이 필요해요.';
+    }
     refresh();
   });
+
+  document.querySelectorAll('#v2g .seg').forEach(function (seg) {
+    seg.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b || busy) return;
+      seg.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      var k = seg.dataset.g, v = b.dataset.v;
+      if (k === 'size') {
+        var custom = v === 'custom';
+        $('gSize').disabled = !custom;
+        if (!custom) { $('gSize').value = v; g.size = parseInt(v, 10); } else $('gSize').focus();
+        return;
+      }
+      g[k] = (k === 'palette') ? v : parseFloat(v);
+    });
+  });
+  $('gSize').addEventListener('input', function () { var n = parseInt(this.value, 10); if (n >= 64) g.size = Math.min(1500, n); });
 
   document.querySelectorAll('.opts .seg').forEach(function (seg) {
     seg.addEventListener('click', function (e) {
@@ -211,7 +320,8 @@ details ul { padding-left: 18px; }
       el.className = 'item';
       el.innerHTML = '<b>' + esc(f.name) + '</b><span class="state">대기</span><span class="meta">원본 ' + mb(f.size) + '</span><span class="act"></span><span class="prog"><i></i></span>';
       $('list').appendChild(el);
-      queue.push({ file: f, el: el, out: null, done: false, gif: isGif });
+      queue.push({ file: f, el: el, out: null, done: false, gif: isGif, kind: isGif ? 'gif' : (mode === 'v2g' ? 'v2g' : 'video') });
+      if (!isGif && mode === 'v2g') el.querySelector('.state').textContent = 'GIF 변환 대기';
     });
     refresh();
   }
@@ -238,7 +348,7 @@ details ul { padding-left: 18px; }
   }
   function save(q) {
     var a = document.createElement('a');
-    a.href = q.url; a.download = outName(q.file.name, q.gif ? 'gif' : ext);
+    a.href = q.url; a.download = outName(q.file.name, q.kind === 'video' ? ext : 'gif');
     document.body.appendChild(a); a.click(); a.remove();
   }
   $('dlAll').addEventListener('click', function () {
@@ -357,18 +467,101 @@ details ul { padding-left: 18px; }
     return { blob: new Blob([enc.bytes()], { type: 'image/gif' }), w: w, h: h };
   }
 
+  /* ---------- MP4 → GIF ---------- */
+  var BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+  function ditherCopy(data, w, h, colors) {
+    var out = new Uint8ClampedArray(data.length);
+    var spread = 255 / Math.cbrt(colors);
+    for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
+      var i = (y * w + x) * 4, d = (BAYER[(y & 3) * 4 + (x & 3)] / 16 - 0.5) * spread;
+      out[i] = data[i] + d; out[i + 1] = data[i + 1] + d; out[i + 2] = data[i + 2] + d; out[i + 3] = 255;
+    }
+    return out;
+  }
+  function seek(v, t) {
+    return new Promise(function (res) {
+      var done = function () { v.removeEventListener('seeked', done); res(); };
+      v.addEventListener('seeked', done);
+      v.currentTime = t;
+    });
+  }
+  async function videoToGif(q) {
+    var state = q.el.querySelector('.state'), bar = q.el.querySelector('.prog i');
+    state.className = 'state'; state.textContent = '준비 중';
+    var lib;
+    try { lib = await loadGifenc(); } catch (e) { throw new Error('GIF 도구를 불러오지 못했어요. 인터넷 연결을 확인해 주세요'); }
+    var v = document.createElement('video');
+    v.muted = true; v.preload = 'auto'; v.playsInline = true;
+    var src = URL.createObjectURL(q.file); v.src = src;
+    await new Promise(function (res, rej) {
+      v.addEventListener('loadeddata', res, { once: true });
+      v.addEventListener('error', function () { rej(new Error('영상을 열 수 없어요')); }, { once: true });
+    });
+    var dur = v.duration;
+    var st = parseFloat($('gStart').value), en = parseFloat($('gEnd').value);
+    st = isFinite(st) ? Math.max(0, Math.min(st, dur)) : 0;
+    en = isFinite(en) && en > st ? Math.min(en, dur) : dur;
+    var W = v.videoWidth, H = v.videoHeight;
+    var s = Math.min(1, g.size / Math.max(W, H));
+    var w = Math.max(2, Math.round(W * s)), h = Math.max(2, Math.round(H * s));
+    var c = document.createElement('canvas'); c.width = w; c.height = h;
+    var ctx = c.getContext('2d', { willReadFrequently: true });
+    ctx.imageSmoothingQuality = 'high';
+    var step = 1 / g.fps, times = [];
+    for (var t = st; t < en - 0.0001; t += step) times.push(t);
+    if (!times.length) times.push(st);
+    var delay = Math.max(20, Math.round(1000 / g.fps / g.speed / 10) * 10);
+    var colors = g.colors;
+    var grab = async function (tt) { await seek(v, Math.min(tt, dur - 0.001)); ctx.drawImage(v, 0, 0, w, h); return ctx.getImageData(0, 0, w, h).data; };
+
+    var globalPal = null;
+    if (g.palette === 'global') {
+      state.textContent = '색 분석 중';
+      var n = Math.min(12, times.length), parts = [];
+      for (var k = 0; k < n; k++) parts.push(await grab(times[Math.floor(k * times.length / n)]));
+      var all = new Uint8ClampedArray(parts.length * parts[0].length);
+      parts.forEach(function (p, i) { all.set(p, i * p.length); });
+      globalPal = lib.quantize(all, colors, { format: 'rgb565' });
+    }
+
+    var enc = lib.GIFEncoder();
+    state.textContent = 'GIF 만드는 중';
+    for (var i = 0; i < times.length; i++) {
+      var data = await grab(times[i]);
+      var src2 = g.dither ? ditherCopy(data, w, h, colors) : data;
+      var pal = globalPal || lib.quantize(src2, colors, { format: 'rgb565' });
+      var index = lib.applyPalette(src2, pal, 'rgb565');
+      var o = { delay: delay };
+      if (i === 0) { o.palette = pal; o.repeat = g.loop; }
+      else if (!globalPal) o.palette = pal;
+      enc.writeFrame(index, w, h, o);
+      bar.style.width = Math.round((i + 1) / times.length * 100) + '%';
+      if (i % 3 === 2) await new Promise(function (r) { setTimeout(r, 0); });
+    }
+    enc.finish();
+    URL.revokeObjectURL(src);
+    return { blob: new Blob([enc.bytes()], { type: 'image/gif' }), w: w, h: h, frames: times.length };
+  }
+
   $('go').addEventListener('click', async function () {
     busy = true; refresh();
     for (var i = 0; i < queue.length; i++) {
       var q = queue[i]; if (q.done) continue;
       var state = q.el.querySelector('.state');
       try {
-        if (!q.gif && !mime) throw new Error('이 브라우저에서는 영상 압축이 지원되지 않아요');
-        var r = q.gif ? await compressGif(q) : await compress(q);
+        if (q.kind === 'video' && !mime) throw new Error('이 브라우저에서는 영상 압축이 지원되지 않아요');
+        var r = q.kind === 'gif' ? await compressGif(q) : q.kind === 'v2g' ? await videoToGif(q) : await compress(q);
         q.out = r.blob; q.url = URL.createObjectURL(r.blob); q.done = true;
         var pct = Math.round((1 - r.blob.size / q.file.size) * 100);
-        q.el.querySelector('.meta').innerHTML = '원본 ' + mb(q.file.size) + ' → ' + mb(r.blob.size) + ' · ' + r.w + '×' + r.h + ' · ' +
-          (pct > 0 ? '<em>' + pct + '% 줄었어요</em>' : '<span style="color:#C62828;font-weight:700">원본이 더 가벼워요 · 크기나 화질을 낮춰 보세요</span>');
+        if (q.kind === 'v2g') {
+          q.el.querySelector('.meta').innerHTML = '영상 ' + mb(q.file.size) + ' → GIF ' + mb(r.blob.size) + ' · ' + r.w + '×' + r.h + ' · ' + r.frames + '장면';
+          var pv = document.createElement('div'); pv.className = 'preview';
+          pv.innerHTML = '<img alt="변환된 GIF 미리보기">'; pv.querySelector('img').src = q.url;
+          q.el.appendChild(pv);
+        } else {
+          q.el.querySelector('.meta').innerHTML = '원본 ' + mb(q.file.size) + ' → ' + mb(r.blob.size) + ' · ' + r.w + '×' + r.h + ' · ' +
+            (pct > 0 ? '<em>' + pct + '% 줄었어요</em>' : '<span style="color:#C62828;font-weight:700">원본이 더 가벼워요 · 크기나 화질을 낮춰 보세요</span>');
+        }
         q.el.querySelector('.prog i').style.width = '100%';
         state.className = 'state done'; state.textContent = '완료';
         var btn = document.createElement('button');
